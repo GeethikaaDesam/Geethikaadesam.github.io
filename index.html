@@ -3,140 +3,181 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Geethika Desam — Project Manager & Analytics</title>
-  <meta name="description" content="Geethika Desam — Project manager with a data analytics backbone. Case studies, services, resources, and contact." />
+  <title>Geethika Desam — Project Manager • Analytics • Coaching</title>
+  <meta name="description" content="Geethika Desam — project manager with an analytics backbone. Case studies, coaching, newsletter, and community." />
+
   <style>
     :root{
-      --bg:#ffffff;
-      --surface:#f7f7f8;
+      /* Your palette */
+      --ink:#30364F;         /* primary text + accents */
+      --mist:#ACBAC4;        /* borders + subtle UI */
+      --sand:#E1D9BC;        /* soft panels */
+      --cream:#F0F0DB;       /* page background */
+
+      /* Neutrals */
       --card:#ffffff;
-      --text:#111827;
-      --muted:#6b7280;
-      --line:#e5e7eb;
-      --accent:#111827;
-      --radius:18px;
-      --max:1100px;
-      --shadow: 0 14px 40px rgba(17,24,39,.08);
+      --muted:#5e6a76;
+      --shadow: 0 18px 50px rgba(48,54,79,.12);
+      --radius: 20px;
+
+      --max: 1120px;
+
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family:var(--sans);
-      color:var(--text);
-      background:linear-gradient(180deg, #fff 0%, #fff 35%, #fafafa 100%);
-      line-height:1.55;
+      color:var(--ink);
+      background:
+        radial-gradient(1100px 650px at 12% 10%, rgba(172,186,196,.55), transparent 58%),
+        radial-gradient(900px 550px at 85% 18%, rgba(225,217,188,.75), transparent 55%),
+        radial-gradient(900px 650px at 55% 92%, rgba(172,186,196,.30), transparent 60%),
+        linear-gradient(180deg, var(--cream) 0%, var(--cream) 60%, rgba(225,217,188,.55) 100%);
+      line-height:1.6;
     }
+
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    .container{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+    .fullbleed{width:100%; padding:0 0 0; margin:0}
+    .fullbleed .inner{max-width:var(--max); margin:0 auto; padding:0 18px}
     .muted{color:var(--muted)}
     .mono{font-family:var(--mono)}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 14px; border-radius:14px;
-      border:1px solid var(--line);
-      background:var(--card);
-      text-decoration:none; font-weight:650; font-size:14px;
-      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
-      gap:10px;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow: 0 12px 24px rgba(17,24,39,.08)}
-    .btn.primary{
-      background:var(--accent); color:#fff; border-color:var(--accent);
-    }
-    .btn.ghost{background:transparent;}
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(247,247,248,.8);
-      font-size:12px; color:var(--muted);
-      white-space:nowrap;
-    }
+    .small{font-size:12px}
+
+    /* Nav */
     header{
       position:sticky; top:0; z-index:50;
-      background:rgba(255,255,255,.85);
+      background:rgba(240,240,219,.72);
       backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(229,231,235,.85);
+      border-bottom:1px solid rgba(172,186,196,.65);
     }
     .nav{
-      max-width:var(--max); margin:0 auto; padding:14px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
     }
     .brand{
       display:flex; align-items:center; gap:10px;
       text-decoration:none;
-      font-weight:800; letter-spacing:.1px;
+      font-weight:850;
+      letter-spacing:.2px;
     }
     .mark{
-      width:32px; height:32px; border-radius:10px;
+      width:34px; height:34px;
+      border-radius:12px;
       display:grid; place-items:center;
-      background:#111827;
+      background:var(--ink);
       color:#fff;
+      box-shadow: 0 10px 24px rgba(48,54,79,.22);
       font-size:14px;
     }
-    .navlinks{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
-    }
+    .navlinks{display:flex; gap:8px; flex-wrap:wrap; align-items:center}
     .navlinks a{
       text-decoration:none;
       font-size:14px;
-      color:var(--muted);
       padding:8px 10px;
       border-radius:999px;
       border:1px solid transparent;
+      color:rgba(48,54,79,.82);
     }
-    .navlinks a:hover{color:var(--text); border-color:var(--line); background:var(--surface)}
-    .social{
-      display:flex; gap:10px; align-items:center;
+    .navlinks a:hover{
+      border-color:rgba(172,186,196,.8);
+      background:rgba(255,255,255,.55);
     }
+
+    .social{display:flex; gap:10px; align-items:center}
     .iconbtn{
-      width:38px; height:38px;
+      width:40px; height:40px;
       border-radius:14px;
-      border:1px solid var(--line);
-      background:var(--card);
+      border:1px solid rgba(172,186,196,.85);
+      background:rgba(255,255,255,.70);
       display:grid; place-items:center;
       text-decoration:none;
-      transition:transform .12s ease, box-shadow .12s ease;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
     }
-    .iconbtn:hover{transform:translateY(-1px); box-shadow: 0 12px 24px rgba(17,24,39,.08)}
-    .icon{width:18px; height:18px; fill:currentColor; color:#111827}
+    .iconbtn:hover{transform:translateY(-1px); box-shadow:0 16px 26px rgba(48,54,79,.12); background:#fff}
+    .icon{width:18px; height:18px; fill:currentColor; color:var(--ink)}
 
-    /* HERO */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:22px;
-      margin-top:22px;
-      align-items:stretch;
+    /* Buttons */
+    .btnrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(172,186,196,.9);
+      background:rgba(255,255,255,.75);
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+      gap:10px;
     }
-    @media (max-width: 920px){ .hero{grid-template-columns:1fr} }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 16px 26px rgba(48,54,79,.10); background:#fff}
+    .btn.primary{
+      background:var(--ink);
+      border-color:var(--ink);
+      color:#fff;
+    }
+    .btn.primary:hover{box-shadow:0 18px 30px rgba(48,54,79,.22)}
+    .btn.soft{
+      background:rgba(225,217,188,.65);
+      border-color:rgba(172,186,196,.9);
+    }
+
+    /* Cards + sections */
     .panel{
-      background:var(--card);
-      border:1px solid var(--line);
+      border:1px solid rgba(172,186,196,.85);
+      background:rgba(255,255,255,.72);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:22px;
     }
+    .pad{padding:22px}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+      margin-top:22px;
+    }
+    @media (max-width: 960px){ .hero{grid-template-columns:1fr} }
+
     .kicker{
-      font-size:13px; color:var(--muted);
-      letter-spacing:.08em;
-      text-transform:uppercase;
       margin:0 0 10px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size:12px;
+      color:rgba(48,54,79,.72);
     }
     h1{
       margin:0 0 12px;
       font-size:46px;
-      line-height:1.07;
+      line-height:1.08;
       letter-spacing:-.9px;
     }
-    @media (max-width: 520px){ h1{font-size:36px} }
-    .lead{margin:0 0 16px; color:var(--muted); font-size:16px}
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    @media (max-width:520px){ h1{font-size:36px} }
+    .lead{margin:0 0 10px; color:rgba(48,54,79,.82); font-size:16px}
+
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .chip{
+      display:inline-flex; align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(172,186,196,.9);
+      background:rgba(240,240,219,.75);
+      font-size:12px;
+      color:rgba(48,54,79,.80);
+      white-space:nowrap;
+    }
 
     .profile{
       display:grid;
@@ -147,75 +188,96 @@
     .avatar{
       width:110px; height:110px;
       border-radius:22px;
-      border:1px solid var(--line);
+      border:1px solid rgba(172,186,196,.9);
       object-fit:cover;
-      background:var(--surface);
+      background:rgba(225,217,188,.45);
     }
-    .profile h2{margin:0 0 4px; font-size:16px; letter-spacing:.2px;}
-    .profile p{margin:0; color:var(--muted); font-size:14px}
+    .profile h2{margin:0 0 2px; font-size:16px}
+    .profile p{margin:0; font-size:14px; color:rgba(48,54,79,.78)}
 
-    /* SECTIONS */
-    section{margin-top:22px}
+    .section{margin-top:22px}
     .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin:0 0 12px;
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin:0 0 12px;
     }
-    .sectionTitle h3{margin:0; font-size:16px; letter-spacing:.2px;}
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px;}
+    .sectionTitle h3{margin:0; font-size:16px; letter-spacing:.2px}
+    .sectionTitle .hint{font-size:12px; color:rgba(48,54,79,.65)}
+
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
     .col-6{grid-column: span 6}
     .col-4{grid-column: span 4}
     .col-12{grid-column: span 12}
     @media (max-width: 900px){ .col-6,.col-4{grid-column: span 12} }
 
     .card{
-      background:var(--card);
-      border:1px solid var(--line);
+      border:1px solid rgba(172,186,196,.9);
+      background:rgba(255,255,255,.78);
       border-radius:var(--radius);
-      box-shadow:var(--shadow);
+      box-shadow: 0 14px 38px rgba(48,54,79,.10);
       padding:18px;
+      transition: transform .12s ease, box-shadow .12s ease;
     }
+    .card:hover{transform:translateY(-2px); box-shadow: 0 20px 50px rgba(48,54,79,.14)}
     .card h4{margin:0 0 6px; font-size:15px}
-    .card p{margin:0 0 10px; color:var(--muted); font-size:14px}
-    .bullets{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
+    .card p{margin:0 0 10px; color:rgba(48,54,79,.78); font-size:14px}
+    .bullets{margin:0; padding-left:18px; color:rgba(48,54,79,.72); font-size:13px}
     .bullets li{margin:6px 0}
 
-    /* TRUST */
-    .logos{display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
-    .logoPill{
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:var(--surface);
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    /* LEAD MAGNET */
-    .leadMagnet{
-      background:linear-gradient(135deg, #111827 0%, #1f2937 60%, #111827 100%);
+    /* Full-width highlight bands */
+    .band{
+      margin-top:26px;
+      background: linear-gradient(135deg, rgba(48,54,79,.96) 0%, rgba(48,54,79,.90) 60%, rgba(48,54,79,.96) 100%);
       color:#fff;
-      border:none;
+      border-top:1px solid rgba(172,186,196,.35);
+      border-bottom:1px solid rgba(172,186,196,.35);
     }
-    .leadMagnet .muted{color:rgba(255,255,255,.72)}
-    .formRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
-    .input{
-      flex:1 1 260px;
-      padding:12px 14px;
-      border-radius:14px;
+    .band .panelish{
+      padding:26px 0;
+    }
+    .band h3, .band h2, .band p{color:#fff}
+    .band .muted{color:rgba(255,255,255,.76)}
+    .band .btn{border-color:rgba(255,255,255,.22); background:rgba(255,255,255,.10); color:#fff}
+    .band .btn:hover{background:rgba(255,255,255,.16)}
+
+    blockquote{
+      margin:0;
+      padding:0;
+      font-size:16px;
+      line-height:1.7;
+    }
+    .quoteWrap{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+      padding:22px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+    }
+    .quoteLabel{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.76);
+    }
+    .quoteMark{
+      width:26px; height:26px;
+      border-radius:10px;
+      display:grid; place-items:center;
+      background:rgba(255,255,255,.14);
       border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      outline:none;
-      font-size:14px;
+      font-weight:900;
     }
-    .input::placeholder{color:rgba(255,255,255,.65)}
-    .small{font-size:12px}
 
+    /* Footer */
     footer{
       margin-top:26px;
       padding-top:16px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
+      border-top:1px solid rgba(172,186,196,.85);
+      color:rgba(48,54,79,.70);
       font-size:13px;
       display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
     }
@@ -232,307 +294,319 @@
 
       <nav class="navlinks">
         <a href="#about">About</a>
-        <a href="#services">Services</a>
         <a href="#case-studies">Case Studies</a>
+        <a href="#offerings">Work with me</a>
         <a href="#community">Community</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="social" aria-label="social links">
+        <!-- LinkedIn -->
         <a class="iconbtn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.98h-4V23.5zM8 7.98h3.83v2.12h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.12v9.33h-4v-8.27c0-1.97-.04-4.5-2.74-4.5-2.74 0-3.16 2.14-3.16 4.35v8.42H8V7.98z"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.98h-4V23.5zM8 7.98h3.83v2.12h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.12v9.33h-4v-8.27c0-1.97-.04-4.5-2.74-4.5-2.74 0-3.16 2.14-3.16 4.35v8.42H8V7.98z"/>
+          </svg>
         </a>
+
+        <!-- Instagram -->
+        <a class="iconbtn" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a class="iconbtn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer" aria-label="YouTube">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/>
+          </svg>
+        </a>
+
+        <!-- Email -->
         <a class="iconbtn" href="mailto:geethikaadesam@gmail.com" aria-label="Email">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
         </a>
       </div>
     </div>
   </header>
 
-  <main id="top" class="wrap">
+  <main id="top" class="container">
+    <!-- HERO -->
     <div class="hero">
-      <section class="panel">
-        <p class="kicker">Project Manager • Power BI • Lean Six Sigma</p>
-        <h1>Turn ambiguity into execution — and execution into measurable impact.</h1>
+      <section class="panel pad">
+        <p class="kicker">Project Manager • Analytics • Coaching</p>
+        <h1>Warm execution. Clear metrics. Real momentum.</h1>
         <p class="lead">
-          I’m <strong>Geethika Desam</strong>. I blend project delivery with analytics: framing problems, aligning stakeholders,
-          building decision-ready reporting, and driving process improvement.
+          I’m <strong>Geethika</strong> — I help people and teams turn “where do we even start?” into a plan, a build, and a result you can point to.
+          If you’re navigating career growth, interviews, or analytics work that needs to land with stakeholders, you’re in the right place.
         </p>
 
-        <div class="ctaRow">
-          <a class="btn primary" href="#contact">Contact</a>
+        <div class="btnrow">
+          <a class="btn primary" href="#contact">Say hello</a>
           <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Book via Topmate</a>
-          <a class="btn" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
-          <a class="btn ghost" href="./resume.pdf">Resume (PDF)</a>
+          <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
+          <a class="btn" href="./resume.pdf">Resume (PDF)</a>
         </div>
 
         <div class="chips">
-          <span class="chip">Stakeholder Management</span>
-          <span class="chip">Power BI</span>
-          <span class="chip">Process Excellence</span>
-          <span class="chip">Data Modeling</span>
-          <span class="chip">Product Thinking</span>
+          <span class="chip">Stakeholder alignment</span>
+          <span class="chip">Power BI storytelling</span>
+          <span class="chip">Process improvement mindset</span>
+          <span class="chip">Interview + resume coaching</span>
+          <span class="chip">MBA (Kelley)</span>
         </div>
       </section>
 
-      <aside class="panel">
+      <aside class="panel pad">
         <div class="profile">
-          <!-- Upload your headshot to the repo (e.g., headshot.jpg) and set src="./headshot.jpg" -->
+          <!-- Upload your headshot to the repo (e.g., headshot.jpg) then set src="./headshot.jpg" -->
           <img class="avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Headshot placeholder">
           <div>
             <h2>Geethika Desam</h2>
-            <p>Indiana, US • Open to Product Owner / PM-adjacent roles</p>
+            <p class="muted">Indiana, US</p>
             <p class="mono muted" style="margin-top:6px;">geethikaadesam@gmail.com</p>
           </div>
         </div>
 
-        <div style="margin-top:14px;">
-          <div class="chip">Coaching: Resume + Interview</div>
-          <div class="chip" style="margin-left:8px;">Topmate bookings</div>
+        <div class="section" style="margin-top:14px;">
+          <div class="chip">LinkedIn + newsletter</div>
+          <div class="chip">YouTube + IG</div>
+          <div class="chip">Topmate sessions</div>
         </div>
 
-        <div class="card" style="margin-top:14px; box-shadow:none;">
-          <h4>Quick focus areas</h4>
-          <ul class="bullets">
-            <li>Operational clarity: scope, milestones, dependencies</li>
-            <li>Reporting that drives action (not just dashboards)</li>
-            <li>Continuous improvement mindset (Lean/Six Sigma)</li>
-          </ul>
+        <div class="section" style="margin-top:14px;">
+          <div class="muted small">Quick links</div>
+          <div class="btnrow" style="margin-top:10px;">
+            <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
+            <a class="btn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer">YouTube</a>
+          </div>
         </div>
       </aside>
     </div>
 
-    <section id="about">
+    <!-- ABOUT -->
+    <section id="about" class="section">
       <div class="sectionTitle">
         <h3>About</h3>
-        <span class="muted small">Tight bio (swap with your LinkedIn “About” text)</span>
+        <span class="hint">A little context — and a lot of intention</span>
       </div>
-      <div class="card">
+
+      <div class="panel pad">
         <p style="margin-top:0;">
-          Add 5–7 sentences here. Keep it outcome-oriented: what you do, what domains you’ve worked in, and what you want next.
-          If you paste your LinkedIn About + 2–3 best achievements, I’ll rewrite this into a sharper “hero narrative.”
+          I’m a project manager with a data analytics foundation — which means I’m comfortable in the weeds <em>and</em> comfortable translating
+          those weeds into decisions people can act on. I like clarity, clean execution, and work that leaves things better than we found them.
         </p>
-        <p class="muted small" style="margin:0;">
-          Public snippet suggests: Lean Six Sigma Black Belt + Power BI-driven cost-savings/process excellence. (Use your exact wording once you provide it.) 
+        <p class="muted" style="margin-bottom:0;">
+          If you want, paste your LinkedIn “About” section here and I’ll rewrite this into a crisp, confident bio that matches your voice.
         </p>
       </div>
     </section>
 
-    <section aria-label="trust">
-      <div class="sectionTitle">
-        <h3>Highlights</h3>
-        <span class="muted small">Optional credibility strip</span>
-      </div>
-      <div class="card">
-        <div class="logos">
-          <div class="logoPill">Lean Six Sigma Black Belt</div>
-          <div class="logoPill">Power BI</div>
-          <div class="logoPill">Procurement / Ops</div>
-          <div class="logoPill">Coaching (Topmate)</div>
-          <div class="logoPill">MBA (Kelley)</div>
+    <!-- FULL-WIDTH MOTTO BAND -->
+    <section class="fullbleed band" aria-label="motto">
+      <div class="inner panelish">
+        <div class="quoteWrap">
+          <div class="quoteLabel">
+            <span class="quoteMark">“</span>
+            <span>That’s my motto</span>
+          </div>
+          <blockquote>
+            It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better.
+            The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs,
+            who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows
+            great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement,
+            and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither
+            know victory nor defeat.
+          </blockquote>
+          <div class="muted small">— Theodore Roosevelt (commonly known as “Man in the Arena”)</div>
         </div>
       </div>
     </section>
 
-    <section id="resources">
+    <!-- CASE STUDIES -->
+    <section id="case-studies" class="section">
       <div class="sectionTitle">
-        <h3>Newsletter</h3>
-        <span class="muted small">LinkedIn newsletter</span>
+        <h3>Case studies</h3>
+        <span class="hint">8 snapshots — swap in your real metrics whenever you’re ready</span>
       </div>
 
-      <div class="card leadMagnet">
-        <p class="kicker" style="color:rgba(255,255,255,.75); margin-bottom:8px;">READ</p>
-        <h2 style="margin:0 0 8px; font-size:22px; letter-spacing:-.2px;">My LinkedIn Newsletter</h2>
-        <p class="muted" style="margin:0 0 10px;">
-          Writing about execution, career growth, and analytics-driven problem solving.
-        </p>
+      <div class="grid">
+        <article class="card col-6">
+          <h4>1) Actual vs Scheduled Hours (Power BI)</h4>
+          <p>Built a variance view that surfaces exceptions quickly and makes staffing conversations easier.</p>
+          <ul class="bullets">
+            <li>Variance measures + drilldowns by employee/team</li>
+            <li>Grouping logic for schedule categories</li>
+            <li><strong>Outcome:</strong> add your metric (time saved / adoption / accuracy)</li>
+          </ul>
+        </article>
 
-        <div class="formRow">
-          <input class="input" type="text" placeholder="Tap to open the newsletter" disabled />
-          <a class="btn" style="border-color:rgba(255,255,255,.25); background:rgba(255,255,255,.12); color:#fff;"
-             href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">
-            Open Newsletter
-          </a>
-        </div>
-        <p class="small muted" style="margin-top:10px;">(If you want an email list later, we can add Formspree for free.)</p>
+        <article class="card col-6">
+          <h4>2) Executive-friendly reporting refresh</h4>
+          <p>Restructured reporting into a “decision-ready” format stakeholders actually use.</p>
+          <ul class="bullets">
+            <li>Clarified definitions + sources of truth</li>
+            <li>Improved usability (less hunting, more action)</li>
+            <li><strong>Outcome:</strong> add your metric</li>
+          </ul>
+        </article>
+
+        <article class="card col-6">
+          <h4>3) Cost savings / impact tracking</h4>
+          <p>Unified scattered initiatives into one consistent savings/impact narrative.</p>
+          <ul class="bullets">
+            <li>Standardized fields, ownership, and cadence</li>
+            <li>Created rollups + drilldowns for transparency</li>
+            <li><strong>Outcome:</strong> $X tracked / forecast accuracy improved</li>
+          </ul>
+        </article>
+
+        <article class="card col-6">
+          <h4>4) Process improvement (Lean mindset)</h4>
+          <p>Reduced friction by clarifying handoffs, removing rework loops, and making the workflow visible.</p>
+          <ul class="bullets">
+            <li>Mapped current → future state</li>
+            <li>Identified bottlenecks + quick wins</li>
+            <li><strong>Outcome:</strong> cycle time ↓ X%</li>
+          </ul>
+        </article>
+
+        <article class="card col-6">
+          <h4>5) Data modeling: Inventory + BOM</h4>
+          <p>Integrated multiple source tables into a reliable model that reduces “numbers don’t match” churn.</p>
+          <ul class="bullets">
+            <li>Aligned keys, relationships, and definitions</li>
+            <li>Established a single source of truth</li>
+            <li><strong>Outcome:</strong> fewer reconciliations / faster close</li>
+          </ul>
+        </article>
+
+        <article class="card col-6">
+          <h4>6) Cross-functional delivery win</h4>
+          <p>Managed scope, risks, and stakeholders to ship something that mattered (replace with your best story).</p>
+          <ul class="bullets">
+            <li>Clear milestones + dependency management</li>
+            <li>Communication rhythm that built trust</li>
+            <li><strong>Outcome:</strong> measurable business result</li>
+          </ul>
+        </article>
+
+        <article class="card col-6">
+          <h4>7) Coaching: Resume & interview prep</h4>
+          <p>Helping people tell the truth about their impact — clearly, confidently, and in a way that lands.</p>
+          <ul class="bullets">
+            <li>Positioning + impact bullets</li>
+            <li>Mock interviews + structured feedback</li>
+            <li><strong>Outcome:</strong> callbacks / offers / clarity</li>
+          </ul>
+        </article>
+
+        <article class="card col-6">
+          <h4>8) Content system: newsletter + social</h4>
+          <p>A lightweight system for consistently sharing ideas across newsletter, IG, and YouTube.</p>
+          <ul class="bullets">
+            <li>Content pillars + simple cadence</li>
+            <li>Repurpose once → distribute everywhere</li>
+            <li><strong>Outcome:</strong> subscribers / reach / engagement</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section id="services">
+    <!-- WORK WITH ME -->
+    <section id="offerings" class="section">
       <div class="sectionTitle">
-        <h3>Services</h3>
-        <span class="muted small">Book via Topmate</span>
+        <h3>Work with me</h3>
+        <span class="hint">Friendly, focused sessions — book when you’re ready</span>
       </div>
 
       <div class="grid">
         <div class="card col-4">
-          <h4>Resume & LinkedIn Review</h4>
-          <p>Positioning, impact bullets, and a narrative that fits your target roles.</p>
+          <h4>Resume + LinkedIn review</h4>
+          <p>We’ll tighten your story, sharpen your bullets, and make your target role obvious.</p>
           <ul class="bullets">
-            <li>Rewrite + structure</li>
-            <li>ATS-friendly formatting</li>
-            <li>Action plan for interviews</li>
+            <li>Impact-first rewrite</li>
+            <li>ATS-friendly structure</li>
+            <li>Next-steps plan</li>
           </ul>
         </div>
 
         <div class="card col-4">
-          <h4>Interview Prep</h4>
-          <p>Behavioral + case-style preparation with tight storytelling and frameworks.</p>
+          <h4>Interview prep</h4>
+          <p>Mock interviews with practical feedback and a structure you can reuse.</p>
           <ul class="bullets">
-            <li>Mock interview</li>
-            <li>STAR/impact coaching</li>
+            <li>STAR stories + framing</li>
+            <li>Confidence + clarity coaching</li>
             <li>Follow-up notes</li>
           </ul>
         </div>
 
         <div class="card col-4">
-          <h4>Analytics / Power BI Coaching</h4>
-          <p>Modeling, measures, and building dashboards people actually use.</p>
+          <h4>Power BI / analytics coaching</h4>
+          <p>Help with modeling, measures, dashboards, and making stakeholders love your work.</p>
           <ul class="bullets">
             <li>KPI design</li>
-            <li>Power Query + DAX patterns</li>
             <li>Model health checks</li>
+            <li>Decision-ready dashboards</li>
           </ul>
         </div>
       </div>
 
-      <div class="ctaRow" style="margin-top:12px;">
+      <div class="btnrow">
         <a class="btn primary" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Book on Topmate</a>
+        <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Read the newsletter</a>
       </div>
     </section>
 
-    <!-- 8 CASE STUDIES -->
-    <section id="case-studies">
-      <div class="sectionTitle">
-        <h3>Case studies (8)</h3>
-        <span class="muted small">Replace placeholders with your exact stories + metrics</span>
-      </div>
-
-      <div class="grid">
-        <div class="card col-6">
-          <h4>1) Actual vs Scheduled Hours (Power BI)</h4>
-          <p>Variance reporting to support staffing decisions and visibility.</p>
-          <ul class="bullets">
-            <li>Defined variance measures + drilldowns</li>
-            <li>Standardized schedule grouping logic</li>
-            <li><strong>Result:</strong> add a metric (time saved / adoption / accuracy)</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>2) Cost-savings tracking dashboard</h4>
-          <p>Consolidated savings initiatives into one decision-ready view.</p>
-          <ul class="bullets">
-            <li>Standard definitions for “savings” + governance</li>
-            <li>Executive-ready summaries + drilldowns</li>
-            <li><strong>Result:</strong> $X saved / improved cycle time</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>3) Procurement / ops process improvement</h4>
-          <p>Lean-style workflow redesign to reduce bottlenecks.</p>
-          <ul class="bullets">
-            <li>Mapped current state → future state</li>
-            <li>Removed rework loops + clarified handoffs</li>
-            <li><strong>Result:</strong> cycle time ↓ by X%</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>4) Inventory + BOM modeling</h4>
-          <p>Integrated multiple source tables into a consistent reporting model.</p>
-          <ul class="bullets">
-            <li>Aligned relationships and definitions</li>
-            <li>Improved trust in reporting + reduced reconciliations</li>
-            <li><strong>Result:</strong> fewer “numbers don’t match” escalations</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>5) KPI definition & governance</h4>
-          <p>Created a KPI dictionary + cadence to keep reporting consistent.</p>
-          <ul class="bullets">
-            <li>Metric owners + sources of truth</li>
-            <li>Refresh cadence + exceptions handling</li>
-            <li><strong>Result:</strong> stakeholder alignment improved</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>6) Cross-functional delivery win</h4>
-          <p>One strong PM story: scope, risks, stakeholders, ship, impact.</p>
-          <ul class="bullets">
-            <li>What you shipped + timeline</li>
-            <li>Tradeoffs + decision points</li>
-            <li><strong>Result:</strong> measurable business outcome</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>7) Coaching outcomes (Topmate)</h4>
-          <p>Resume + interview coaching with measurable candidate wins.</p>
-          <ul class="bullets">
-            <li>Rewrote impact bullets + narrative</li>
-            <li>Interview structure + mock practice</li>
-            <li><strong>Result:</strong> offers / callbacks / confidence gains</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>8) Newsletter content system</h4>
-          <p>Consistent publishing workflow: topics → drafts → distribution.</p>
-          <ul class="bullets">
-            <li>Editorial calendar + content pillars</li>
-            <li>Repurposing into posts/resources</li>
-            <li><strong>Result:</strong> growth metric (subs / reach)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMMUNITY / INVISIBLE GIRL PROJECT -->
-    <section id="community">
+    <!-- COMMUNITY -->
+    <section id="community" class="section">
       <div class="sectionTitle">
         <h3>Community</h3>
-        <span class="muted small">Organizations I support</span>
+        <span class="hint">Organizations I support</span>
       </div>
 
-      <div class="card">
-        <h4 style="margin-top:0;">:contentReference[oaicite:1]{index=1}</h4>
-        <p>
-          I support Invisible Girl Project, whose mission is to end female gendercide in India through rescue, justice, and empowerment work.
+      <div class="panel pad">
+        <h4 style="margin:0 0 8px;">Invisible Girl Project</h4>
+        <p class="muted" style="margin-top:0;">
+          I support Invisible Girl Project and the work they do to protect and empower girls.
         </p>
-        <div class="ctaRow">
-          <a class="btn" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Visit Website</a>
+        <div class="btnrow">
+          <a class="btn" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
         </div>
         <p class="muted small" style="margin-bottom:0;">
-          (If you want, tell me what “support” means for you—volunteer, fundraising, advocacy, etc.—and I’ll word this accurately.)
+          If you tell me how you support them (volunteering, fundraising, advocacy, etc.), I’ll tailor this line to be exactly right.
         </p>
       </div>
     </section>
 
-    <section id="contact">
+    <!-- CONTACT -->
+    <section id="contact" class="section">
       <div class="sectionTitle">
         <h3>Contact</h3>
-        <span class="muted small">Fastest ways to reach me</span>
+        <span class="hint">I’d love to hear from you</span>
       </div>
 
-      <div class="card">
+      <div class="panel pad">
         <p style="margin-top:0;">
-          Email: <a class="mono" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>
+          Email me at <a class="mono" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>.
+          You can also reach me on LinkedIn, or book time directly through Topmate.
         </p>
 
-        <div class="ctaRow">
+        <div class="btnrow">
           <a class="btn primary" href="mailto:geethikaadesam@gmail.com">Email</a>
           <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
           <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Topmate</a>
-          <a class="btn" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
-          <a class="btn ghost" href="./resume.pdf">Resume (PDF)</a>
+          <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
+          <a class="btn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer">YouTube</a>
+          <a class="btn" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn" href="./resume.pdf">Resume (PDF)</a>
         </div>
 
         <p class="muted small" style="margin-bottom:0;">
-          Resume upload: add a file named <span class="mono">resume.pdf</span> to this repo (same folder as index.html).
+          Resume note: upload your resume to this repo as <span class="mono">resume.pdf</span> (same folder as <span class="mono">index.html</span>).
         </p>
       </div>
     </section>
