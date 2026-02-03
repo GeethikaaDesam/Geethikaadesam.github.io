@@ -167,13 +167,36 @@
     .pad{padding:32px}
 
     .hero{
+      position:relative;
       display:grid;
       grid-template-columns: 1.3fr .7fr;
       gap:24px;
       align-items:start;
       margin-top:32px;
+      padding:32px;
+      border-radius:var(--radius);
+      overflow:hidden;
     }
-    @media (max-width: 960px){ .hero{grid-template-columns:1fr} }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(115deg, rgba(44,57,48,.78) 0%, rgba(44,57,48,.45) 45%, rgba(44,57,48,.08) 100%),
+        url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80");
+      background-size:cover;
+      background-position:center;
+      z-index:0;
+    }
+    .hero > *{position:relative; z-index:1}
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr; padding:24px}
+      .hero::before{
+        background:
+          linear-gradient(115deg, rgba(44,57,48,.85) 0%, rgba(44,57,48,.55) 55%, rgba(44,57,48,.15) 100%),
+          url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80");
+      }
+    }
 
     .kicker{
       margin:0 0 16px;
@@ -233,6 +256,41 @@
     }
     .profile h2{margin:0 0 4px; font-size:18px; font-weight:700; color:var(--forest)}
     .profile p{margin:0; font-size:14px; color:rgba(44,57,48,.75)}
+    .contact-float{
+      position:absolute;
+      top:20px;
+      left:20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      background:rgba(255,255,255,.9);
+      border:1px solid rgba(63,79,68,.25);
+      border-radius:999px;
+      padding:10px 16px;
+      box-shadow: 0 6px 18px rgba(44,57,48,.18);
+      font-size:13px;
+      color:var(--forest);
+    }
+    .contact-float a{
+      text-decoration:none;
+      font-weight:600;
+    }
+    .contact-float .divider{
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:rgba(63,79,68,.4);
+    }
+    @media (max-width: 700px){
+      .contact-float{
+        position:static;
+        margin-bottom:12px;
+        border-radius:16px;
+        justify-content:flex-start;
+      }
+      .contact-float .divider{display:none}
+    }
 
     .section{margin-top:48px}
     .sectionTitle{
@@ -532,6 +590,15 @@
   <main id="top" class="container">
     <!-- HERO -->
     <div class="hero">
+      <div class="contact-float" aria-label="Contact details">
+        <span class="mono">geethikaadesam@gmail.com</span>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="mailto:geethikaadesam@gmail.com">Email</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span class="divider" aria-hidden="true"></span>
+        <a href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Topmate</a>
+      </div>
       <section class="panel pad">
         <p class="kicker">Manufacturing Operations • Data • Delivery</p>
         <h1>Turn manufacturing complexity into clarity — and decisions people act on.</h1>
