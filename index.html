@@ -26,7 +26,7 @@
     }
 
     *{box-sizing:border-box}
-    html{scroll-behavior: smooth}
+    html{scroll-behavior:smooth}
     html,body{height:100%}
     body{
       margin:0;
@@ -41,15 +41,15 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a{color:inherit; transition: all 0.2s ease}
+    a{color:inherit; transition:all .2s ease}
     .container{max-width:var(--max); margin:0 auto; padding:40px 24px 80px}
-    .fullbleed{width:100%; padding:0; margin:0}
+    .fullbleed{width:100%; margin:0; padding:0}
     .fullbleed .inner{max-width:var(--max); margin:0 auto; padding:0 24px}
     .muted{color:rgba(63,79,68,.75)}
     .mono{font-family:var(--mono)}
     .small{font-size:13px}
 
-    /* Nav - Brown accent band */
+    /* Nav */
     header{
       position:sticky; top:0; z-index:50;
       background: linear-gradient(135deg, var(--brown), rgba(162,123,92,.95));
@@ -75,20 +75,8 @@
       color:#fff;
     }
 
-    /* Custom Logo */
-    .logo-custom{
-      width:48px;
-      height:48px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-    }
-    .logo-custom svg{
-      width:100%;
-      height:100%;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,.2));
-    }
+    .logo-custom{width:48px; height:48px; display:flex; align-items:center; justify-content:center}
+    .logo-custom svg{width:100%; height:100%; filter: drop-shadow(0 2px 8px rgba(0,0,0,.2));}
 
     .navlinks{display:flex; gap:4px; flex-wrap:wrap; align-items:center}
     .navlinks a{
@@ -98,12 +86,8 @@
       padding:10px 16px;
       border-radius:10px;
       color:rgba(255,255,255,.9);
-      transition: all 0.2s ease;
     }
-    .navlinks a:hover{
-      color:#fff;
-      background:rgba(255,255,255,.15);
-    }
+    .navlinks a:hover{color:#fff; background:rgba(255,255,255,.15)}
 
     .social{display:flex; gap:8px; align-items:center}
     .iconbtn{
@@ -129,7 +113,7 @@
       padding:14px 24px;
       border-radius:12px;
       border:1px solid rgba(63,79,68,.4);
-      background:rgba(255,255,255,.7);
+      background:rgba(255,255,255,.75);
       text-decoration:none;
       font-weight:600;
       font-size:14px;
@@ -147,302 +131,217 @@
       border-color:var(--forest);
       color:var(--warm-white);
     }
-    .btn.primary:hover{
-      box-shadow:0 8px 28px rgba(44,57,48,.24);
-      transform:translateY(-2px);
-    }
-    .btn.soft{
-      background:rgba(162,123,92,.2);
-      border-color:rgba(63,79,68,.3);
-    }
+    .btn.primary:hover{box-shadow:0 8px 28px rgba(44,57,48,.24); transform:translateY(-2px)}
+    .btn.soft{background:rgba(162,123,92,.22); border-color:rgba(63,79,68,.3)}
 
     /* Cards + sections */
     .panel{
       border:1px solid rgba(63,79,68,.2);
-      background:rgba(255,255,255,.75);
+      background:rgba(255,255,255,.80);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       backdrop-filter: blur(10px);
     }
     .pad{padding:32px}
 
-    .hero{
-      position:relative;
-      display:grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap:24px;
-      align-items:start;
-      margin-top:32px;
-      padding:32px;
-      border-radius:var(--radius);
-      overflow:hidden;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(115deg, rgba(44,57,48,.78) 0%, rgba(44,57,48,.45) 45%, rgba(44,57,48,.08) 100%),
-        url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1800&q=80");
-      background-size:cover;
-      background-position:center;
-      z-index:0;
-    }
-    .hero > *{position:relative; z-index:1}
-    @media (max-width: 960px){
-      .hero{grid-template-columns:1fr; padding:24px}
-      .hero::before{
-        background:
-          linear-gradient(115deg, rgba(44,57,48,.85) 0%, rgba(44,57,48,.55) 55%, rgba(44,57,48,.15) 100%),
-          url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80");
-      }
-    }
-
-    .kicker{
-      margin:0 0 16px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-size:12px;
-      font-weight:600;
-      color:rgba(44,57,48,.65);
-    }
-    h1{
-      margin:0 0 20px;
-      font-size:52px;
-      line-height:1.1;
-      letter-spacing:-1.2px;
-      font-weight:700;
-      color:var(--forest);
-    }
-    @media (max-width:520px){ h1{font-size:38px} }
-    .lead{
-      margin:0 0 12px;
-      color:rgba(44,57,48,.85);
-      font-size:17px;
-      line-height:1.7;
-    }
-
-    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:24px}
-    .chip{
-      display:inline-flex; align-items:center;
-      padding:10px 16px;
-      border-radius:20px;
-      border:1px solid rgba(63,79,68,.2);
-      background:rgba(63,79,68,.1);
-      font-size:13px;
-      font-weight:500;
-      color:var(--forest);
-      white-space:nowrap;
-      transition: all 0.2s ease;
-    }
-    .chip:hover{
-      background:rgba(63,79,68,.15);
-      border-color:rgba(63,79,68,.3);
-    }
-
-    .profile{
-      display:grid;
-      grid-template-columns: 120px 1fr;
-      gap:20px;
-      align-items:center;
-    }
-    .avatar{
-      width:120px; height:120px;
-      border-radius:24px;
-      border:1px solid rgba(63,79,68,.3);
-      object-fit:cover;
-      background:rgba(162,123,92,.15);
-      box-shadow: 0 4px 16px rgba(44,57,48,.1);
-    }
-    .profile h2{margin:0 0 4px; font-size:18px; font-weight:700; color:var(--forest)}
-    .profile p{margin:0; font-size:14px; color:rgba(44,57,48,.75)}
-    .contact-float{
-      position:absolute;
-      top:20px;
-      left:20px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-      background:rgba(255,255,255,.9);
-      border:1px solid rgba(63,79,68,.25);
-      border-radius:999px;
-      padding:10px 16px;
-      box-shadow: 0 6px 18px rgba(44,57,48,.18);
-      font-size:13px;
-      color:var(--forest);
-    }
-    .contact-float a{
-      text-decoration:none;
-      font-weight:600;
-    }
-    .contact-float .divider{
-      width:4px;
-      height:4px;
-      border-radius:50%;
-      background:rgba(63,79,68,.4);
-    }
-    @media (max-width: 700px){
-      .contact-float{
-        position:static;
-        margin-bottom:12px;
-        border-radius:16px;
-        justify-content:flex-start;
-      }
-      .contact-float .divider{display:none}
-    }
-
     .section{margin-top:48px}
     .sectionTitle{
       display:flex; align-items:flex-end; justify-content:space-between;
       gap:16px; margin:0 0 24px;
     }
-    .sectionTitle h3{
-      margin:0;
-      font-size:32px;
-      font-weight:700;
-      letter-spacing:-.5px;
-      color:var(--forest);
-    }
+    .sectionTitle h3{margin:0; font-size:32px; font-weight:700; letter-spacing:-.5px; color:var(--forest)}
     .sectionTitle .hint{font-size:13px; color:rgba(44,57,48,.6)}
 
-    /* Carousel Styles */
-    .carousel-container{
-      position:relative;
-      overflow:hidden;
-      padding:0 60px;
-    }
-    .carousel-track{
-      display:flex;
-      gap:20px;
-      transition: transform 0.4s ease;
-    }
-    .carousel-card{
-      min-width:calc(50% - 10px);
-      flex-shrink:0;
-      border:1px solid rgba(63,79,68,.2);
-      background:rgba(255,255,255,.85);
-      border-radius:20px;
-      box-shadow: var(--shadow);
-      padding:28px;
-      transition: all .25s ease;
-      backdrop-filter: blur(10px);
-    }
-    @media (max-width: 900px){
-      .carousel-card{min-width:100%}
-      .carousel-container{padding:0}
-    }
-    .carousel-card:hover{
-      transform:translateY(-4px);
-      box-shadow: var(--shadow-hover);
-      border-color:rgba(63,79,68,.35);
-    }
-    .carousel-card h4{
-      margin:0 0 12px;
-      font-size:18px;
+    .kicker{
+      margin:0 0 14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:12px;
       font-weight:700;
-      line-height:1.3;
+      color:rgba(44,57,48,.70);
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:48px;
+      line-height:1.08;
+      letter-spacing:-1.1px;
+      font-weight:800;
       color:var(--forest);
     }
-    .carousel-card p{
-      margin:0 0 16px;
-      color:rgba(44,57,48,.8);
-      font-size:15px;
-      line-height:1.6;
+    @media (max-width:520px){ h1{font-size:36px} }
+    .lead{
+      margin:0 0 12px;
+      color:rgba(44,57,48,.88);
+      font-size:16px;
+      line-height:1.75;
     }
 
-    .carousel-btn{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:44px;
-      height:44px;
-      border-radius:50%;
-      border:1px solid rgba(63,79,68,.3);
-      background:rgba(255,255,255,.95);
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-      transition:all .2s ease;
-      z-index:10;
-      box-shadow: 0 4px 12px rgba(44,57,48,.1);
-    }
-    .carousel-btn:hover{
-      background:#fff;
-      box-shadow: 0 6px 20px rgba(44,57,48,.15);
-      transform:translateY(-50%) scale(1.05);
-    }
-    .carousel-btn.prev{left:0}
-    .carousel-btn.next{right:0}
-    .carousel-btn svg{width:20px; height:20px; fill:var(--forest)}
-    @media (max-width: 900px){
-      .carousel-btn{display:none}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .chip{
+      display:inline-flex; align-items:center;
+      padding:10px 16px;
+      border-radius:20px;
+      border:1px solid rgba(63,79,68,.22);
+      background:rgba(63,79,68,.10);
+      font-size:13px;
+      font-weight:600;
+      color:var(--forest);
+      white-space:nowrap;
     }
 
-    .carousel-dots{
+    /* === FULL-BLEED HERO (Allie-style) === */
+    .heroFull{
+      position:relative;
+      width:100%;
+      min-height:72vh;
       display:flex;
-      gap:8px;
-      justify-content:center;
-      margin-top:24px;
-    }
-    .carousel-dot{
-      width:8px;
-      height:8px;
-      border-radius:50%;
-      background:rgba(63,79,68,.3);
-      cursor:pointer;
-      transition:all .2s ease;
-    }
-    .carousel-dot.active{
-      background:var(--brown);
-      width:24px;
-      border-radius:4px;
+      align-items:stretch;
+      background: #111; /* fallback */
+      overflow:hidden;
+      border-bottom:1px solid rgba(63,79,68,.18);
     }
 
+    /* IMPORTANT:
+       Put your photo in your repo at: /assets/hero.jpg
+       Then it will work on GitHub Pages.
+    */
+    .heroFull::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(90deg,
+          rgba(245,242,237,.92) 0%,
+          rgba(245,242,237,.88) 38%,
+          rgba(245,242,237,.35) 58%,
+          rgba(245,242,237,.10) 72%,
+          rgba(245,242,237,0) 100%
+        ),
+        url("assets/hero.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      transform:scale(1.02); /* tiny zoom to avoid edges */
+    }
+
+    /* soft vignette */
+    .heroFull::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(1200px 700px at 70% 50%, rgba(44,57,48,.18), transparent 60%);
+      pointer-events:none;
+      mix-blend-mode:multiply;
+      opacity:.6;
+    }
+
+    .heroInner{
+      position:relative;
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:48px 24px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:center;
+    }
+    @media (max-width: 960px){
+      .heroFull{min-height: auto}
+      .heroInner{grid-template-columns:1fr; padding:34px 24px}
+      .heroFull::before{
+        background-image:
+          linear-gradient(180deg,
+            rgba(245,242,237,.92) 0%,
+            rgba(245,242,237,.78) 55%,
+            rgba(245,242,237,.55) 80%,
+            rgba(245,242,237,.35) 100%
+          ),
+          url("assets/hero.jpg");
+      }
+    }
+
+    /* Connect with me panel (overlay block) */
+    .connectCard{
+      border:1px solid rgba(63,79,68,.22);
+      background:rgba(255,255,255,.82);
+      border-radius:28px;
+      box-shadow: 0 10px 45px rgba(44,57,48,.14);
+      backdrop-filter: blur(10px);
+      padding:28px;
+    }
+
+    .connectTitle{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .connectTitle h2{
+      margin:0;
+      font-size:18px;
+      font-weight:800;
+      letter-spacing:-.3px;
+      color:var(--forest);
+    }
+    .badge{
+      font-size:12px;
+      font-weight:700;
+      color:rgba(44,57,48,.75);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(63,79,68,.22);
+      background:rgba(63,79,68,.06);
+      white-space:nowrap;
+    }
+
+    .connectGrid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .miniRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      padding-top:12px;
+      border-top:1px solid rgba(63,79,68,.12);
+      margin-top:16px;
+    }
+
+    .contactLine{
+      margin:0;
+      font-size:14px;
+      color:rgba(44,57,48,.80);
+    }
+
+    /* Grid + cards */
     .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:20px}
-    .col-6{grid-column: span 6}
     .col-4{grid-column: span 4}
+    .col-6{grid-column: span 6}
     .col-12{grid-column: span 12}
-    @media (max-width: 900px){ .col-6,.col-4{grid-column: span 12} }
+    @media (max-width:900px){ .col-4,.col-6{grid-column:span 12} }
 
     .card{
       border:1px solid rgba(63,79,68,.2);
       background:rgba(255,255,255,.85);
       border-radius:20px;
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
       padding:28px;
-      transition: all .25s ease;
+      transition:all .25s ease;
       backdrop-filter: blur(10px);
     }
-    .card:hover{
-      transform:translateY(-4px);
-      box-shadow: var(--shadow-hover);
-      border-color:rgba(63,79,68,.35);
-    }
-    .card h4{
-      margin:0 0 12px;
-      font-size:18px;
-      font-weight:700;
-      line-height:1.3;
-      color:var(--forest);
-    }
-    .card p{
-      margin:0 0 16px;
-      color:rgba(44,57,48,.8);
-      font-size:15px;
-      line-height:1.6;
-    }
-    .bullets{
-      margin:0;
-      padding-left:20px;
-      color:rgba(44,57,48,.75);
-      font-size:14px;
-      line-height:1.7;
-    }
+    .card:hover{transform:translateY(-4px); box-shadow:var(--shadow-hover); border-color:rgba(63,79,68,.35)}
+    .card h4{margin:0 0 12px; font-size:18px; font-weight:800; color:var(--forest)}
+    .card p{margin:0 0 16px; color:rgba(44,57,48,.8); font-size:15px; line-height:1.65}
+    .bullets{margin:0; padding-left:20px; color:rgba(44,57,48,.75); font-size:14px; line-height:1.7}
     .bullets li{margin:8px 0}
     .bullets strong{color:var(--forest)}
 
-    /* Motto band - smaller, moved down */
+    /* Motto band */
     .band{
       margin-top:80px;
       background: linear-gradient(135deg, var(--forest) 0%, rgba(44,57,48,.95) 50%, var(--forest) 100%);
@@ -451,32 +350,11 @@
       border-bottom:1px solid rgba(162,123,92,.2);
       box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
     }
-    .band .panelish{
-      padding:32px 0;
-    }
-    .band h3, .band h2, .band p{color:#fff}
-    .band .muted{color:rgba(255,255,255,.8)}
-    .band .btn{
-      border-color:rgba(255,255,255,.25);
-      background:rgba(255,255,255,.12);
-      color:#fff;
-    }
-    .band .btn:hover{
-      background:rgba(255,255,255,.2);
-      border-color:rgba(255,255,255,.4);
-    }
-
-    blockquote{
-      margin:0;
-      padding:0;
-      font-size:14px;
-      line-height:1.7;
-      font-style: italic;
-    }
+    .band .panelish{padding:32px 0}
+    .band .muted{color:rgba(255,255,255,.82)}
+    blockquote{margin:0; padding:0; font-size:14px; line-height:1.7; font-style:italic}
     .quoteWrap{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
+      display:grid; gap:12px;
       padding:24px;
       border-radius:16px;
       border:1px solid rgba(255,255,255,.2);
@@ -486,29 +364,19 @@
       margin:0 auto;
     }
     .quoteLabel{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-size:11px;
-      letter-spacing:.10em;
-      text-transform:uppercase;
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:11px; letter-spacing:.10em; text-transform:uppercase;
       color:rgba(255,255,255,.75);
-      font-weight:600;
+      font-weight:700;
     }
     .quoteMark{
-      width:24px; height:24px;
-      border-radius:8px;
+      width:24px; height:24px; border-radius:8px;
       display:grid; place-items:center;
       background:rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.18);
-      font-weight:900;
-      font-size:16px;
+      font-weight:900; font-size:16px;
     }
-    .quoteAttribution{
-      font-size:12px;
-      color:rgba(255,255,255,.7);
-      font-style:normal;
-    }
+    .quoteAttribution{font-size:12px; color:rgba(255,255,255,.7); font-style:normal}
 
     /* Footer */
     footer{
@@ -520,15 +388,12 @@
       display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
     }
 
-    /* Better hover states */
     a[href^="mailto"]{
       text-decoration:underline;
       text-decoration-color:rgba(44,57,48,.3);
       text-underline-offset:3px;
     }
-    a[href^="mailto"]:hover{
-      text-decoration-color:var(--forest);
-    }
+    a[href^="mailto"]:hover{ text-decoration-color:var(--forest); }
   </style>
 </head>
 
@@ -537,8 +402,7 @@
     <div class="nav">
       <a class="brand" href="#top">
         <div class="logo-custom">
-          <!-- Custom GD Logo -->
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="50" cy="50" r="48" fill="#2C3930" opacity="0.95"/>
             <path d="M 35 35 Q 30 35 30 40 L 30 60 Q 30 65 35 65 L 50 65 L 50 55 L 40 55 L 40 50 L 55 50 L 55 65 Q 55 70 50 70 L 35 70 Q 25 70 25 60 L 25 40 Q 25 30 35 30 L 50 30 Q 55 30 55 35 L 55 40 L 50 40 L 50 35 Z"
                   fill="#F5F2ED" opacity="0.95"/>
@@ -552,8 +416,6 @@
 
       <nav class="navlinks">
         <a href="#about">About</a>
-        <a href="#ops-lens">Ops lens</a>
-        <a href="#case-studies">Case Studies</a>
         <a href="#offerings">Work with me</a>
         <a href="#community">Community</a>
         <a href="#contact">Contact</a>
@@ -587,77 +449,65 @@
     </div>
   </header>
 
-  <main id="top" class="container">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="contact-float" aria-label="Contact details">
-        <span class="mono">geethikaadesam@gmail.com</span>
-        <span class="divider" aria-hidden="true"></span>
-        <a href="mailto:geethikaadesam@gmail.com">Email</a>
-        <span class="divider" aria-hidden="true"></span>
-        <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
-        <span class="divider" aria-hidden="true"></span>
-        <a href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Topmate</a>
-      </div>
-      <section class="panel pad">
+  <!-- FULL-BLEED HERO (Image across, connect panel) -->
+  <section id="top" class="heroFull" aria-label="Hero">
+    <div class="heroInner">
+      <!-- Left: your main message -->
+      <div class="panel pad" style="background:rgba(255,255,255,.78); border-radius:28px;">
         <p class="kicker">Manufacturing Operations • Data • Delivery</p>
-        <h1>Turn manufacturing complexity into clarity — and decisions people act on.</h1>
+        <h1>Make operations visible. Make decisions faster.</h1>
         <p class="lead">
-          I'm <strong>Geethika</strong> — an operations-minded project leader with an analytics backbone.
-          I help teams make sense of flow, capacity, inventory, and performance — then translate that into
-          dashboards, decisions, and delivery that sticks.
-        </p>
-        <p class="lead muted" style="font-size:15px;">
-          If you’re dealing with “numbers don’t match,” unclear KPIs, or operational questions that take too long to answer,
-          I’m focused on building visibility and momentum without disrupting the shop floor.
+          I’m <strong>Geethika</strong> — I help manufacturing teams connect shop-floor reality to clean metrics and practical execution.
+          If you’re dealing with variance, messy definitions, or dashboards that don’t drive action, I bring structure without slowing the work down.
         </p>
 
         <div class="btnrow">
-          <a class="btn primary" href="#contact">Start a conversation</a>
-          <a class="btn" href="#case-studies">View case studies</a>
+          <a class="btn primary" href="#contact">Email me</a>
+          <a class="btn" href="#offerings">See how I help</a>
           <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
         </div>
 
         <div class="chips">
-          <span class="chip">Production & labor visibility</span>
+          <span class="chip">Production visibility</span>
+          <span class="chip">Downtime & scrap clarity</span>
           <span class="chip">Inventory + BOM modeling</span>
-          <span class="chip">KPI design & governance</span>
-          <span class="chip">Stakeholder alignment</span>
+          <span class="chip">KPI governance</span>
           <span class="chip">MBA (Kelley)</span>
         </div>
-      </section>
 
-      <aside class="panel pad">
-        <div class="profile">
-          <img class="avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Headshot placeholder">
-          <div>
-            <h2>Geethika Desam</h2>
-            <p class="muted">Indiana, US</p>
-            <p class="mono muted" style="margin-top:8px; font-size:13px;">geethikaadesam@gmail.com</p>
-          </div>
+        <p class="muted small" style="margin:16px 0 0;">
+          Tip: Replace the hero photo by uploading your image to <span class="mono">/assets/hero.jpg</span> in your GitHub repo.
+        </p>
+      </div>
+
+      <!-- Right: Connect with me (Allie-style) -->
+      <aside class="connectCard" aria-label="Connect with me">
+        <div class="connectTitle">
+          <h2>Connect with me</h2>
+          <span class="badge">Quick links</span>
         </div>
 
-        <div class="section" style="margin-top:24px;">
-          <div class="muted small" style="margin-bottom:12px;">Connect with me</div>
-          <div class="btnrow" style="margin-top:0;">
-            <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Topmate</a>
-            <a class="btn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer">YouTube</a>
-          </div>
+        <p class="contactLine">
+          Email: <a class="mono" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>
+        </p>
+
+        <div class="connectGrid">
+          <a class="btn primary" href="mailto:geethikaadesam@gmail.com">Send an email</a>
+          <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Book on Topmate</a>
+          <a class="btn soft" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer">YouTube</a>
+          <a class="btn" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
         </div>
 
-        <div class="section" style="margin-top:18px;">
-          <div class="muted small" style="margin-bottom:10px;">Typical questions I help answer</div>
-          <ul class="bullets" style="margin:0;">
-            <li>Where are we losing time (and why)?</li>
-            <li>What’s driving variance vs plan?</li>
-            <li>Which KPIs actually change behavior?</li>
-            <li>How do we trust the numbers?</li>
-          </ul>
+        <div class="miniRow">
+          <span class="muted small">Best for: ops visibility, KPI design, Power BI modeling, coaching</span>
+          <a class="btn" href="#offerings" style="padding:10px 14px;">Offerings ↓</a>
         </div>
       </aside>
     </div>
+  </section>
 
+  <main class="container">
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="sectionTitle">
@@ -668,190 +518,26 @@
       <div class="panel pad">
         <p style="margin-top:0; font-size:16px; line-height:1.75;">
           I work at the intersection of <strong>manufacturing operations</strong>, <strong>data</strong>, and <strong>delivery</strong>.
-          My background spans project execution and analytics — so I’m comfortable in the process details <em>and</em> in the decision rooms.
-          I care about building visibility teams trust, aligning stakeholders on what “good” looks like, and shipping improvements that hold up in real operations.
+          I’m comfortable in the process details <em>and</em> in the decision rooms: translating variance into drivers, turning definitions into governance,
+          and building dashboards people actually use.
         </p>
         <p class="muted" style="margin-bottom:0; font-size:14px;">
-          I’m not attached to a single title. I’m attached to outcomes: clearer flow, cleaner metrics, faster decisions, and stronger execution.
+          I’m not attached to a single title — I’m attached to outcomes: clearer flow, cleaner metrics, faster decisions, and stronger execution.
         </p>
       </div>
     </section>
 
-    <!-- OPS LENS (NEW) -->
-    <section id="ops-lens" class="section">
-      <div class="sectionTitle">
-        <h3>Ops lens</h3>
-        <span class="hint">How I think about manufacturing from a data perspective</span>
-      </div>
-
-      <div class="grid">
-        <div class="card col-6">
-          <h4>Data should reflect reality on the floor</h4>
-          <p>
-            If the metric doesn’t match how work actually happens, teams won’t trust it — and they shouldn’t.
-            I start with process understanding (flow, constraints, handoffs), then build the data story.
-          </p>
-          <ul class="bullets">
-            <li><strong>Focus:</strong> definitions, timestamps, exceptions, and operational context</li>
-            <li><strong>Goal:</strong> reduce “numbers don’t match” and create a source of truth</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>Dashboards are decision tools, not status reports</h4>
-          <p>
-            A good dashboard shortens the time from signal → conversation → action.
-            I design views around the decisions leaders and frontline owners actually make.
-          </p>
-          <ul class="bullets">
-            <li><strong>Focus:</strong> exception-first views, drill paths, and accountability</li>
-            <li><strong>Goal:</strong> fewer meetings to “find the issue,” more time fixing it</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>KPIs must connect across the system</h4>
-          <p>
-            Manufacturing is a system — local optimization can break the whole.
-            I align metrics across safety, quality, delivery, cost, and people so incentives don’t fight each other.
-          </p>
-          <ul class="bullets">
-            <li><strong>Focus:</strong> leading vs lagging indicators, ownership, and review cadence</li>
-            <li><strong>Goal:</strong> metrics that drive behavior, not just reporting</li>
-          </ul>
-        </div>
-
-        <div class="card col-6">
-          <h4>Execution is the difference</h4>
-          <p>
-            Insights without delivery don’t change operations. I’m methodical about scope, dependencies, comms,
-            and adoption — so data work lands with stakeholders and gets used.
-          </p>
-          <ul class="bullets">
-            <li><strong>Focus:</strong> stakeholder alignment, rollout plans, and training</li>
-            <li><strong>Goal:</strong> adoption that survives beyond launch week</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CASE STUDIES CAROUSEL (REFRAMED) -->
-    <section id="case-studies" class="section">
-      <div class="sectionTitle">
-        <h3>Case studies</h3>
-        <span class="hint">Operational problem → data response → business impact</span>
-      </div>
-
-      <div class="carousel-container">
-        <button class="carousel-btn prev" onclick="moveCarousel(-1)" aria-label="Previous">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-
-        <div class="carousel-track" id="carouselTrack">
-          <article class="carousel-card">
-            <h4>1) Labor variance visibility (Actual vs Scheduled)</h4>
-            <p><strong>Problem:</strong> Staffing conversations were slow because variance and drivers were hard to isolate.</p>
-            <ul class="bullets">
-              <li><strong>Data response:</strong> variance measures + drilldowns by employee/team + schedule grouping logic</li>
-              <li><strong>Operational use:</strong> exception-first view to focus on outliers</li>
-              <li><strong>Impact:</strong> add metric (faster reviews / fewer escalations / improved accuracy)</li>
-            </ul>
-          </article>
-
-          <article class="carousel-card">
-            <h4>2) Decision-ready executive reporting</h4>
-            <p><strong>Problem:</strong> Leadership reporting existed, but didn’t drive action or alignment.</p>
-            <ul class="bullets">
-              <li><strong>Data response:</strong> clarified definitions + sources of truth + simplified structure</li>
-              <li><strong>Operational use:</strong> fewer “what does this mean?” cycles</li>
-              <li><strong>Impact:</strong> add metric (time saved / adoption / faster decision cadence)</li>
-            </ul>
-          </article>
-
-          <article class="carousel-card">
-            <h4>3) Cost savings & impact tracking governance</h4>
-            <p><strong>Problem:</strong> Initiatives were scattered; savings narratives were inconsistent across owners.</p>
-            <ul class="bullets">
-              <li><strong>Data response:</strong> standardized fields + ownership + cadence + rollups and drilldowns</li>
-              <li><strong>Operational use:</strong> consistent reviews and accountability</li>
-              <li><strong>Impact:</strong> add metric ($ tracked / forecast accuracy / audit readiness)</li>
-            </ul>
-          </article>
-
-          <article class="carousel-card">
-            <h4>4) Process improvement: reduce rework loops</h4>
-            <p><strong>Problem:</strong> Handoffs and rework created hidden delays and unclear ownership.</p>
-            <ul class="bullets">
-              <li><strong>Data response:</strong> mapped current → future state + surfaced bottlenecks and failure points</li>
-              <li><strong>Operational use:</strong> targeted quick wins + clarified handoffs</li>
-              <li><strong>Impact:</strong> add metric (cycle time ↓ / rework ↓ / on-time delivery ↑)</li>
-            </ul>
-          </article>
-
-          <article class="carousel-card">
-            <h4>5) Manufacturing data model: Inventory + BOM</h4>
-            <p><strong>Problem:</strong> Teams lost time reconciling mismatched numbers across tables/systems.</p>
-            <ul class="bullets">
-              <li><strong>Data response:</strong> aligned keys, relationships, and definitions across sources</li>
-              <li><strong>Operational use:</strong> single source of truth for analysis and reporting</li>
-              <li><strong>Impact:</strong> add metric (fewer reconciliations / faster close / improved trust)</li>
-            </ul>
-          </article>
-
-          <article class="carousel-card">
-            <h4>6) Cross-functional delivery: align, ship, adopt</h4>
-            <p><strong>Problem:</strong> Dependencies and stakeholder needs threatened timeline and adoption.</p>
-            <ul class="bullets">
-              <li><strong>Delivery response:</strong> milestone plan + risk/dependency management + comms rhythm</li>
-              <li><strong>Operational use:</strong> clarity on owners, decisions, and next steps</li>
-              <li><strong>Impact:</strong> add metric (launch on time / reduced escalations / adoption)</li>
-            </ul>
-          </article>
-
-          <article class="carousel-card">
-            <h4>7) Coaching: communicate impact clearly</h4>
-            <p><strong>Problem:</strong> Candidates had real impact, but couldn’t translate it into crisp stories.</p>
-            <ul class="bullets">
-              <li><strong>Approach:</strong> positioning + impact bullets + mock interviews + structured feedback</li>
-              <li><strong>Result:</strong> clearer narratives that land with hiring managers</li>
-              <li><strong>Impact:</strong> add metric (callbacks / offers / confidence gains)</li>
-            </ul>
-          </article>
-
-          <article class="carousel-card">
-            <h4>8) Content system: consistent learning + sharing</h4>
-            <p><strong>Problem:</strong> Good ideas existed, but didn’t have a consistent cadence or structure.</p>
-            <ul class="bullets">
-              <li><strong>Approach:</strong> content pillars + simple cadence + repurpose once → distribute everywhere</li>
-              <li><strong>Result:</strong> sustainable output without burnout</li>
-              <li><strong>Impact:</strong> add metric (subscribers / reach / engagement)</li>
-            </ul>
-          </article>
-        </div>
-
-        <button class="carousel-btn next" onclick="moveCarousel(1)" aria-label="Next">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-
-      <div class="carousel-dots" id="carouselDots"></div>
-    </section>
-
-    <!-- WORK WITH ME (BROADER) -->
+    <!-- OFFERINGS -->
     <section id="offerings" class="section">
       <div class="sectionTitle">
         <h3>Work with me</h3>
-        <span class="hint">Advisory + coaching — structured, practical, and outcome-driven</span>
+        <span class="hint">Advisory + coaching — structured, practical, outcome-driven</span>
       </div>
 
       <div class="grid">
         <div class="card col-4">
           <h4>Manufacturing metrics & KPI design</h4>
-          <p>Align metrics to real operations (flow, quality, delivery, cost) so teams trust the numbers and act faster.</p>
+          <p>Align metrics to shop-floor reality so teams trust the numbers and act faster.</p>
           <ul class="bullets">
             <li>Metric definitions + governance</li>
             <li>Exception-first dashboards</li>
@@ -861,16 +547,16 @@
 
         <div class="card col-4">
           <h4>Analytics enablement (Power BI + modeling)</h4>
-          <p>From data model health checks to measures and storytelling — designed for decision-making and adoption.</p>
+          <p>From data model health checks to measures and storytelling — built for decision-making and adoption.</p>
           <ul class="bullets">
-            <li>Inventory/BOM and operational models</li>
-            <li>DAX + measures + drill paths</li>
+            <li>Inventory/BOM + operational models</li>
+            <li>DAX measures + drill paths</li>
             <li>Stakeholder-ready narratives</li>
           </ul>
         </div>
 
         <div class="card col-4">
-          <h4>Career coaching (operations + analytics)</h4>
+          <h4>Career coaching (ops + analytics + PM/Product)</h4>
           <p>Resume, LinkedIn, interviews — with emphasis on communicating operational impact with clarity.</p>
           <ul class="bullets">
             <li>Impact-first rewrite</li>
@@ -895,16 +581,13 @@
       </div>
 
       <div class="panel pad">
-        <h4 style="margin:0 0 12px; font-size:20px; font-weight:700;">Invisible Girl Project</h4>
+        <h4 style="margin:0 0 12px; font-size:20px; font-weight:800;">Invisible Girl Project</h4>
         <p style="margin-top:0; font-size:16px; line-height:1.7; color:rgba(44,57,48,.8);">
           I support Invisible Girl Project and the work they do to protect and empower girls.
         </p>
         <div class="btnrow">
           <a class="btn" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
         </div>
-        <p class="muted small" style="margin-bottom:0; margin-top:16px;">
-          If you tell me how you support them (volunteering, fundraising, advocacy, etc.), I'll tailor this line to be exactly right.
-        </p>
       </div>
     </section>
 
@@ -930,7 +613,7 @@
     <section id="contact" class="section">
       <div class="sectionTitle">
         <h3>Contact</h3>
-        <span class="hint">If you have a question, I’ll help you structure the answer</span>
+        <span class="hint">I’d love to hear from you</span>
       </div>
 
       <div class="panel pad">
@@ -963,89 +646,6 @@
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("updated").textContent =
       new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
-
-    // Carousel functionality
-    let currentIndex = 0;
-    const track = document.getElementById('carouselTrack');
-    const cards = document.querySelectorAll('.carousel-card');
-    const totalCards = cards.length;
-    const dotsContainer = document.getElementById('carouselDots');
-
-    // Show 2 cards at a time on desktop, 1 on mobile
-    function getCardsPerView() {
-      return window.innerWidth > 900 ? 2 : 1;
-    }
-
-    function buildDots() {
-      dotsContainer.innerHTML = "";
-      const cardsPerView = getCardsPerView();
-      const maxIndex = Math.ceil(totalCards / cardsPerView) - 1;
-
-      for(let i = 0; i <= maxIndex; i++) {
-        const dot = document.createElement('div');
-        dot.className = 'carousel-dot' + (i === currentIndex ? ' active' : '');
-        dot.onclick = () => goToSlide(i);
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateCarousel() {
-      const cardsPerView = getCardsPerView();
-      const maxIndex = Math.ceil(totalCards / cardsPerView) - 1;
-
-      // Keep currentIndex valid after resize
-      if (currentIndex > maxIndex) currentIndex = 0;
-
-      const cardWidth = cards[0].offsetWidth;
-      const gap = 20;
-      const offset = -(currentIndex * cardsPerView * (cardWidth + gap));
-      track.style.transform = `translateX(${offset}px)`;
-
-      // Update dots
-      document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentIndex);
-      });
-    }
-
-    function moveCarousel(direction) {
-      const cardsPerView = getCardsPerView();
-      const maxIndex = Math.ceil(totalCards / cardsPerView) - 1;
-
-      currentIndex += direction;
-      if(currentIndex < 0) currentIndex = maxIndex;
-      if(currentIndex > maxIndex) currentIndex = 0;
-
-      updateCarousel();
-    }
-
-    function goToSlide(index) {
-      currentIndex = index;
-      updateCarousel();
-    }
-
-    // Touch support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    track.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    });
-
-    track.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].screenX;
-      if(touchStartX - touchEndX > 50) moveCarousel(1);
-      if(touchEndX - touchStartX > 50) moveCarousel(-1);
-    });
-
-    // Auto-resize handler
-    window.addEventListener('resize', () => {
-      buildDots();
-      updateCarousel();
-    });
-
-    // Initialize
-    buildDots();
-    updateCarousel();
   </script>
 </body>
 </html>
