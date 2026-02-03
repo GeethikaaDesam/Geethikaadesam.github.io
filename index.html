@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <meta name="description" content="Project Manager with a data analytics background. Portfolio, case studies, and contact." />
+  <style>
+    :root{
+      --bg:#0b0f17; --card:#111827; --text:#e5e7eb; --muted:#9ca3af;
+      --accent:#60a5fa; --border:#1f2937; --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:var(--sans); color:var(--text); background:
+      radial-gradient(1000px 600px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
+      radial-gradient(900px 500px at 80% 30%, rgba(34,197,94,.12), transparent 60%),
+      radial-gradient(900px 600px at 50% 90%, rgba(168,85,247,.10), transparent 60%),
+      var(--bg);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter: blur(10px);
+      background: rgba(11,15,23,.55); border-bottom:1px solid rgba(31,41,55,.7);
+    }
+    .nav{
+      max-width:var(--max); margin:0 auto; padding:14px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .brand{display:flex; gap:10px; align-items:center; text-decoration:none}
+    .dot{
+      width:11px;height:11px;border-radius:999px;background:var(--accent);
+      box-shadow: 0 0 0 4px rgba(96,165,250,.18);
+    }
+    .brand strong{letter-spacing:.2px}
+    .links{display:flex; gap:14px; flex-wrap:wrap}
+    .links a{
+      text-decoration:none; color:var(--muted); font-size:14px;
+      padding:8px 10px; border-radius:999px; border:1px solid transparent;
+    }
+    .links a:hover{color:var(--text); border-color:rgba(31,41,55,.9); background:rgba(17,24,39,.55)}
+    .hero{
+      display:grid; grid-template-columns: 1.15fr .85fr; gap:22px; align-items:stretch;
+      padding-top:26px;
+    }
+    @media (max-width: 880px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background: rgba(17,24,39,.75);
+      border:1px solid rgba(31,41,55,.9);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding:22px;
+    }
+    h1{margin:0 0 10px; font-size:42px; letter-spacing:-.6px; line-height:1.12}
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .tagline{color:var(--muted); font-size:16px; margin:0 0 18px}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 0}
+    .pill{
+      font-size:12px; padding:7px 10px; border-radius:999px;
+      border:1px solid rgba(31,41,55,.9); color:var(--muted);
+      background: rgba(11,15,23,.35);
+    }
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      text-decoration:none; display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px; border:1px solid rgba(31,41,55,.9);
+      background: rgba(11,15,23,.35);
+      color:var(--text); font-weight:600; font-size:14px;
+    }
+    .btn.primary{background:rgba(96,165,250,.16); border-color:rgba(96,165,250,.35)}
+    .btn:hover{transform: translateY(-1px)}
+    .meta{display:grid; gap:12px}
+    .kv{
+      padding:14px; border-radius:14px;
+      border:1px solid rgba(31,41,55,.9); background: rgba(11,15,23,.35);
+    }
+    .kv .k{color:var(--muted); font-size:12px; font-family:var(--mono); margin-bottom:4px}
+    .kv .v{font-size:14px}
+    section{margin-top:22px}
+    h2{margin:0 0 10px; font-size:18px; letter-spacing:.2px}
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
+    .col-6{grid-column: span 6}
+    .col-4{grid-column: span 4}
+    .col-12{grid-column: span 12}
+    @media (max-width: 900px){ .col-6,.col-4{grid-column: span 12} }
+    .proj{
+      padding:16px; border-radius:14px; border:1px solid rgba(31,41,55,.9);
+      background: rgba(11,15,23,.35);
+    }
+    .proj h3{margin:0 0 6px; font-size:15px}
+    .proj p{margin:0 0 10px; color:var(--muted); font-size:14px}
+    .proj ul{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
+    .footer{
+      margin-top:30px; color:var(--muted); font-size:13px; text-align:center;
+      opacity:.95;
+    }
+    .small{font-size:12px; color:var(--muted)}
+    .mono{font-family:var(--mono)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top">
+        <span class="dot"></span>
+        <strong>Your Name</strong>
+      </a>
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#projects">Case Studies</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>Project Manager with a data analytics backbone.</h1>
+        <p class="tagline">
+          I lead cross-functional work from problem framing → delivery, and I’m building toward Product Owner roles.
+          This site highlights a few representative projects and how I think.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects">View case studies</a>
+          <a class="btn" href="#contact">Contact</a>
+          <!-- Replace # with your LinkedIn URL -->
+          <a class="btn" href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+
+        <div class="pillrow" aria-label="skills">
+          <span class="pill">Project Delivery</span>
+          <span class="pill">Stakeholder Management</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">Data Modeling</span>
+          <span class="pill">Experimentation</span>
+          <span class="pill">Product Thinking</span>
+        </div>
+      </div>
+
+      <aside class="card meta">
+        <div class="kv">
+          <div class="k">CURRENT</div>
+          <div class="v">Part-time MBA — Kelley School of Business</div>
+        </div>
+        <div class="kv">
+          <div class="k">FOCUS</div>
+          <div class="v">Turning ambiguous problems into measurable outcomes</div>
+        </div>
+        <div class="kv">
+          <div class="k">TOOLS</div>
+          <div class="v">Power BI • SQL • Excel • Jira/Confluence</div>
+        </div>
+        <div class="kv">
+          <div class="k">LOCATION</div>
+          <div class="v">Indiana, US <span class="small">(update if you want)</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p class="small">
+        Replace this paragraph with a short narrative: what you do, what you’re known for, and what kinds of roles you want next.
+        Aim for 4–6 sentences. Keep it outcome-oriented.
+      </p>
+      <p class="small">
+        Example: “I’m a project manager with prior experience as a data analyst. I enjoy defining the problem, aligning stakeholders,
+        and building clear metrics so delivery translates into impact. I’m pursuing my MBA part-time and targeting product owner roles.”
+      </p>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Selected case studies</h2>
+
+      <div class="grid">
+        <div class="proj col-6">
+          <h3>Power BI: Actual vs Scheduled Hours</h3>
+          <p>Built a reporting layer that compares planned vs actual hours and highlights exceptions.</p>
+          <ul>
+            <li>Used Power Query calculated columns and grouping logic (e.g., Schedule_Group)</li>
+            <li>Improved visibility for staffing & capacity decisions</li>
+            <li>Defined clear measures for variance + drilldowns by employee/team</li>
+          </ul>
+        </div>
+
+        <div class="proj col-6">
+          <h3>OTT analytics: First-day viewership drivers</h3>
+          <p>Modeled drivers of Day 1 engagement to improve content performance.</p>
+          <ul>
+            <li>Identified driver variables and created an analysis plan</li>
+            <li>Proposed experiments to increase first-day starts and completion</li>
+            <li>Translated findings into recommendations for content strategy</li>
+          </ul>
+        </div>
+
+        <div class="proj col-6">
+          <h3>Data modeling: Inventory & BOM tables</h3>
+          <p>Integrated multiple source tables to support accurate rollups and reporting.</p>
+          <ul>
+            <li>Tables: cspopup, inmastx, inmastdm, inbomsdl, inbomm, utcomp, inboms</li>
+            <li>Aligned keys, relationships, and definitions for consistent measures</li>
+            <li>Reduced “numbers don’t match” churn with a single source of truth</li>
+          </ul>
+        </div>
+
+        <div class="proj col-6">
+          <h3>Cross-functional delivery (placeholder)</h3>
+          <p>Add one strong PM story: scope, risks, timeline, stakeholders, outcome.</p>
+          <ul>
+            <li>Problem → approach → result (with a metric)</li>
+            <li>What you changed (process, tooling, decision-making)</li>
+            <li>What you learned / would do differently</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:14px">
+        Tip: keep each case study to 3 bullets + 1 metric (time saved, dollars, adoption, accuracy, cycle time, etc.).
+      </p>
+    </section>
+
+    <section id="resume" class="card">
+      <h2>Resume</h2>
+      <p class="small">Add your resume PDF to the repo and link it here.</p>
+      <p class="small mono">
+        1) Upload <strong>resume.pdf</strong> to this repo<br/>
+        2) Replace the link below with <strong>./resume.pdf</strong>
+      </p>
+      <a class="btn" href="./resume.pdf">Download Resume (PDF)</a>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p class="small">
+        Replace the email below with yours. If you want a contact form, we can add one (still free).
+      </p>
+      <p class="mono">Email: <a href="mailto:you@example.com">you@example.com</a></p>
+    </section>
+
+    <div class="footer">
+      <div>© <span id="year"></span> Your Name • Built on GitHub Pages</div>
+      <div class="small">Last updated: <span id="updated"></span></div>
+    </div>
+  </main>
+
+  <script>
+    // tiny helpers
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("updated").textContent = new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
+  </script>
+</body>
+</html>
