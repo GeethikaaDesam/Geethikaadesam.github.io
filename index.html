@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Geethikaa Desam — Manufacturing Ops • Data • Inventory Management</title>
+  <title>Geethikaa Desam</title>
   <meta name="description" content="Geethika Desam — operations-minded leader bridging manufacturing systems and data. Case studies, advisory, coaching, newsletter, and community." />
 
   <!-- Modern font (enterprise feel) -->
@@ -355,6 +355,131 @@
     .bullets li{margin:8px 0}
 
     /* =======================
+       COMMUNITY (narrow photo band + logo + text)
+       Uses your repo files:
+       - community-bg.jpg
+       - invisible-girl-logo.png
+    ======================== */
+    .communityBand{
+      margin-top: 18px;              /* tight: makes it feel like a mention */
+      border-radius: 18px;
+      overflow:hidden;
+      position:relative;
+      min-height: 150px;             /* narrow */
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(17,24,39,.10);
+      background: #111;
+    }
+    .communityBand::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: url("community-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.03);
+      transform: scale(1.02);
+    }
+    .communityBand::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(12,16,14,.72) 0%, rgba(12,16,14,.46) 55%, rgba(12,16,14,.18) 100%);
+      pointer-events:none;
+    }
+
+    .communityBandInner{
+      position:relative;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 18px;
+      display:flex;
+      align-items:center;
+      gap: 16px;
+    }
+    @media (max-width: 700px){
+      .communityBandInner{
+        flex-direction: column;
+        align-items:flex-start;
+        gap: 12px;
+      }
+    }
+
+    .igpLogoBox{
+      width: 70px;
+      height: 70px;
+      border-radius: 16px;           /* “square-ish” */
+      background: rgba(245,242,237,.88);
+      border: 1px solid rgba(255,255,255,.22);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+    }
+    .igpLogoBox img{
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      display:block;
+    }
+
+    .igpText{
+      display:flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+    .igpTitleRow{
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .igpTitle{
+      margin:0;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.92);
+    }
+    .igpTag{
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.78);
+    }
+    .igpReason{
+      margin:0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.78);
+      max-width: 90ch;
+    }
+    .igpActions{
+      margin-top: 6px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .igpLink{
+      font-size: 12px;
+      font-weight: 800;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.88);
+    }
+    .igpLink:hover{
+      background: rgba(255,255,255,.16);
+      border-color: rgba(255,255,255,.22);
+      transform: translateY(-1px);
+    }
+
+    /* =======================
        FULL-WIDTH "LET’S TALK" FOOTER (like screenshot)
     ======================== */
     .talkBand{
@@ -421,7 +546,6 @@
       max-width: 72ch;
     }
 
-    /* Quote: tiny + clamped */
     .talkQuoteWrap{ margin-top: 10px; max-width: 86ch; }
     .talkQuote{
       margin: 0;
@@ -433,11 +557,6 @@
       -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
-    }
-    .talkQuoteBy{
-      margin: 8px 0 0;
-      font-size: 10.5px;
-      color: rgba(255,255,255,.55);
     }
 
     .talkRight{
@@ -701,13 +820,28 @@
         <span class="hint">Organizations I support</span>
       </div>
 
-      <div class="tile">
-        <h4 style="margin:0 0 10px; font-size:20px; font-weight:900;">Invisible Girl Project</h4>
-        <p style="margin:0 0 16px; font-size:16px; line-height:1.75; color:rgba(17,24,39,.72); max-width:75ch;">
-          I support Invisible Girl Project and the work they do to protect and empower girls.
-        </p>
-        <div class="btnrow" style="margin-top:0;">
-          <a class="btn" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
+      <!-- Narrow photo band -->
+      <div class="communityBand" role="region" aria-label="Invisible Girl Project support">
+        <div class="communityBandInner">
+          <div class="igpLogoBox" aria-hidden="true">
+            <img src="invisible-girl-logo.png" alt="Invisible Girl Project logo">
+          </div>
+
+          <div class="igpText">
+            <div class="igpTitleRow">
+              <p class="igpTitle">Invisible Girl Project</p>
+              <span class="igpTag">Community</span>
+            </div>
+
+            <p class="igpReason">
+              I support Invisible Girl Project because protecting girls and expanding access to education and opportunity creates generational impact.
+              I’m proud to amplify their work—quietly, consistently, and with intention.
+            </p>
+
+            <div class="igpActions">
+              <a class="igpLink" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -731,7 +865,8 @@
           <div class="talkQuoteWrap" aria-label="Motto quote">
             <p class="talkQuote">
               “Integrity in intention, competence in execution.”
-            </div>
+            </p>
+          </div>
         </div>
 
         <!-- RIGHT -->
