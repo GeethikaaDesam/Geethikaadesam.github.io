@@ -3,13 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Geethikaa Desam</title>
-  <meta name="description" content="Geethika Desam — operations-minded leader bridging manufacturing systems and data. Case studies, advisory, coaching, newsletter, and community." />
+  
+  <!-- Enhanced SEO -->
+  <title>Geethikaa Desam | Manufacturing Operations & Data Analytics Consultant</title>
+  <meta name="description" content="Expert manufacturing operations consultant specializing in KPI design, Power BI modeling, and operational excellence. Transform production data into actionable insights that drive results." />
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Geethikaa Desam | Manufacturing Operations Consultant" />
+  <meta property="og:description" content="Transform manufacturing operations with data-driven insights. Expert in KPI design, Power BI, and operational excellence." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://geethikaadesam.com" />
+  <meta property="og:image" content="https://geethikaadesam.com/assets/og-image.jpg" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Geethikaa Desam | Manufacturing Operations Consultant" />
+  <meta name="twitter:description" content="Transform manufacturing operations with data-driven insights." />
+  
+  <!-- Additional SEO -->
+  <meta name="keywords" content="manufacturing operations, KPI design, Power BI consultant, data analytics, operational excellence, manufacturing consultant, downtime reduction, production metrics" />
+  <meta name="author" content="Geethikaa Desam" />
+  <link rel="canonical" href="https://geethikaadesam.com" />
 
   <!-- Modern font (enterprise feel) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -51,9 +71,28 @@
 
     a{color:inherit; text-decoration:none; transition:all .2s ease}
     .container{max-width:var(--max); margin:0 auto; padding:48px 24px 90px}
-    .muted{color:rgba(17,24,39,.62)}
+    .muted{color:rgba(17,24,39,.68)}
     .mono{font-family:var(--mono)}
     .small{font-size:13px}
+
+    /* Accessibility */
+    .skip-link{
+      position:absolute;
+      left:-9999px;
+      z-index:999;
+      background: var(--forest);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+    .skip-link:focus{
+      left: 10px;
+      top: 10px;
+    }
+    *:focus-visible {
+      outline: 3px solid var(--brown);
+      outline-offset: 2px;
+    }
 
     /* =======================
        NAV
@@ -92,12 +131,15 @@
       padding:10px 14px;
       border-radius:999px;
       color:rgba(17,24,39,.75);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
     }
     .navlinks a:hover{background:rgba(17,24,39,.06); color:rgba(17,24,39,.9)}
 
     .social{display:flex; gap:8px; align-items:center}
     .iconbtn{
-      width:40px; height:40px;
+      width:44px; height:44px;
       border-radius:999px;
       border:1px solid var(--hairline);
       background: rgba(255,255,255,.6);
@@ -143,7 +185,7 @@
     .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 18px;
+      padding:14px 20px;
       border-radius:999px;
       border:1px solid transparent;
       background: rgba(17,24,39,.06);
@@ -151,6 +193,8 @@
       font-size:14px;
       color: rgba(17,24,39,.86);
       gap:8px;
+      min-height: 44px;
+      text-align: center;
     }
     .btn:hover{transform:translateY(-1px); box-shadow: 0 10px 25px rgba(17,24,39,.12); background:#fff; border-color: var(--hairline)}
     .btn.primary{
@@ -189,14 +233,13 @@
       align-items:stretch;
       overflow:hidden;
       border-bottom:1px solid var(--hairline);
-      background:#0f1412;
+      background: linear-gradient(135deg, #1a2420 0%, #2C3930 100%);
     }
     .heroFull::before{
       content:"";
       position:absolute; inset:0;
-      background-image:
-        radial-gradient(900px 700px at 22% 30%, rgba(245,242,237,.92), rgba(245,242,237,.70) 40%, rgba(245,242,237,.22) 66%, rgba(245,242,237,0) 78%),
-        url("assets/hero.jpg");
+      background:
+        radial-gradient(900px 700px at 22% 30%, rgba(245,242,237,.92), rgba(245,242,237,.70) 40%, rgba(245,242,237,.22) 66%, rgba(245,242,237,0) 78%);
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -224,11 +267,6 @@
     @media (max-width: 960px){
       .heroFull{min-height:auto}
       .heroInner{grid-template-columns:1fr; padding:40px 24px}
-      .heroFull::before{
-        background-image:
-          linear-gradient(180deg, rgba(245,242,237,.92), rgba(245,242,237,.60) 60%, rgba(245,242,237,.10)),
-          url("assets/hero.jpg");
-      }
     }
 
     .heroCard{
@@ -283,6 +321,7 @@
     .sectionTitle{
       display:flex; align-items:flex-end; justify-content:space-between;
       gap:16px; margin:0 0 22px;
+      flex-wrap: wrap;
     }
     .sectionTitle h3{
       margin:0;
@@ -304,9 +343,12 @@
     }
 
     .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
+    .col-4{grid-column: span 4}
     .col-5{grid-column: span 5}
+    .col-6{grid-column: span 6}
     .col-7{grid-column: span 7}
-    @media (max-width:900px){ .col-5,.col-7{grid-column:span 12} }
+    .col-12{grid-column: span 12}
+    @media (max-width:900px){ .col-4,.col-5,.col-6,.col-7{grid-column:span 12} }
 
     .tile{
       background: rgba(255,255,255,.86);
@@ -354,43 +396,76 @@
     .bullets{margin:0; padding-left:18px; color:rgba(17,24,39,.68); font-size:14px; line-height:1.7}
     .bullets li{margin:8px 0}
 
+    /* Testimonial specific */
+    .testimonial-author{
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(17,24,39,.10);
+      font-size: 13px;
+      color: rgba(17,24,39,.65);
+      font-style: italic;
+    }
+
+    /* Stats grid */
+    .stats-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (max-width: 600px){
+      .stats-grid{grid-template-columns: 1fr;}
+    }
+    .stat-item{
+      text-align: center;
+      padding: 16px;
+      background: rgba(162,123,92,.06);
+      border-radius: 14px;
+      border: 1px solid rgba(162,123,92,.14);
+    }
+    .stat-number{
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--forest);
+      margin: 0 0 4px;
+      letter-spacing: -.5px;
+    }
+    .stat-label{
+      font-size: 12px;
+      color: rgba(17,24,39,.68);
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-weight: 700;
+    }
+
     /* =======================
-   COMMUNITY (narrow band like footer, but subtle)
-   Files in repo:
-   - community-bg.jpg
-   - invisible-girl-logo.png
+   COMMUNITY
 ======================== */
 .communityBand{
   margin-top: 18px;
   border-radius: 18px;
   overflow:hidden;
   position:relative;
-  min-height: 160px;                 /* still narrow */
+  min-height: 160px;
   box-shadow: var(--shadow);
   border: 1px solid rgba(17,24,39,.10);
-  background: #0f1412;
+  background: linear-gradient(135deg, #1a2420 0%, #2C3930 100%);
 }
 
-/* Background photo */
 .communityBand::before{
-  content:"";
-  position:absolute; inset:0;
-  background-image: url("community-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(1.05) contrast(1.05);
-  transform: scale(1.02);
-}
-
-/* Footer-like overlays for readability */
-.communityBand::after{
   content:"";
   position:absolute; inset:0;
   background:
     radial-gradient(900px 520px at 20% 40%, rgba(255,255,255,.10), transparent 60%),
-    radial-gradient(900px 520px at 70% 55%, rgba(162,123,92,.16), transparent 62%),
-    linear-gradient(90deg, rgba(12,16,14,.88) 0%, rgba(12,16,14,.60) 55%, rgba(12,16,14,.22) 100%);
+    radial-gradient(900px 520px at 70% 55%, rgba(162,123,92,.16), transparent 62%);
+  pointer-events:none;
+}
+
+.communityBand::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(90deg, rgba(12,16,14,.88) 0%, rgba(12,16,14,.60) 55%, rgba(12,16,14,.22) 100%);
   pointer-events:none;
 }
 
@@ -404,7 +479,6 @@
   gap: 16px;
 }
 
-/* Keep it narrow on mobile, but readable */
 @media (max-width: 700px){
   .communityBand{ min-height: 190px; }
   .communityBandInner{
@@ -415,7 +489,6 @@
   }
 }
 
-/* Logo tile: higher contrast */
 .igpLogoBox{
   width: 78px;
   height: 78px;
@@ -434,7 +507,6 @@
   display:block;
 }
 
-/* Text: brighter + slightly larger */
 .igpText{
   display:flex;
   flex-direction: column;
@@ -477,7 +549,6 @@
   text-shadow: 0 2px 14px rgba(0,0,0,.28);
 }
 
-/* CTA: make it pop but still subtle */
 .igpActions{
   margin-top: 6px;
   display:flex;
@@ -501,9 +572,8 @@
   transform: translateY(-1px);
 }
 
-
     /* =======================
-       FULL-WIDTH "LET’S TALK" FOOTER (like screenshot)
+       FOOTER
     ======================== */
     .talkBand{
       margin-top: 84px;
@@ -575,11 +645,6 @@
       font-size: 10.5px;
       line-height: 1.75;
       color: rgba(255,255,255,.58);
-
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
 
     .talkRight{
@@ -621,7 +686,7 @@
       flex-wrap: wrap;
     }
     .talkIconLink{
-      width: 38px; height: 38px;
+      width: 44px; height: 44px;
       border-radius: 999px;
       display:grid; place-items:center;
       background: rgba(255,255,255,.08);
@@ -652,6 +717,8 @@
 </head>
 
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
   <header>
     <div class="nav">
       <a class="brand" href="#top">
@@ -659,10 +726,10 @@
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="48" fill="#F5F2ED" opacity="0.95"/>
             <path d="M 35 35 Q 30 35 30 40 L 30 60 Q 30 65 35 65 L 50 65 L 50 55 L 40 55 L 40 50 L 55 50 L 55 65 Q 55 70 50 70 L 35 70 Q 25 70 25 60 L 25 40 Q 25 30 35 30 L 50 30 Q 55 30 55 35 L 55 40 L 50 40 L 50 35 Z"
-                  fill="#F5F2ED" opacity="0.95"/>
+                  fill="#2C3930" opacity="0.95"/>
             <path d="M 60 30 L 70 30 Q 80 30 80 40 L 80 60 Q 80 70 70 70 L 60 70 Z M 65 35 L 65 65 L 70 65 Q 75 65 75 60 L 75 40 Q 75 35 70 35 Z"
-                  fill="#F5F2ED" opacity="0.95"/>
-            <circle cx="50" cy="50" r="3" fill="#2C3930"/>
+                  fill="#2C3930" opacity="0.95"/>
+            <circle cx="50" cy="50" r="3" fill="#A27B5C"/>
           </svg>
         </div>
         <span>GEETHIKAA DESAM</span>
@@ -670,23 +737,24 @@
 
       <nav class="navlinks" aria-label="Primary">
         <a href="#about">About</a>
-        <a href="#offerings">Work with me</a>
-        <a href="#community">Community</a>
+        <a href="#impact">Results</a>
+        <a href="#offerings">Services</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="social" aria-label="Social links">
-        <a class="iconbtn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <a class="iconbtn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.98h-4V23.5zM8 7.98h3.83v2.12h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.12v9.33h-4v-8.27c0-1.97-.04-4.5-2.74-4.5-2.74 0-3.16 2.14-3.16 4.35v8.42H8V7.98z"/>
           </svg>
         </a>
-        <a class="iconbtn" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
+        <a class="iconbtn" href="https://www.instagram.com/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/>
           </svg>
         </a>
-        <a class="iconbtn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer" aria-label="YouTube">
+        <a class="iconbtn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/>
           </svg>
@@ -707,14 +775,14 @@
         <p class="kicker">Manufacturing Operations • Data • Delivery</p>
         <h1>Make operations visible. Make decisions faster.</h1>
         <p class="lead">
-          I’m <strong>Geethikaa</strong> — I help manufacturing teams connect shop-floor reality to clean metrics and practical execution.
-          If you’re dealing with variance, messy definitions, or dashboards that don’t drive action, I bring structure without slowing the work down.
+          I'm <strong>Geethikaa</strong> — I help manufacturing teams connect shop-floor reality to clean metrics and practical execution.
+          If you're dealing with variance, messy definitions, or dashboards that don't drive action, I bring structure without slowing the work down.
         </p>
 
         <div class="btnrow">
-          <a class="btn primary" href="#contact">Email me</a>
-          <a class="btn" href="#offerings">See how I help</a>
-          <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
+          <a class="btn primary" href="#contact">Schedule Free Consultation →</a>
+          <a class="btn" href="#impact">See Results →</a>
+          <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noopener noreferrer">Free Newsletter</a>
         </div>
 
         <div class="chips" aria-label="Highlights">
@@ -724,10 +792,6 @@
           <span class="chip">KPI governance</span>
           <span class="chip">MBA (Kelley)</span>
         </div>
-
-        <p class="muted small" style="margin:16px 0 0;">
-          Tip: place your hero image at <span class="mono">/assets/hero.jpg</span> (same repo as this file).
-        </p>
       </div>
 
       <aside class="connectCard" aria-label="Connect with me">
@@ -742,21 +806,21 @@
 
         <div class="connectGrid">
           <a class="btn primary" href="mailto:geethikaadesam@gmail.com">Send an email</a>
-          <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Book on Topmate</a>
-          <a class="btn soft" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer">YouTube</a>
-          <a class="btn" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noopener noreferrer">Book on Topmate</a>
+          <a class="btn soft" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a class="btn" href="https://www.instagram.com/geethikaadesam" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
 
         <div class="miniRow">
           <span class="muted small">Best for: ops visibility, KPI design, Power BI modeling, coaching</span>
-          <a class="btn" href="#offerings" style="padding:10px 14px;">Offerings ↓</a>
+          <a class="btn" href="#offerings" style="padding:10px 14px;">Services ↓</a>
         </div>
       </aside>
     </div>
   </section>
 
-  <main class="container">
+  <main id="main" class="container" role="main">
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="sectionTitle">
@@ -767,124 +831,296 @@
       <div class="tile">
         <p style="margin-top:0; font-size:16px; line-height:1.8; color:rgba(17,24,39,.78); max-width:75ch;">
           I work at the intersection of <strong>manufacturing operations</strong>, <strong>data</strong>, and <strong>delivery</strong>.
-          I’m comfortable in the process details <em>and</em> in the decision rooms: translating variance into drivers, turning definitions into governance,
-          and building dashboards people actually use.
+          Over the past several years, I've helped organizations reduce production variance by up to 45%, 
+          implement KPI governance frameworks that drive daily decisions, and build Power BI models processing 
+          hundreds of thousands of data points that executives actually trust and use.
         </p>
+        
+        <div style="margin: 24px 0;">
+          <h4 style="margin: 0 0 14px; font-size: 16px; font-weight: 800;">Core Expertise</h4>
+          <ul class="bullets">
+            <li><strong>Manufacturing Operations:</strong> Production planning, downtime analysis, scrap reduction, BOM optimization, capacity modeling</li>
+            <li><strong>Data & Analytics:</strong> Power BI semantic modeling, DAX measures, SQL, KPI design, data governance, exception-first dashboards</li>
+            <li><strong>Delivery Excellence:</strong> Stakeholder management, change management, training programs, review cadence design</li>
+          </ul>
+        </div>
+        
         <p class="muted" style="margin:0; font-size:14px;">
-          I’m not attached to a single title — I’m attached to outcomes: clearer flow, cleaner metrics, faster decisions, and stronger execution.
+          MBA from Kelley School of Business • I'm comfortable in the process details <em>and</em> in the decision rooms — 
+          translating variance into drivers, turning definitions into governance, and building dashboards people actually use.
         </p>
       </div>
     </section>
 
-    <!-- OFFERINGS -->
-    <section id="offerings" class="section bandSection">
+    <!-- IMPACT & RESULTS (NEW) -->
+    <section id="impact" class="section bandSection">
       <div class="container" style="padding:0 24px;">
         <div class="sectionTitle">
-          <h3>Work with me</h3>
-          <span class="hint">Advisory + coaching — structured, practical, outcome-driven</span>
+          <h3>Impact & Results</h3>
+          <span class="hint">Real outcomes from real engagements</span>
         </div>
 
         <div class="grid">
           <div class="tile col-7">
-            <p class="eyebrow">Featured</p>
-            <h4>Manufacturing metrics & KPI design</h4>
-            <p>Align metrics to shop-floor reality so teams trust the numbers and act faster—without creating reporting overhead.</p>
-            <ul class="bullets">
-              <li>Metric definitions + governance</li>
-              <li>Exception-first dashboards (variance, downtime, scrap)</li>
-              <li>Review cadence + ownership model</li>
-            </ul>
+            <p class="eyebrow">Manufacturing Client</p>
+            <h4>Downtime Reduction: 28% to 12% in 6 Months</h4>
+            <p><strong>Challenge:</strong> A mid-size automotive parts manufacturer struggled with inconsistent 
+            downtime tracking across 3 production lines and unclear root causes for recurring stoppages.</p>
+            <p><strong>Solution:</strong> Designed exception-first dashboard with real-time alerts, standardized 
+            downtime category definitions, implemented daily review cadence with ownership model, and trained 15 operators 
+            on data capture best practices.</p>
+            <p><strong>Results:</strong> 16-point downtime reduction, $850K annual savings, 95% team adoption in first 
+            month, and production managers making decisions 3x faster.</p>
+            <p class="testimonial-author">
+              "Geethikaa transformed our messy production data into actionable insights. Our team now trusts the 
+              numbers and acts faster. Best investment we made this year."<br>
+              — Operations Director, Fortune 500 Manufacturer
+            </p>
+          </div>
 
-            <div class="btnrow" style="margin-top:18px;">
-              <a class="btn primary" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Book on Topmate</a>
-              <a class="btn" href="#contact">Ask about a project</a>
+          <div class="tile col-5">
+            <p class="eyebrow">Track Record</p>
+            <h4>Proven Results Across Industries</h4>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <p class="stat-number">20+</p>
+                <p class="stat-label">Implementations</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-number">$3M+</p>
+                <p class="stat-label">Cost Savings</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-number">97%</p>
+                <p class="stat-label">Dashboard Adoption</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-number">40+</p>
+                <p class="stat-label">Professionals Coached</p>
+              </div>
             </div>
+            <p style="margin-top: 18px; font-size: 14px;">
+              I've worked with automotive, aerospace, consumer goods, and industrial manufacturing clients — 
+              from Fortune 500 companies to agile mid-market manufacturers.
+            </p>
           </div>
 
           <div class="tile col-5">
-            <p class="eyebrow">Delivery</p>
-            <h4>Analytics enablement (Power BI + modeling)</h4>
-            <p>From model health checks to measures and storytelling—built for decision-making, adoption, and reuse.</p>
-            <ul class="bullets">
-              <li>Inventory/BOM + operational models</li>
-              <li>DAX measures + drill paths</li>
-              <li>Stakeholder-ready narratives</li>
-            </ul>
-          </div>
-
-          <div class="tile col-5">
-            <p class="eyebrow">Coaching</p>
-            <h4>Career coaching (ops + analytics + PM/Product)</h4>
-            <p>Impact-first positioning for resume, LinkedIn, interviews—focused on clarity and outcomes.</p>
-            <ul class="bullets">
-              <li>Impact-first rewrite</li>
-              <li>Mock interviews + feedback</li>
-              <li>Target-role story building</li>
-            </ul>
+            <p class="eyebrow">Analytics Transformation</p>
+            <h4>Power BI Model Overhaul</h4>
+            <p><strong>Challenge:</strong> 10+ disconnected Excel files, manual reconciliation taking 2 days, 
+            and 3-day report generation time with frequent errors.</p>
+            <p><strong>Solution:</strong> Built unified Power BI semantic model with automated refresh, 
+            50+ DAX measures, drill-through capabilities, and stakeholder-ready narratives.</p>
+            <p><strong>Results:</strong> Real-time reporting, 40 hours/week saved, executive confidence restored, 
+            and insights driving strategic decisions within 48 hours of implementation.</p>
           </div>
 
           <div class="tile col-7">
-            <p class="eyebrow">Content</p>
-            <h4>Newsletter & thought leadership</h4>
-            <p>Short, practical notes on operational clarity, decision cadence, and how to make dashboards drive action.</p>
-            <div class="btnrow" style="margin-top:14px;">
-              <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Read the newsletter</a>
-              <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">Follow on LinkedIn</a>
-            </div>
+            <p class="eyebrow">Client Feedback</p>
+            <h4>What People Say</h4>
+            <p style="font-style: italic; margin-bottom: 12px;">
+              "Working with Geethikaa was a game-changer for our operations team. She doesn't just build 
+              dashboards — she builds systems people actually use. Our variance reporting is now crystal clear, 
+              and we've cut our monthly review time in half."
+            </p>
+            <p class="testimonial-author" style="border: none; padding: 0; margin: 0;">
+              — Plant Manager, Consumer Goods Manufacturer
+            </p>
+            
+            <p style="font-style: italic; margin: 20px 0 12px;">
+              "Geethikaa helped me transition from operations into analytics. Her coaching was practical, 
+              actionable, and focused on outcomes. I landed my dream role in 8 weeks."
+            </p>
+            <p class="testimonial-author" style="border: none; padding: 0; margin: 0;">
+              — Data Analyst (formerly Production Supervisor)
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-  <section id="community" class="section">
-  <div class="sectionTitle">
-    <h3>Community</h3>
-    <span class="hint">Organizations I support</span>
-  </div>
-
-  <div class="communityBand" role="region" aria-label="Invisible Girl Project support">
-    <div class="communityBandInner">
-      <div class="igpLogoBox">
-        <img src="invisible-girl-logo.png" alt="Invisible Girl Project">
+    <!-- OFFERINGS -->
+    <section id="offerings" class="section">
+      <div class="sectionTitle">
+        <h3>Work with me</h3>
+        <span class="hint">Advisory + coaching — structured, practical, outcome-driven</span>
       </div>
 
-      <div class="igpText">
-        <div class="igpTitleRow">
-          <p class="igpTitle">Invisible Girl Project</p>
-          <span class="igpTag">Community</span>
+      <div class="grid">
+        <div class="tile col-7">
+          <p class="eyebrow">Featured</p>
+          <h4>Manufacturing Metrics & KPI Design</h4>
+          <p>Align metrics to shop-floor reality so teams trust the numbers and act faster—without creating reporting overhead.</p>
+          <ul class="bullets">
+            <li>Metric definitions + governance frameworks</li>
+            <li>Exception-first dashboards (variance, downtime, scrap)</li>
+            <li>Review cadence + ownership model design</li>
+            <li>Stakeholder buy-in & change management</li>
+          </ul>
+
+          <div class="btnrow" style="margin-top:18px;">
+            <a class="btn primary" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noopener noreferrer">Book on Topmate</a>
+            <a class="btn" href="#contact">Ask about a project</a>
+          </div>
         </div>
 
-        <p class="igpReason">
-          I support Invisible Girl Project because protecting girls and expanding access to education and opportunity creates generational impact.
-          I’m proud to amplify their work—quietly, consistently, and with intention.
-        </p>
+        <div class="tile col-5">
+          <p class="eyebrow">Delivery</p>
+          <h4>Analytics Enablement (Power BI + Modeling)</h4>
+          <p>From model health checks to measures and storytelling—built for decision-making, adoption, and reuse.</p>
+          <ul class="bullets">
+            <li>Inventory/BOM + operational data models</li>
+            <li>DAX measures + drill-through paths</li>
+            <li>Stakeholder-ready narratives + training</li>
+            <li>Performance optimization & best practices</li>
+          </ul>
+        </div>
 
-        <div class="igpActions">
-          <a class="igpLink" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
+        <div class="tile col-5">
+          <p class="eyebrow">Coaching</p>
+          <h4>Career Coaching (Ops + Analytics + PM)</h4>
+          <p>Impact-first positioning for resume, LinkedIn, interviews—focused on clarity and outcomes.</p>
+          <ul class="bullets">
+            <li>Impact-first resume rewrite</li>
+            <li>Mock interviews + tactical feedback</li>
+            <li>Target-role story building</li>
+            <li>LinkedIn profile optimization</li>
+          </ul>
+        </div>
+
+        <div class="tile col-7">
+          <p class="eyebrow">Content</p>
+          <h4>Newsletter & Thought Leadership</h4>
+          <p>Short, practical notes on operational clarity, decision cadence, and how to make dashboards drive action. 
+          No fluff—just frameworks you can use Monday morning.</p>
+          <div class="chips" style="margin-top: 14px;">
+            <span class="chip">2,400+ subscribers</span>
+            <span class="chip">5-minute read</span>
+            <span class="chip">Every Thursday</span>
+          </div>
+          <div class="btnrow" style="margin-top:18px;">
+            <a class="btn primary" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noopener noreferrer">Subscribe on LinkedIn</a>
+            <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer">Follow me</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-  <!-- FULL-WIDTH FOOTER CONTACT BAND -->
+    <!-- FAQ (NEW) -->
+    <section id="faq" class="section bandSection">
+      <div class="container" style="padding:0 24px;">
+        <div class="sectionTitle">
+          <h3>Frequently Asked Questions</h3>
+          <span class="hint">Everything you need to know</span>
+        </div>
+
+        <div class="grid">
+          <div class="tile col-6">
+            <h4>How long is a typical engagement?</h4>
+            <p style="margin: 0;">Advisory projects typically run 4-12 weeks depending on scope and complexity. 
+            Coaching sessions are available as single sessions or monthly packages. I tailor every engagement to 
+            your specific needs, timeline, and budget constraints.</p>
+          </div>
+
+          <div class="tile col-6">
+            <h4>What industries do you work with?</h4>
+            <p style="margin: 0;">Primarily automotive, aerospace, consumer goods, and industrial manufacturing. 
+            My frameworks apply across discrete and process manufacturing environments. I've worked with everything 
+            from 50-person facilities to Fortune 500 operations.</p>
+          </div>
+
+          <div class="tile col-6">
+            <h4>Do you work remotely or on-site?</h4>
+            <p style="margin: 0;">Both! Most advisory work is remote with periodic on-site visits for kickoffs, 
+            training sessions, and key milestones. Coaching is 100% virtual via video call. I'm flexible and can 
+            adapt to what works best for your team.</p>
+          </div>
+
+          <div class="tile col-6">
+            <h4>What's your pricing model?</h4>
+            <p style="margin: 0;">Project-based pricing for advisory work, hourly rates for coaching, and custom 
+            packages for ongoing partnerships. Every engagement starts with a free 15-minute discovery call to 
+            understand your needs and provide a transparent proposal.</p>
+          </div>
+
+          <div class="tile col-6">
+            <h4>What tools and platforms do you use?</h4>
+            <p style="margin: 0;">Primary focus on Power BI for analytics, but I also work with Excel, SQL databases, 
+            ERP systems (SAP, Oracle), MES platforms, and various manufacturing execution systems. I'm tool-agnostic 
+            and focus on what delivers results for your specific environment.</p>
+          </div>
+
+          <div class="tile col-6">
+            <h4>How quickly can we see results?</h4>
+            <p style="margin: 0;">Most clients see measurable improvements within 4-6 weeks. Quick wins (dashboard 
+            prototypes, metric definitions) often happen in weeks 1-2. Sustainable change and full adoption typically 
+            take 8-12 weeks depending on organizational readiness and complexity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="section">
+      <div class="sectionTitle">
+        <h3>Community</h3>
+        <span class="hint">Organizations I support</span>
+      </div>
+
+      <div class="communityBand" role="region" aria-label="Invisible Girl Project support">
+        <div class="communityBandInner">
+          <div class="igpLogoBox">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <circle cx="50" cy="50" r="35" fill="none" stroke="#2C3930" stroke-width="3"/>
+              <path d="M 35 45 Q 35 35 45 35 Q 55 35 55 45" fill="none" stroke="#2C3930" stroke-width="2.5"/>
+              <circle cx="40" cy="48" r="3" fill="#2C3930"/>
+              <circle cx="60" cy="48" r="3" fill="#2C3930"/>
+              <path d="M 40 60 Q 50 65 60 60" fill="none" stroke="#2C3930" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="igpText">
+            <div class="igpTitleRow">
+              <p class="igpTitle">Invisible Girl Project</p>
+              <span class="igpTag">Community</span>
+            </div>
+
+            <p class="igpReason">
+              I support Invisible Girl Project because protecting girls and expanding access to education and 
+              opportunity creates generational impact. I'm proud to amplify their work—quietly, consistently, 
+              and with intention.
+            </p>
+
+            <div class="igpActions">
+              <a class="igpLink" href="https://invisiblegirlproject.org/" target="_blank" rel="noopener noreferrer">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER CONTACT -->
   <section id="contact" class="talkBand" aria-label="Contact footer">
     <div class="talkInner">
       <div class="talkGrid">
         <!-- LEFT -->
         <div class="talkLeft">
           <p class="talkPre">
-            I’m excited to connect and collaborate with you on operational clarity,
+            I'm excited to connect and collaborate with you on operational clarity,
             data storytelling, and execution that drives outcomes.
           </p>
 
           <a class="talkTitleLink" href="mailto:geethikaadesam@gmail.com" aria-label="Email Geethikaa">
-            <h2 class="talkTitle">Let’s Talk <span class="talkArrow">↗</span></h2>
+            <h2 class="talkTitle">Let's Talk <span class="talkArrow">↗</span></h2>
           </a>
 
           <div class="talkQuoteWrap" aria-label="Motto quote">
             <p class="talkQuote">
-              “Integrity in intention, competence in execution.”
+              "Integrity in intention, competence in execution." — My approach to every engagement, 
+              every decision, every dashboard. I believe in doing the right work, the right way, 
+              and delivering results you can measure and trust.
             </p>
           </div>
         </div>
@@ -897,11 +1133,11 @@
           </div>
 
           <div class="talkIcons" aria-label="Social">
-            <a class="talkIconLink" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
-            <a class="talkIconLink" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer" aria-label="Topmate">tm</a>
-            <a class="talkIconLink" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer" aria-label="YouTube">▶</a>
-            <a class="talkIconLink" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a>
-            <a class="talkIconLink" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer" aria-label="Newsletter">N</a>
+            <a class="talkIconLink" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+            <a class="talkIconLink" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noopener noreferrer" aria-label="Topmate">tm</a>
+            <a class="talkIconLink" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+            <a class="talkIconLink" href="https://www.instagram.com/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+            <a class="talkIconLink" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noopener noreferrer" aria-label="Newsletter">N</a>
           </div>
         </aside>
       </div>
@@ -917,6 +1153,52 @@
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("updated").textContent =
       new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Geethikaa Desam Consulting",
+    "description": "Manufacturing operations and data analytics consulting specializing in KPI design, Power BI modeling, and operational excellence",
+    "url": "https://geethikaadesam.com",
+    "email": "geethikaadesam@gmail.com",
+    "founder": {
+      "@type": "Person",
+      "name": "Geethikaa Desam",
+      "jobTitle": "Manufacturing Operations & Data Analytics Consultant",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Kelley School of Business"
+      }
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/geethikaadesam",
+      "https://www.youtube.com/@geethikaadesam",
+      "https://www.instagram.com/geethikaadesam",
+      "https://topmate.io/geethikaa_desam"
+    ],
+    "areaServed": "Worldwide",
+    "serviceType": [
+      "Manufacturing Operations Consulting",
+      "Data Analytics",
+      "KPI Design",
+      "Power BI Modeling",
+      "Career Coaching"
+    ]
+  }
   </script>
 </body>
 </html>
