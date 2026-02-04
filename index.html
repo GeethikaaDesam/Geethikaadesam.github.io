@@ -355,15 +355,28 @@
     .bullets li{margin:8px 0}
 
     /* =======================
-       FULL-WIDTH "LET’S TALK" FOOTER (icon style like screenshot)
+       FULL-WIDTH "LET’S TALK" FOOTER (like screenshot)
     ======================== */
     .talkBand{
       margin-top: 84px;
       background: linear-gradient(135deg, var(--forest), rgba(44,57,48,.92));
       color: rgba(255,255,255,.92);
       border-top: 1px solid rgba(255,255,255,.10);
+      position: relative;
+      overflow: hidden;
+    }
+    .talkBand::before{
+      content:"";
+      position:absolute;
+      inset:-200px -120px -240px -120px;
+      background:
+        radial-gradient(700px 380px at 25% 35%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(700px 380px at 70% 45%, rgba(162,123,92,.10), transparent 62%);
+      pointer-events:none;
+      opacity:.9;
     }
     .talkInner{
+      position:relative;
       max-width: var(--max);
       margin: 0 auto;
       padding: 72px 24px 22px;
@@ -400,14 +413,31 @@
       transform: translateY(-.06em);
       color: var(--brown);
     }
-    .talkTitleLink:hover .talkTitle{ opacity: .95; }
-
     .talkMotto{
-      margin: 16px 0 0;
+      margin: 14px 0 0;
       font-size: 11px;
       line-height: 1.7;
-      color: rgba(255,255,255,.66);
-      max-width: 200ch;
+      color: rgba(255,255,255,.68);
+      max-width: 72ch;
+    }
+
+    /* Quote: tiny + clamped */
+    .talkQuoteWrap{ margin-top: 10px; max-width: 86ch; }
+    .talkQuote{
+      margin: 0;
+      font-size: 10.5px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.58);
+
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .talkQuoteBy{
+      margin: 8px 0 0;
+      font-size: 10.5px;
+      color: rgba(255,255,255,.55);
     }
 
     .talkRight{
@@ -686,7 +716,6 @@
   <!-- FULL-WIDTH FOOTER CONTACT BAND -->
   <section id="contact" class="talkBand" aria-label="Contact footer">
     <div class="talkInner">
-
       <div class="talkGrid">
         <!-- LEFT -->
         <div class="talkLeft">
@@ -699,9 +728,16 @@
             <h2 class="talkTitle">Let’s Talk <span class="talkArrow">↗</span></h2>
           </a>
 
-          <p class="talkMotto">
-            "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat."
-          </p>
+          <p class="talkMotto">Motto: “Make operations visible. Make decisions faster.”</p>
+
+          <div class="talkQuoteWrap" aria-label="Motto quote">
+            <p class="talkQuote">
+              “It is not the critic who counts; not the man who points out how the strong man stumbles,
+              or where the doer of deeds could have done them better. The credit belongs to the man who is
+              actually in the arena…”
+            </p>
+            <p class="talkQuoteBy">— Theodore Roosevelt</p>
+          </div>
         </div>
 
         <!-- RIGHT -->
@@ -725,7 +761,6 @@
         <div>© <span id="year"></span> Geethika Desam • All Rights Reserved.</div>
         <div class="mono">Last updated: <span id="updated"></span></div>
       </div>
-
     </div>
   </section>
 
