@@ -355,129 +355,152 @@
     .bullets li{margin:8px 0}
 
     /* =======================
-       COMMUNITY (narrow photo band + logo + text)
-       Uses your repo files:
-       - community-bg.jpg
-       - invisible-girl-logo.png
-    ======================== */
-    .communityBand{
-      margin-top: 18px;              /* tight: makes it feel like a mention */
-      border-radius: 18px;
-      overflow:hidden;
-      position:relative;
-      min-height: 150px;             /* narrow */
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(17,24,39,.10);
-      background: #111;
-    }
-    .communityBand::before{
-      content:"";
-      position:absolute; inset:0;
-      background-image: url("community-bg.jpg");
-      background-size: cover;
-      background-position: center;
-      filter: saturate(1.05) contrast(1.03);
-      transform: scale(1.02);
-    }
-    .communityBand::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(90deg, rgba(12,16,14,.72) 0%, rgba(12,16,14,.46) 55%, rgba(12,16,14,.18) 100%);
-      pointer-events:none;
-    }
+   COMMUNITY (narrow band like footer, but subtle)
+   Files in repo:
+   - community-bg.jpg
+   - invisible-girl-logo.png
+======================== */
+.communityBand{
+  margin-top: 18px;
+  border-radius: 18px;
+  overflow:hidden;
+  position:relative;
+  min-height: 160px;                 /* still narrow */
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(17,24,39,.10);
+  background: #0f1412;
+}
 
-    .communityBandInner{
-      position:relative;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 18px;
-      display:flex;
-      align-items:center;
-      gap: 16px;
-    }
-    @media (max-width: 700px){
-      .communityBandInner{
-        flex-direction: column;
-        align-items:flex-start;
-        gap: 12px;
-      }
-    }
+/* Background photo */
+.communityBand::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: url("community-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: saturate(1.05) contrast(1.05);
+  transform: scale(1.02);
+}
 
-    .igpLogoBox{
-      width: 70px;
-      height: 70px;
-      border-radius: 16px;           /* “square-ish” */
-      background: rgba(245,242,237,.88);
-      border: 1px solid rgba(255,255,255,.22);
-      display:grid;
-      place-items:center;
-      flex: 0 0 auto;
-      box-shadow: 0 12px 30px rgba(0,0,0,.22);
-    }
-    .igpLogoBox img{
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      display:block;
-    }
+/* Footer-like overlays for readability */
+.communityBand::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(900px 520px at 20% 40%, rgba(255,255,255,.10), transparent 60%),
+    radial-gradient(900px 520px at 70% 55%, rgba(162,123,92,.16), transparent 62%),
+    linear-gradient(90deg, rgba(12,16,14,.88) 0%, rgba(12,16,14,.60) 55%, rgba(12,16,14,.22) 100%);
+  pointer-events:none;
+}
 
-    .igpText{
-      display:flex;
-      flex-direction: column;
-      gap: 6px;
-      min-width: 0;
-    }
-    .igpTitleRow{
-      display:flex;
-      align-items:baseline;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .igpTitle{
-      margin:0;
-      font-size: 14px;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.92);
-    }
-    .igpTag{
-      font-size: 11px;
-      font-weight: 800;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.78);
-    }
-    .igpReason{
-      margin:0;
-      font-size: 13px;
-      line-height: 1.6;
-      color: rgba(255,255,255,.78);
-      max-width: 90ch;
-    }
-    .igpActions{
-      margin-top: 6px;
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .igpLink{
-      font-size: 12px;
-      font-weight: 800;
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      color: rgba(255,255,255,.88);
-    }
-    .igpLink:hover{
-      background: rgba(255,255,255,.16);
-      border-color: rgba(255,255,255,.22);
-      transform: translateY(-1px);
-    }
+.communityBandInner{
+  position:relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 18px;
+  display:flex;
+  align-items:center;
+  gap: 16px;
+}
+
+/* Keep it narrow on mobile, but readable */
+@media (max-width: 700px){
+  .communityBand{ min-height: 190px; }
+  .communityBandInner{
+    flex-direction: column;
+    align-items:flex-start;
+    gap: 12px;
+    padding: 16px 16px;
+  }
+}
+
+/* Logo tile: higher contrast */
+.igpLogoBox{
+  width: 78px;
+  height: 78px;
+  border-radius: 18px;
+  background: rgba(245,242,237,.92);
+  border: 1px solid rgba(255,255,255,.24);
+  display:grid;
+  place-items:center;
+  flex: 0 0 auto;
+  box-shadow: 0 14px 34px rgba(0,0,0,.28);
+}
+.igpLogoBox img{
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  display:block;
+}
+
+/* Text: brighter + slightly larger */
+.igpText{
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.igpTitleRow{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.igpTitle{
+  margin:0;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.95);
+}
+
+.igpTag{
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.82);
+}
+
+.igpReason{
+  margin:0;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.84);
+  max-width: 88ch;
+  text-shadow: 0 2px 14px rgba(0,0,0,.28);
+}
+
+/* CTA: make it pop but still subtle */
+.igpActions{
+  margin-top: 6px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.igpLink{
+  font-size: 12px;
+  font-weight: 900;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(245,242,237,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  color: rgba(255,255,255,.92);
+}
+
+.igpLink:hover{
+  background: rgba(245,242,237,.20);
+  border-color: rgba(255,255,255,.30);
+  transform: translateY(-1px);
+}
+
 
     /* =======================
        FULL-WIDTH "LET’S TALK" FOOTER (like screenshot)
@@ -813,39 +836,36 @@
       </div>
     </section>
 
-    <!-- COMMUNITY -->
-    <section id="community" class="section">
-      <div class="sectionTitle">
-        <h3>Community</h3>
-        <span class="hint">Organizations I support</span>
+  <section id="community" class="section">
+  <div class="sectionTitle">
+    <h3>Community</h3>
+    <span class="hint">Organizations I support</span>
+  </div>
+
+  <div class="communityBand" role="region" aria-label="Invisible Girl Project support">
+    <div class="communityBandInner">
+      <div class="igpLogoBox">
+        <img src="invisible-girl-logo.png" alt="Invisible Girl Project">
       </div>
 
-      <!-- Narrow photo band -->
-      <div class="communityBand" role="region" aria-label="Invisible Girl Project support">
-        <div class="communityBandInner">
-          <div class="igpLogoBox" aria-hidden="true">
-            <img src="invisible-girl-logo.png" alt="Invisible Girl Project logo">
-          </div>
+      <div class="igpText">
+        <div class="igpTitleRow">
+          <p class="igpTitle">Invisible Girl Project</p>
+          <span class="igpTag">Community</span>
+        </div>
 
-          <div class="igpText">
-            <div class="igpTitleRow">
-              <p class="igpTitle">Invisible Girl Project</p>
-              <span class="igpTag">Community</span>
-            </div>
+        <p class="igpReason">
+          I support Invisible Girl Project because protecting girls and expanding access to education and opportunity creates generational impact.
+          I’m proud to amplify their work—quietly, consistently, and with intention.
+        </p>
 
-            <p class="igpReason">
-              I support Invisible Girl Project because protecting girls and expanding access to education and opportunity creates generational impact.
-              I’m proud to amplify their work—quietly, consistently, and with intention.
-            </p>
-
-            <div class="igpActions">
-              <a class="igpLink" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
-            </div>
-          </div>
+        <div class="igpActions">
+          <a class="igpLink" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
 
   <!-- FULL-WIDTH FOOTER CONTACT BAND -->
   <section id="contact" class="talkBand" aria-label="Contact footer">
