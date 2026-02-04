@@ -6,394 +6,413 @@
   <title>Geethikaa Desam — Manufacturing Ops • Data • Delivery</title>
   <meta name="description" content="Geethika Desam — operations-minded leader bridging manufacturing systems and data. Case studies, advisory, coaching, newsletter, and community." />
 
+  <!-- Modern font (enterprise feel) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      /* Earthy palette */
-      --forest:#2C3930;        /* primary text + dark CTAs */
-      --sage:#3F4F44;          /* secondary text + borders */
-      --brown:#A27B5C;         /* accent + secondary CTAs */
-      --warm-white:#F5F2ED;    /* page background */
-      --card:#ffffff;          /* card backgrounds */
+      /* Palette (keep your earthy tones but modernize usage) */
+      --forest:#2C3930;
+      --sage:#3F4F44;
+      --brown:#A27B5C;
+      --warm-white:#F5F2ED;
+      --card:#ffffff;
 
-      /* Utilities */
-      --shadow: 0 2px 20px rgba(44,57,48,.08);
-      --shadow-hover: 0 8px 40px rgba(44,57,48,.12);
-      --radius: 24px;
+      --radius: 22px;
       --max: 1200px;
 
-      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+      /* Modern shadows (subtle, not “boxy”) */
+      --shadow: 0 10px 30px rgba(17,24,39,.10);
+      --shadow-hover: 0 18px 55px rgba(17,24,39,.16);
+      --hairline: rgba(17,24,39,.08);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family:var(--sans);
-      color:var(--forest);
+      color:rgba(17,24,39,.92);
       background:
-        radial-gradient(1200px 700px at 15% 8%, rgba(162,123,92,.08), transparent 65%),
-        radial-gradient(1000px 600px at 88% 15%, rgba(63,79,68,.06), transparent 60%),
-        radial-gradient(1000px 700px at 50% 95%, rgba(162,123,92,.05), transparent 65%),
+        radial-gradient(1100px 650px at 12% 10%, rgba(162,123,92,.10), transparent 60%),
+        radial-gradient(900px 520px at 90% 12%, rgba(63,79,68,.08), transparent 58%),
+        radial-gradient(1000px 680px at 50% 96%, rgba(162,123,92,.08), transparent 62%),
         var(--warm-white);
-      line-height:1.6;
+      line-height:1.65;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
-    a{color:inherit; transition:all .2s ease}
-    .container{max-width:var(--max); margin:0 auto; padding:40px 24px 80px}
-    .fullbleed{width:100%; margin:0; padding:0}
-    .fullbleed .inner{max-width:var(--max); margin:0 auto; padding:0 24px}
-    .muted{color:rgba(63,79,68,.75)}
+    a{color:inherit; text-decoration:none; transition:all .2s ease}
+    .container{max-width:var(--max); margin:0 auto; padding:48px 24px 90px}
+    .muted{color:rgba(17,24,39,.62)}
     .mono{font-family:var(--mono)}
     .small{font-size:13px}
 
-    /* Nav */
+    /* =======================
+       NAV (clean, modern)
+    ======================== */
     header{
       position:sticky; top:0; z-index:50;
-      background: linear-gradient(135deg, var(--brown), rgba(162,123,92,.95));
-      border-bottom:1px solid rgba(255,255,255,.2);
-      box-shadow: 0 2px 12px rgba(44,57,48,.15);
+      background: rgba(245,242,237,.78);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--hairline);
     }
     .nav{
       max-width:var(--max);
       margin:0 auto;
-      padding:16px 24px;
+      padding:14px 24px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:12px;
       flex-wrap:wrap;
     }
     .brand{
-      display:flex; align-items:center; gap:14px;
-      text-decoration:none;
-      font-weight:700;
-      font-size:15px;
-      letter-spacing:-.3px;
-      color:#fff;
-    }
-
-    .logo-custom{width:48px; height:48px; display:flex; align-items:center; justify-content:center}
-    .logo-custom svg{width:100%; height:100%; filter: drop-shadow(0 2px 8px rgba(0,0,0,.2));}
-
-    .navlinks{display:flex; gap:4px; flex-wrap:wrap; align-items:center}
-    .navlinks a{
-      text-decoration:none;
+      display:flex; align-items:center; gap:12px;
+      font-weight:800;
       font-size:14px;
-      font-weight:500;
-      padding:10px 16px;
-      border-radius:10px;
-      color:rgba(255,255,255,.9);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(17,24,39,.88);
     }
-    .navlinks a:hover{color:#fff; background:rgba(255,255,255,.15)}
+    .logo-custom{width:44px; height:44px; display:flex; align-items:center; justify-content:center}
+    .logo-custom svg{width:100%; height:100%}
+
+    .navlinks{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
+    .navlinks a{
+      font-size:14px;
+      font-weight:600;
+      padding:10px 14px;
+      border-radius:999px;
+      color:rgba(17,24,39,.75);
+    }
+    .navlinks a:hover{background:rgba(17,24,39,.06); color:rgba(17,24,39,.9)}
 
     .social{display:flex; gap:8px; align-items:center}
     .iconbtn{
       width:40px; height:40px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,.3);
-      background:rgba(255,255,255,.1);
+      border-radius:999px;
+      border:1px solid var(--hairline);
+      background: rgba(255,255,255,.6);
       display:grid; place-items:center;
-      text-decoration:none;
-      transition:all .2s ease;
     }
     .iconbtn:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.2);
-      border-color:rgba(255,255,255,.5);
-    }
-    .icon{width:18px; height:18px; fill:currentColor; color:#fff}
-
-    /* Buttons */
-    .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:20px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:14px 24px;
-      border-radius:12px;
-      border:1px solid rgba(63,79,68,.4);
-      background:rgba(255,255,255,.75);
-      text-decoration:none;
-      font-weight:600;
-      font-size:14px;
-      transition:all .2s ease;
-      gap:8px;
-    }
-    .btn:hover{
       transform:translateY(-1px);
-      box-shadow:0 8px 24px rgba(44,57,48,.12);
+      box-shadow: 0 10px 25px rgba(17,24,39,.10);
       background:#fff;
-      border-color:rgba(63,79,68,.6);
     }
-    .btn.primary{
-      background:var(--forest);
-      border-color:var(--forest);
-      color:var(--warm-white);
-    }
-    .btn.primary:hover{box-shadow:0 8px 28px rgba(44,57,48,.24); transform:translateY(-2px)}
-    .btn.soft{background:rgba(162,123,92,.22); border-color:rgba(63,79,68,.3)}
+    .icon{width:18px; height:18px; fill:currentColor; color:rgba(17,24,39,.8)}
 
-    /* Cards + sections */
-    .panel{
-      border:1px solid rgba(63,79,68,.2);
-      background:rgba(255,255,255,.80);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-    .pad{padding:32px}
-
-    .section{margin-top:48px}
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:16px; margin:0 0 24px;
-    }
-    .sectionTitle h3{margin:0; font-size:32px; font-weight:700; letter-spacing:-.5px; color:var(--forest)}
-    .sectionTitle .hint{font-size:13px; color:rgba(44,57,48,.6)}
-
+    /* =======================
+       TYPOGRAPHY
+    ======================== */
     .kicker{
-      margin:0 0 14px;
-      letter-spacing:.08em;
+      margin:0 0 12px;
+      letter-spacing:.14em;
       text-transform:uppercase;
       font-size:12px;
-      font-weight:700;
-      color:rgba(44,57,48,.70);
+      font-weight:800;
+      color:rgba(17,24,39,.55);
     }
     h1{
       margin:0 0 14px;
-      font-size:48px;
-      line-height:1.08;
-      letter-spacing:-1.1px;
-      font-weight:800;
-      color:var(--forest);
+      font-size: clamp(40px, 5vw, 66px);
+      line-height:1.02;
+      letter-spacing:-1.2px;
+      font-weight:900;
+      color: rgba(17,24,39,.92);
     }
-    @media (max-width:520px){ h1{font-size:36px} }
     .lead{
-      margin:0 0 12px;
-      color:rgba(44,57,48,.88);
-      font-size:16px;
-      line-height:1.75;
+      margin:0;
+      font-size:18px;
+      line-height:1.8;
+      color:rgba(17,24,39,.80);
+      max-width: 58ch;
     }
 
+    /* =======================
+       BUTTONS (modern)
+    ======================== */
+    .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      border:1px solid transparent;
+      background: rgba(17,24,39,.06);
+      font-weight:700;
+      font-size:14px;
+      color: rgba(17,24,39,.86);
+      gap:8px;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow: 0 10px 25px rgba(17,24,39,.12); background:#fff; border-color: var(--hairline)}
+    .btn.primary{
+      background: var(--forest);
+      border-color: var(--forest);
+      color: var(--warm-white);
+    }
+    .btn.primary:hover{box-shadow: 0 18px 45px rgba(44,57,48,.22); transform:translateY(-2px); background: var(--forest)}
+    .btn.soft{
+      background: rgba(162,123,92,.18);
+      border-color: rgba(162,123,92,.18);
+    }
+
+    /* Chips (less boxy) */
     .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
     .chip{
       display:inline-flex; align-items:center;
-      padding:10px 16px;
-      border-radius:20px;
-      border:1px solid rgba(63,79,68,.22);
-      background:rgba(63,79,68,.10);
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,.10);
+      background: rgba(255,255,255,.55);
       font-size:13px;
-      font-weight:600;
-      color:var(--forest);
+      font-weight:700;
+      color: rgba(17,24,39,.78);
       white-space:nowrap;
     }
 
-    /* === FULL-BLEED HERO (Allie-style) === */
+    /* =======================
+       HERO (full-bleed, modern)
+    ======================== */
     .heroFull{
       position:relative;
       width:100%;
-      min-height:72vh;
+      min-height:74vh;
       display:flex;
       align-items:stretch;
-      background: #111; /* fallback */
       overflow:hidden;
-      border-bottom:1px solid rgba(63,79,68,.18);
+      border-bottom:1px solid var(--hairline);
+      background:#0f1412;
     }
-
-    /* IMPORTANT:
-       Put your photo in your repo at: /assets/hero.jpg
-       Then it will work on GitHub Pages.
-    */
+    /* Put your image at /assets/hero.jpg */
     .heroFull::before{
       content:"";
       position:absolute; inset:0;
       background-image:
-        linear-gradient(90deg,
-          rgba(245,242,237,.92) 0%,
-          rgba(245,242,237,.88) 38%,
-          rgba(245,242,237,.35) 58%,
-          rgba(245,242,237,.10) 72%,
-          rgba(245,242,237,0) 100%
-        ),
-        url(Main%20picture.jpg");
+        radial-gradient(900px 700px at 22% 30%, rgba(245,242,237,.92), rgba(245,242,237,.70) 40%, rgba(245,242,237,.22) 66%, rgba(245,242,237,0) 78%),
+        url("assets/hero.jpg");
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      transform:scale(1.02); /* tiny zoom to avoid edges */
+      transform:scale(1.02);
     }
-
-    /* soft vignette */
     .heroFull::after{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(1200px 700px at 70% 50%, rgba(44,57,48,.18), transparent 60%);
+      background: radial-gradient(900px 700px at 70% 50%, rgba(44,57,48,.30), transparent 60%);
       pointer-events:none;
       mix-blend-mode:multiply;
-      opacity:.6;
+      opacity:.55;
     }
-
     .heroInner{
       position:relative;
       width:100%;
       max-width:var(--max);
       margin:0 auto;
-      padding:48px 24px;
+      padding:56px 24px;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1.2fr .8fr;
       gap:22px;
       align-items:center;
     }
     @media (max-width: 960px){
-      .heroFull{min-height: auto}
-      .heroInner{grid-template-columns:1fr; padding:34px 24px}
+      .heroFull{min-height:auto}
+      .heroInner{grid-template-columns:1fr; padding:40px 24px}
       .heroFull::before{
         background-image:
-          linear-gradient(180deg,
-            rgba(245,242,237,.92) 0%,
-            rgba(245,242,237,.78) 55%,
-            rgba(245,242,237,.55) 80%,
-            rgba(245,242,237,.35) 100%
-          ),
+          linear-gradient(180deg, rgba(245,242,237,.92), rgba(245,242,237,.60) 60%, rgba(245,242,237,.10)),
           url("assets/hero.jpg");
       }
     }
 
-    /* Connect with me panel (overlay block) */
-    .connectCard{
-      border:1px solid rgba(63,79,68,.22);
-      background:rgba(255,255,255,.82);
-      border-radius:28px;
-      box-shadow: 0 10px 45px rgba(44,57,48,.14);
-      backdrop-filter: blur(10px);
-      padding:28px;
+    .heroCard{
+      background: rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.55);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 30px;
     }
 
+    .connectCard{
+      background: rgba(255,255,255,.82);
+      border:1px solid rgba(255,255,255,.60);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      padding: 26px;
+    }
     .connectTitle{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:10px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; margin-bottom:10px;
     }
     .connectTitle h2{
-      margin:0;
-      font-size:18px;
-      font-weight:800;
-      letter-spacing:-.3px;
-      color:var(--forest);
+      margin:0; font-size:16px; font-weight:900; letter-spacing:-.3px;
+      color: rgba(17,24,39,.90);
     }
     .badge{
       font-size:12px;
-      font-weight:700;
-      color:rgba(44,57,48,.75);
+      font-weight:800;
+      color: rgba(17,24,39,.62);
       padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(63,79,68,.22);
-      background:rgba(63,79,68,.06);
+      border:1px solid rgba(17,24,39,.10);
+      background: rgba(17,24,39,.05);
       white-space:nowrap;
     }
-
-    .connectGrid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-
+    .connectGrid{display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px}
+    .contactLine{margin:0; font-size:14px; color: rgba(17,24,39,.72)}
     .miniRow{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      padding-top:12px;
-      border-top:1px solid rgba(63,79,68,.12);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      padding-top:14px;
+      border-top:1px solid rgba(17,24,39,.08);
       margin-top:16px;
     }
 
-    .contactLine{
+    /* =======================
+       SECTIONS / LAYOUT
+    ======================== */
+    .section{margin-top:72px}
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px; margin:0 0 22px;
+    }
+    .sectionTitle h3{
       margin:0;
-      font-size:14px;
-      color:rgba(44,57,48,.80);
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight:900;
+      letter-spacing:-.9px;
+      color: rgba(17,24,39,.92);
+    }
+    .sectionTitle .hint{font-size:13px; color:rgba(17,24,39,.55)}
+
+    /* Section band (breaks up the page, less “boxy”) */
+    .bandSection{
+      padding: 52px 0;
+      background:
+        radial-gradient(900px 520px at 12% 20%, rgba(162,123,92,.10), transparent 58%),
+        radial-gradient(900px 520px at 92% 8%, rgba(63,79,68,.08), transparent 55%),
+        rgba(255,255,255,.35);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
     }
 
-    /* Grid + cards */
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:20px}
+    /* Grid */
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
     .col-4{grid-column: span 4}
+    .col-5{grid-column: span 5}
     .col-6{grid-column: span 6}
+    .col-7{grid-column: span 7}
     .col-12{grid-column: span 12}
-    @media (max-width:900px){ .col-4,.col-6{grid-column:span 12} }
+    @media (max-width:900px){ .col-4,.col-5,.col-6,.col-7{grid-column:span 12} }
 
-    .card{
-      border:1px solid rgba(63,79,68,.2);
-      background:rgba(255,255,255,.85);
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      padding:28px;
-      transition:all .25s ease;
-      backdrop-filter: blur(10px);
+    /* Tiles (modern cards) */
+    .tile{
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(255,255,255,.60);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      transition: transform .2s ease, box-shadow .2s ease;
+      backdrop-filter: blur(12px);
+      position:relative;
+      overflow:hidden;
     }
-    .card:hover{transform:translateY(-4px); box-shadow:var(--shadow-hover); border-color:rgba(63,79,68,.35)}
-    .card h4{margin:0 0 12px; font-size:18px; font-weight:800; color:var(--forest)}
-    .card p{margin:0 0 16px; color:rgba(44,57,48,.8); font-size:15px; line-height:1.65}
-    .bullets{margin:0; padding-left:20px; color:rgba(44,57,48,.75); font-size:14px; line-height:1.7}
+    .tile:hover{transform: translateY(-6px); box-shadow: var(--shadow-hover)}
+    .tile::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 240px at 20% 10%, rgba(162,123,92,.14), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .tile > *{position:relative}
+
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:900;
+      color: rgba(17,24,39,.55);
+      margin:0 0 10px;
+    }
+    .tile h4{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:-.3px;
+      color: rgba(17,24,39,.90);
+    }
+    .tile p{
+      margin:0 0 16px;
+      color: rgba(17,24,39,.72);
+      font-size:15px;
+      line-height:1.7;
+      max-width: 64ch;
+    }
+    .bullets{margin:0; padding-left:18px; color:rgba(17,24,39,.68); font-size:14px; line-height:1.7}
     .bullets li{margin:8px 0}
-    .bullets strong{color:var(--forest)}
 
-    /* Motto band */
-    .band{
+    /* Motto band (keep, but modernize) */
+    .motto{
       margin-top:80px;
-      background: linear-gradient(135deg, var(--forest) 0%, rgba(44,57,48,.95) 50%, var(--forest) 100%);
+      background: linear-gradient(135deg, var(--forest), rgba(44,57,48,.92));
       color:#fff;
-      border-top:1px solid rgba(162,123,92,.2);
-      border-bottom:1px solid rgba(162,123,92,.2);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+      border-top:1px solid rgba(255,255,255,.10);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
-    .band .panelish{padding:32px 0}
-    .band .muted{color:rgba(255,255,255,.82)}
-    blockquote{margin:0; padding:0; font-size:14px; line-height:1.7; font-style:italic}
+    .mottoInner{max-width:var(--max); margin:0 auto; padding:48px 24px}
+    blockquote{margin:0; font-size:14px; line-height:1.75; font-style:italic}
     .quoteWrap{
       display:grid; gap:12px;
       padding:24px;
       border-radius:16px;
-      border:1px solid rgba(255,255,255,.2);
-      background: rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       max-width:900px;
       margin:0 auto;
+      backdrop-filter: blur(10px);
     }
     .quoteLabel{
       display:inline-flex; align-items:center; gap:10px;
-      font-size:11px; letter-spacing:.10em; text-transform:uppercase;
-      color:rgba(255,255,255,.75);
-      font-weight:700;
+      font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+      font-weight:900;
     }
     .quoteMark{
       width:24px; height:24px; border-radius:8px;
       display:grid; place-items:center;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
       font-weight:900; font-size:16px;
     }
-    .quoteAttribution{font-size:12px; color:rgba(255,255,255,.7); font-style:normal}
+    .quoteAttribution{font-size:12px; color:rgba(255,255,255,.70); font-style:normal}
 
     /* Footer */
     footer{
       margin-top:64px;
-      padding-top:32px;
-      border-top:1px solid rgba(63,79,68,.2);
-      color:rgba(44,57,48,.65);
+      padding-top:28px;
+      border-top:1px solid var(--hairline);
+      color:rgba(17,24,39,.60);
       font-size:13px;
       display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
     }
 
     a[href^="mailto"]{
       text-decoration:underline;
-      text-decoration-color:rgba(44,57,48,.3);
+      text-decoration-color:rgba(17,24,39,.20);
       text-underline-offset:3px;
     }
-    a[href^="mailto"]:hover{ text-decoration-color:var(--forest); }
+    a[href^="mailto"]:hover{ text-decoration-color:rgba(17,24,39,.55); }
   </style>
 </head>
 
@@ -401,8 +420,8 @@
   <header>
     <div class="nav">
       <a class="brand" href="#top">
-        <div class="logo-custom">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <div class="logo-custom" aria-hidden="true">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="48" fill="#2C3930" opacity="0.95"/>
             <path d="M 35 35 Q 30 35 30 40 L 30 60 Q 30 65 35 65 L 50 65 L 50 55 L 40 55 L 40 50 L 55 50 L 55 65 Q 55 70 50 70 L 35 70 Q 25 70 25 60 L 25 40 Q 25 30 35 30 L 50 30 Q 55 30 55 35 L 55 40 L 50 40 L 50 35 Z"
                   fill="#F5F2ED" opacity="0.95"/>
@@ -414,32 +433,29 @@
         <span>GEETHIKA DESAM</span>
       </a>
 
-      <nav class="navlinks">
+      <nav class="navlinks" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#offerings">Work with me</a>
         <a href="#community">Community</a>
         <a href="#contact">Contact</a>
       </nav>
 
-      <div class="social" aria-label="social links">
+      <div class="social" aria-label="Social links">
         <a class="iconbtn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.98h-4V23.5zM8 7.98h3.83v2.12h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.12v9.33h-4v-8.27c0-1.97-.04-4.5-2.74-4.5-2.74 0-3.16 2.14-3.16 4.35v8.42H8V7.98z"/>
           </svg>
         </a>
-
         <a class="iconbtn" href="https://www.instagram.com/geethikaadesam?igsh=cjYzZGt2N3NqN3Vx&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/>
           </svg>
         </a>
-
         <a class="iconbtn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noreferrer" aria-label="YouTube">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/>
           </svg>
         </a>
-
         <a class="iconbtn" href="mailto:geethikaadesam@gmail.com" aria-label="Email">
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
@@ -449,11 +465,10 @@
     </div>
   </header>
 
-  <!-- FULL-BLEED HERO (Image across, connect panel) -->
+  <!-- HERO -->
   <section id="top" class="heroFull" aria-label="Hero">
     <div class="heroInner">
-      <!-- Left: your main message -->
-      <div class="panel pad" style="background:rgba(255,255,255,.78); border-radius:28px;">
+      <div class="heroCard">
         <p class="kicker">Manufacturing Operations • Data • Delivery</p>
         <h1>Make operations visible. Make decisions faster.</h1>
         <p class="lead">
@@ -467,7 +482,7 @@
           <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
         </div>
 
-        <div class="chips">
+        <div class="chips" aria-label="Highlights">
           <span class="chip">Production visibility</span>
           <span class="chip">Downtime & scrap clarity</span>
           <span class="chip">Inventory + BOM modeling</span>
@@ -476,11 +491,10 @@
         </div>
 
         <p class="muted small" style="margin:16px 0 0;">
-          Tip: Replace the hero photo by uploading your image to <span class="mono">/assets/hero.jpg</span> in your GitHub repo.
+          Tip: place your hero image at <span class="mono">/assets/hero.jpg</span> (same repo as this file).
         </p>
       </div>
 
-      <!-- Right: Connect with me (Allie-style) -->
       <aside class="connectCard" aria-label="Connect with me">
         <div class="connectTitle">
           <h2>Connect with me</h2>
@@ -515,61 +529,76 @@
         <span class="hint">Systems thinking + execution discipline</span>
       </div>
 
-      <div class="panel pad">
-        <p style="margin-top:0; font-size:16px; line-height:1.75;">
+      <div class="tile">
+        <p style="margin-top:0; font-size:16px; line-height:1.8; color:rgba(17,24,39,.78); max-width:75ch;">
           I work at the intersection of <strong>manufacturing operations</strong>, <strong>data</strong>, and <strong>delivery</strong>.
           I’m comfortable in the process details <em>and</em> in the decision rooms: translating variance into drivers, turning definitions into governance,
           and building dashboards people actually use.
         </p>
-        <p class="muted" style="margin-bottom:0; font-size:14px;">
+        <p class="muted" style="margin:0; font-size:14px;">
           I’m not attached to a single title — I’m attached to outcomes: clearer flow, cleaner metrics, faster decisions, and stronger execution.
         </p>
       </div>
     </section>
 
-    <!-- OFFERINGS -->
-    <section id="offerings" class="section">
-      <div class="sectionTitle">
-        <h3>Work with me</h3>
-        <span class="hint">Advisory + coaching — structured, practical, outcome-driven</span>
-      </div>
-
-      <div class="grid">
-        <div class="card col-4">
-          <h4>Manufacturing metrics & KPI design</h4>
-          <p>Align metrics to shop-floor reality so teams trust the numbers and act faster.</p>
-          <ul class="bullets">
-            <li>Metric definitions + governance</li>
-            <li>Exception-first dashboards</li>
-            <li>Review cadence & ownership</li>
-          </ul>
+    <!-- OFFERINGS (modern tiles + band) -->
+    <section id="offerings" class="section bandSection">
+      <div class="container" style="padding:0 24px;">
+        <div class="sectionTitle">
+          <h3>Work with me</h3>
+          <span class="hint">Advisory + coaching — structured, practical, outcome-driven</span>
         </div>
 
-        <div class="card col-4">
-          <h4>Analytics enablement (Power BI + modeling)</h4>
-          <p>From data model health checks to measures and storytelling — built for decision-making and adoption.</p>
-          <ul class="bullets">
-            <li>Inventory/BOM + operational models</li>
-            <li>DAX measures + drill paths</li>
-            <li>Stakeholder-ready narratives</li>
-          </ul>
-        </div>
+        <div class="grid">
+          <!-- Featured tile -->
+          <div class="tile col-7">
+            <p class="eyebrow">Featured</p>
+            <h4>Manufacturing metrics & KPI design</h4>
+            <p>Align metrics to shop-floor reality so teams trust the numbers and act faster—without creating reporting overhead.</p>
+            <ul class="bullets">
+              <li>Metric definitions + governance</li>
+              <li>Exception-first dashboards (variance, downtime, scrap)</li>
+              <li>Review cadence + ownership model</li>
+            </ul>
 
-        <div class="card col-4">
-          <h4>Career coaching (ops + analytics + PM/Product)</h4>
-          <p>Resume, LinkedIn, interviews — with emphasis on communicating operational impact with clarity.</p>
-          <ul class="bullets">
-            <li>Impact-first rewrite</li>
-            <li>Mock interviews + feedback</li>
-            <li>Target-role story building</li>
-          </ul>
-        </div>
-      </div>
+            <div class="btnrow" style="margin-top:18px;">
+              <a class="btn primary" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Book on Topmate</a>
+              <a class="btn" href="#contact">Ask about a project</a>
+            </div>
+          </div>
 
-      <div class="btnrow">
-        <a class="btn primary" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Book on Topmate</a>
-        <a class="btn" href="#contact">Ask about a project</a>
-        <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Read the newsletter</a>
+          <div class="tile col-5">
+            <p class="eyebrow">Delivery</p>
+            <h4>Analytics enablement (Power BI + modeling)</h4>
+            <p>From model health checks to measures and storytelling—built for decision-making, adoption, and reuse.</p>
+            <ul class="bullets">
+              <li>Inventory/BOM + operational models</li>
+              <li>DAX measures + drill paths</li>
+              <li>Stakeholder-ready narratives</li>
+            </ul>
+          </div>
+
+          <div class="tile col-5">
+            <p class="eyebrow">Coaching</p>
+            <h4>Career coaching (ops + analytics + PM/Product)</h4>
+            <p>Impact-first positioning for resume, LinkedIn, interviews—focused on clarity and outcomes.</p>
+            <ul class="bullets">
+              <li>Impact-first rewrite</li>
+              <li>Mock interviews + feedback</li>
+              <li>Target-role story building</li>
+            </ul>
+          </div>
+
+          <div class="tile col-7">
+            <p class="eyebrow">Content</p>
+            <h4>Newsletter & thought leadership</h4>
+            <p>Short, practical notes on operational clarity, decision cadence, and how to make dashboards drive action.</p>
+            <div class="btnrow" style="margin-top:14px;">
+              <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Read the newsletter</a>
+              <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">Follow on LinkedIn</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -580,20 +609,20 @@
         <span class="hint">Organizations I support</span>
       </div>
 
-      <div class="panel pad">
-        <h4 style="margin:0 0 12px; font-size:20px; font-weight:800;">Invisible Girl Project</h4>
-        <p style="margin-top:0; font-size:16px; line-height:1.7; color:rgba(44,57,48,.8);">
+      <div class="tile">
+        <h4 style="margin:0 0 10px; font-size:20px; font-weight:900;">Invisible Girl Project</h4>
+        <p style="margin:0 0 16px; font-size:16px; line-height:1.75; color:rgba(17,24,39,.72); max-width:75ch;">
           I support Invisible Girl Project and the work they do to protect and empower girls.
         </p>
-        <div class="btnrow">
+        <div class="btnrow" style="margin-top:0;">
           <a class="btn" href="https://invisiblegirlproject.org/" target="_blank" rel="noreferrer">Learn more</a>
         </div>
       </div>
     </section>
 
-    <!-- MOTTO BAND -->
-    <section class="fullbleed band" aria-label="motto">
-      <div class="inner panelish">
+    <!-- MOTTO -->
+    <section class="motto" aria-label="motto">
+      <div class="mottoInner">
         <div class="quoteWrap">
           <div class="quoteLabel">
             <span class="quoteMark">"</span>
@@ -616,8 +645,8 @@
         <span class="hint">I’d love to hear from you</span>
       </div>
 
-      <div class="panel pad">
-        <p style="margin-top:0; font-size:16px; line-height:1.7;">
+      <div class="tile">
+        <p style="margin-top:0; font-size:16px; line-height:1.75; color:rgba(17,24,39,.76); max-width:75ch;">
           Email me at <a class="mono" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>.
           You can also reach me on LinkedIn, or book time directly through Topmate.
         </p>
@@ -629,7 +658,7 @@
           <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
         </div>
 
-        <p class="muted small" style="margin-bottom:0; margin-top:20px;">
+        <p class="muted small" style="margin-bottom:0; margin-top:18px;">
           Resume note: upload your resume to this repo as <span class="mono">resume.pdf</span> (same folder as <span class="mono">index.html</span>).
         </p>
       </div>
@@ -642,7 +671,6 @@
   </main>
 
   <script>
-    // Footer dates
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("updated").textContent =
       new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
