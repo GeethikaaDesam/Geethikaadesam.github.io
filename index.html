@@ -1,9 +1,9 @@
-<!doctype html>
+age<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Geethikaa Desam — Manufacturing Ops • Data • Delivery</title>
+  <title>Geethikaa Desam — Manufacturing Ops • Data • Inventory Management</title>
   <meta name="description" content="Geethika Desam — operations-minded leader bridging manufacturing systems and data. Case studies, advisory, coaching, newsletter, and community." />
 
   <!-- Modern font (enterprise feel) -->
@@ -638,42 +638,56 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="sectionTitle">
-        <h3>Contact</h3>
-        <span class="hint">I’d love to hear from you</span>
-      </div>
+    <!-- CONTACT / FOOTER (green background + motto) -->
+<section id="contact" class="footerCta" aria-label="Contact">
+  <div class="footerInner">
+    <div class="footerGrid">
 
-      <div class="tile">
-        <p style="margin-top:0; font-size:16px; line-height:1.75; color:rgba(17,24,39,.76); max-width:75ch;">
-          Email me at <a class="mono" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>.
+      <!-- Left: Contact / CTA -->
+      <div>
+        <p class="footerKicker">Contact</p>
+        <h3 class="footerTitle">Let’s connect</h3>
+        <p class="footerLead">
+          Email me at
+          <a class="mono footerLink" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>.
           You can also reach me on LinkedIn, or book time directly through Topmate.
         </p>
 
-        <div class="btnrow">
+        <div class="footerBtns">
           <a class="btn primary" href="mailto:geethikaadesam@gmail.com">Email</a>
           <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noreferrer">LinkedIn</a>
           <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noreferrer">Topmate</a>
           <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noreferrer">Newsletter</a>
         </div>
 
-        <p class="muted small" style="margin-bottom:0; margin-top:18px;">
-          Resume note: upload your resume to this repo as <span class="mono">resume.pdf</span> (same folder as <span class="mono">index.html</span>).
+        <p class="footerNote">
+          Resume note: upload your resume to this repo as <span class="mono">resume.pdf</span>.
         </p>
       </div>
-    </section>
 
-    <footer>
+      <!-- Right: Motto (small) -->
+      <aside class="mottoMini" aria-label="Motto">
+        <p class="mottoLabel">Motto</p>
+        <p class="mottoText">
+          “Make operations visible. Make decisions faster.”
+        </p>
+        <p class="mottoSub">
+          (In the arena, focused on outcomes.)
+        </p>
+      </aside>
+
+    </div>
+
+    <div class="footerBottom">
       <div>© <span id="year"></span> Geethika Desam</div>
       <div class="mono">Last updated: <span id="updated"></span></div>
-    </footer>
-  </main>
+    </div>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("updated").textContent =
-      new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
-  </script>
-</body>
-</html>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("updated").textContent =
+    new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
+</script>
+
