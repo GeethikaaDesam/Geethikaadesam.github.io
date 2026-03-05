@@ -723,89 +723,120 @@
 
   /* CONTACT */
   #contact {
-    padding: 7rem 6rem;
+    padding: 7rem 6rem 5rem;
     max-width: 1440px;
     margin: 0 auto;
   }
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
+  .contact-top {
+    margin-bottom: 3rem;
+  }
+
+  .contact-top p {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  .contact-big-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 9vw, 9rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    display: flex;
     align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
 
-  .contact-left h2 {
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-left h2 em {
+  .contact-big-heading em {
     font-style: italic;
     color: var(--gold);
   }
 
-  .contact-left p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
+  .contact-big-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    font-size: 2rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    transform: rotate(-45deg);
+    flex-shrink: 0;
   }
 
-  .contact-quote {
-    font-style: italic;
-    font-size: 0.88rem;
-    color: var(--muted);
-    border-left: 2px solid var(--gold);
-    padding-left: 1.5rem;
-    line-height: 1.7;
-    margin-top: 2rem;
+  .contact-big-arrow:hover {
+    background: var(--gold);
+    color: var(--black);
+    transform: rotate(0deg);
   }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .contact-link-item {
-    border-top: 1px solid var(--border);
-    padding: 1.25rem 0;
+  .contact-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .contact-email-line {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     text-decoration: none;
     color: var(--text);
-    transition: all 0.3s;
-    group: true;
-  }
-
-  .contact-link-item:last-child { border-bottom: 1px solid var(--border); }
-
-  .contact-link-item:hover { color: var(--gold); padding-left: 0.5rem; }
-
-  .contact-link-name {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: inherit;
-  }
-
-  .contact-link-handle {
-    font-size: 0.85rem;
-    color: var(--muted);
+    font-size: 1rem;
     transition: color 0.3s;
   }
 
-  .contact-link-item:hover .contact-link-handle { color: var(--gold); }
+  .contact-email-line:hover { color: var(--gold); }
 
-  .contact-link-arrow {
-    font-family: 'DM Mono', monospace;
+  .contact-email-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
     color: var(--gold);
-    opacity: 0;
-    transition: opacity 0.3s;
+    flex-shrink: 0;
+  }
+
+  .contact-social-icons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+
+  .social-icon:hover {
+    border-color: var(--gold);
+    color: var(--gold);
   }
 
   .contact-link-item:hover .contact-link-arrow { opacity: 1; }
@@ -1457,41 +1488,25 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="contact-grid">
-    <div class="contact-left">
-      <h2>Let's build something<br/><em>worth measuring.</em></h2>
-      <p>I'm excited to connect and collaborate on operational clarity, data storytelling, and execution that drives outcomes.</p>
-      <a href="mailto:geethikaadesam@gmail.com" class="btn-primary">Send an Email →</a>
-      <blockquote class="contact-quote">
-        "Integrity in intention, competence in execution." — My approach to every engagement, every decision, every dashboard.
-      </blockquote>
+  <div class="contact-top">
+    <p>I'm excited to connect and collaborate on operational clarity, data storytelling, and execution that drives outcomes.</p>
+    <div class="contact-big-heading">
+      Let's <em>Talk</em>
+      <a href="mailto:geethikaadesam@gmail.com" class="contact-big-arrow">↗</a>
     </div>
-    <div class="contact-links">
-      <a href="mailto:geethikaadesam@gmail.com" class="contact-link-item">
-        <span class="contact-link-name">Email</span>
-        <span class="contact-link-handle">geethikaadesam@gmail.com</span>
-        <span class="contact-link-arrow">→</span>
-      </a>
-      <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="contact-link-item">
-        <span class="contact-link-name">LinkedIn</span>
-        <span class="contact-link-handle">/in/geethikaadesam</span>
-        <span class="contact-link-arrow">→</span>
-      </a>
-      <a href="https://topmate.io/geethikaa_desam" target="_blank" class="contact-link-item">
-        <span class="contact-link-name">Topmate</span>
-        <span class="contact-link-handle">Book a session</span>
-        <span class="contact-link-arrow">→</span>
-      </a>
-      <a href="https://www.youtube.com/@geethikaadesam" target="_blank" class="contact-link-item">
-        <span class="contact-link-name">YouTube</span>
-        <span class="contact-link-handle">@geethikaadesam</span>
-        <span class="contact-link-arrow">→</span>
-      </a>
-      <a href="https://www.instagram.com/geethikaadesam" target="_blank" class="contact-link-item">
-        <span class="contact-link-name">Instagram</span>
-        <span class="contact-link-handle">@geethikaadesam</span>
-        <span class="contact-link-arrow">→</span>
-      </a>
+  </div>
+
+  <div class="contact-bottom">
+    <a href="mailto:geethikaadesam@gmail.com" class="contact-email-line">
+      <span class="contact-email-icon">✉</span>
+      geethikaadesam@gmail.com
+    </a>
+    <div class="contact-social-icons">
+      <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="social-icon" title="LinkedIn">in</a>
+      <a href="https://www.instagram.com/geethikaadesam" target="_blank" class="social-icon" title="Instagram">ig</a>
+      <a href="https://www.youtube.com/@geethikaadesam" target="_blank" class="social-icon" title="YouTube">yt</a>
+      <a href="https://topmate.io/geethikaa_desam" target="_blank" class="social-icon" title="Topmate">tm</a>
+      <a href="https://www.linkedin.com/newsletters/737488157445625856/" target="_blank" class="social-icon" title="Newsletter">nl</a>
     </div>
   </div>
 </section>
