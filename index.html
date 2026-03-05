@@ -16,9 +16,9 @@
     --gold: #c9a84c;
     --gold-light: #e8c96a;
     --gold-dim: rgba(201,168,76,0.15);
-    --white: #f0ede4;
-    --muted: #7a7a6e;
-    --text: #ccc9bb;
+    --white: #f5f2ea;
+    --muted: #a0a092;
+    --text: #c8c5b8;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,7 +59,7 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,7 +104,7 @@
   }
 
   .hero-left {
-    padding: 12rem 4rem 6rem;
+    padding: 8rem 6rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,26 +118,28 @@
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    white-space: nowrap;
   }
 
   .hero-eyebrow::before {
     content: '';
     display: block;
+    flex-shrink: 0;
     width: 40px;
     height: 1px;
     background: var(--gold);
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
     line-height: 1.05;
     font-weight: 900;
     color: var(--white);
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
   }
 
   .hero h1 em {
@@ -148,8 +150,8 @@
   .hero-desc {
     font-size: 1.05rem;
     color: var(--muted);
-    max-width: 420px;
-    margin-bottom: 3rem;
+    max-width: 520px;
+    margin-bottom: 1.75rem;
     line-height: 1.8;
   }
 
@@ -199,7 +201,7 @@
 
   /* HERO TAGS */
   .hero-tags {
-    margin-top: 4rem;
+    margin-top: 1.75rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -318,8 +320,8 @@
 
   /* SECTION LAYOUT */
   section {
-    padding: 7rem 4rem;
-    max-width: 1200px;
+    padding: 7rem 6rem;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
@@ -356,8 +358,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
     align-items: start;
-    padding: 7rem 4rem;
-    max-width: 1200px;
+    padding: 7rem 6rem;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
@@ -423,8 +425,8 @@
 
   /* IMPACT */
   #impact {
-    padding: 7rem 4rem;
-    max-width: 1200px;
+    padding: 7rem 6rem;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
@@ -481,7 +483,7 @@
     border-top: 1px solid var(--border);
     padding: 4rem 0;
     display: grid;
-    grid-template-columns: 80px 1fr 2fr;
+    grid-template-columns: 80px 1fr 2.5fr;
     gap: 3rem;
     align-items: start;
     transition: background 0.3s;
@@ -594,8 +596,8 @@
 
   /* SERVICES */
   #offerings {
-    padding: 7rem 4rem;
-    max-width: 1200px;
+    padding: 7rem 6rem;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
@@ -675,8 +677,8 @@
 
   /* FAQ */
   #faq {
-    padding: 7rem 4rem;
-    max-width: 1200px;
+    padding: 7rem 6rem;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
@@ -721,8 +723,8 @@
 
   /* CONTACT */
   #contact {
-    padding: 7rem 4rem;
-    max-width: 1200px;
+    padding: 7rem 6rem;
+    max-width: 1440px;
     margin: 0 auto;
   }
 
@@ -861,7 +863,7 @@
     .hero { grid-template-columns: 1fr; }
     .hero-left { padding: 8rem 2rem 4rem; }
     .hero-right { display: none; }
-    section, #about, #impact, #offerings, #faq, #contact { padding: 5rem 2rem; }
+    section, #about, #impact, #offerings, #faq, #contact { padding: 5rem 3rem; }
     .editorial-row { grid-template-columns: 40px 1fr; gap: 1.5rem; }
     .editorial-right { grid-column: 1 / -1; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
     .case-studies, .services-grid, .faq-grid, .contact-grid, .testimonials-grid, .impact-stats, #about { grid-template-columns: 1fr; }
@@ -1076,7 +1078,7 @@
 
   </div>
   <div class="hero-right">
-    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.05) 1px,transparent 1px);background-size:60px 60px;"></div>
+    <img src="Main Picture.png" alt="Geethikaa Desam" class="hero-photo"/>
     <div class="hero-stats-bar">
       <div class="stat-cell">
         <div class="stat-number">20+</div>
@@ -1459,15 +1461,15 @@
     <div class="contact-left">
       <h2>Let's build something<br/><em>worth measuring.</em></h2>
       <p>I'm excited to connect and collaborate on operational clarity, data storytelling, and execution that drives outcomes.</p>
-      <a href="mailto:geethikaadesam@gmail.com" class="btn-primary">Send an Email →</a>
+      <a href="/cdn-cgi/l/email-protection#eb8c8e8e9f8382808a8a8f8e988a86ab8c868a8287c5888486" class="btn-primary">Send an Email →</a>
       <blockquote class="contact-quote">
         "Integrity in intention, competence in execution." — My approach to every engagement, every decision, every dashboard.
       </blockquote>
     </div>
     <div class="contact-links">
-      <a href="mailto:geethikaadesam@gmail.com" class="contact-link-item">
+      <a href="/cdn-cgi/l/email-protection#b5d2d0d0c1dddcded4d4d1d0c6d4d8f5d2d8d4dcd99bd6dad8" class="contact-link-item">
         <span class="contact-link-name">Email</span>
-        <span class="contact-link-handle">geethikaadesam@gmail.com</span>
+        <span class="contact-link-handle"><span class="__cf_email__" data-cfemail="086f6d6d7c60616369696c6d7b6965486f65696164266b6765">[email&#160;protected]</span></span>
         <span class="contact-link-arrow">→</span>
       </a>
       <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="contact-link-item">
@@ -1500,7 +1502,7 @@
   <div class="footer-copy mono">© 2025 · All Rights Reserved</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Drag-to-scroll for services strip
   const track = document.getElementById('scrollTrack');
   const fill = document.getElementById('scrollFill');
@@ -1535,12 +1537,4 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.editorial-row, .scroll-card, .expertise-item, .impact-stat').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+  doc
