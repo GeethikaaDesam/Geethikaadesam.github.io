@@ -1,1204 +1,1542 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <!-- Enhanced SEO -->
-  <title>Geethikaa Desam | Manufacturing Operations & Data Analytics Consultant</title>
-  <meta name="description" content="Expert manufacturing operations consultant specializing in KPI design, Power BI modeling, and operational excellence. Transform production data into actionable insights that drive results." />
-  
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Geethikaa Desam | Manufacturing Operations Consultant" />
-  <meta property="og:description" content="Transform manufacturing operations with data-driven insights. Expert in KPI design, Power BI, and operational excellence." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://geethikaadesam.com" />
-  <meta property="og:image" content="https://geethikaadesam.com/assets/og-image.jpg" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Geethikaa Desam | Manufacturing Operations Consultant" />
-  <meta name="twitter:description" content="Transform manufacturing operations with data-driven insights." />
-  
-  <!-- Additional SEO -->
-  <meta name="keywords" content="manufacturing operations, KPI design, Power BI consultant, data analytics, operational excellence, manufacturing consultant, downtime reduction, production metrics" />
-  <meta name="author" content="Geethikaa Desam" />
-  <link rel="canonical" href="https://geethikaadesam.com" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Geethikaa Desam | Manufacturing Operations & Data Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black: #0a0a08;
+    --dark: #111110;
+    --surface: #1a1a17;
+    --border: #2a2a26;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --white: #f0ede4;
+    --muted: #7a7a6e;
+    --text: #ccc9bb;
+  }
 
-  <!-- Modern font (enterprise feel) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <style>
-    :root{
-      /* Palette */
-      --forest:#2C3930;
-      --sage:#3F4F44;
-      --brown:#A27B5C;
-      --warm-white:#F5F2ED;
-      --card:#ffffff;
+  html { scroll-behavior: smooth; }
 
-      --radius: 22px;
-      --max: 1200px;
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-      --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
 
-      --shadow: 0 10px 30px rgba(17,24,39,.10);
-      --shadow-hover: 0 18px 55px rgba(17,24,39,.16);
-      --hairline: rgba(17,24,39,.08);
-    }
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--white); }
+  .mono { font-family: 'DM Mono', monospace; }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    html,body{height:100%}
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-    body{
-      margin:0;
-      font-family:var(--sans);
-      color:rgba(17,24,39,.92);
-      background:
-        radial-gradient(1100px 650px at 12% 10%, rgba(162,123,92,.10), transparent 60%),
-        radial-gradient(900px 520px at 90% 12%, rgba(63,79,68,.08), transparent 58%),
-        radial-gradient(1000px 680px at 50% 96%, rgba(162,123,92,.08), transparent 62%),
-        var(--warm-white);
-      line-height:1.65;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,8,0.95), transparent);
+    backdrop-filter: blur(2px);
+  }
 
-    a{color:inherit; text-decoration:none; transition:all .2s ease}
-    .container{max-width:var(--max); margin:0 auto; padding:48px 24px 90px}
-    .muted{color:rgba(17,24,39,.68)}
-    .mono{font-family:var(--mono)}
-    .small{font-size:13px}
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
 
-    /* Accessibility */
-    .skip-link{
-      position:absolute;
-      left:-9999px;
-      z-index:999;
-      background: var(--forest);
-      color: white;
-      padding: 10px 20px;
-      border-radius: 4px;
-    }
-    .skip-link:focus{
-      left: 10px;
-      top: 10px;
-    }
-    *:focus-visible {
-      outline: 3px solid var(--brown);
-      outline-offset: 2px;
-    }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
 
-    /* =======================
-       NAV
-    ======================== */
-    header{
-      position:sticky; top:0; z-index:50;
-      background: rgba(245,242,237,.78);
-      backdrop-filter: blur(14px);
-      border-bottom:1px solid var(--hairline);
-    }
-    .nav{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800;
-      font-size:14px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:rgba(17,24,39,.88);
-    }
-    .logo-custom{width:44px; height:44px; display:flex; align-items:center; justify-content:center}
-    .logo-custom svg{width:100%; height:100%}
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
 
-    .navlinks{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
-    .navlinks a{
-      font-size:14px;
-      font-weight:600;
-      padding:10px 14px;
-      border-radius:999px;
-      color:rgba(17,24,39,.75);
-      min-height: 44px;
-      display: flex;
-      align-items: center;
-    }
-    .navlinks a:hover{background:rgba(17,24,39,.06); color:rgba(17,24,39,.9)}
+  .nav-links a:hover { color: var(--gold); }
 
-    .social{display:flex; gap:8px; align-items:center}
-    .iconbtn{
-      width:44px; height:44px;
-      border-radius:999px;
-      border:1px solid var(--hairline);
-      background: rgba(255,255,255,.6);
-      display:grid; place-items:center;
-    }
-    .iconbtn:hover{
-      transform:translateY(-1px);
-      box-shadow: 0 10px 25px rgba(17,24,39,.10);
-      background:#fff;
-    }
-    .icon{width:18px; height:18px; fill:currentColor; color:rgba(17,24,39,.8)}
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* =======================
-       TYPE
-    ======================== */
-    .kicker{
-      margin:0 0 12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      font-size:12px;
-      font-weight:800;
-      color:rgba(17,24,39,.55);
-    }
-    h1{
-      margin:0 0 14px;
-      font-size: clamp(40px, 5vw, 66px);
-      line-height:1.02;
-      letter-spacing:-1.2px;
-      font-weight:900;
-      color: rgba(17,24,39,.92);
-    }
-    .lead{
-      margin:0;
-      font-size:18px;
-      line-height:1.8;
-      color:rgba(17,24,39,.80);
-      max-width: 58ch;
-    }
-
-    /* =======================
-       BUTTONS
-    ======================== */
-    .btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:14px 20px;
-      border-radius:999px;
-      border:1px solid transparent;
-      background: rgba(17,24,39,.06);
-      font-weight:700;
-      font-size:14px;
-      color: rgba(17,24,39,.86);
-      gap:8px;
-      min-height: 44px;
-      text-align: center;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow: 0 10px 25px rgba(17,24,39,.12); background:#fff; border-color: var(--hairline)}
-    .btn.primary{
-      background: var(--forest);
-      border-color: var(--forest);
-      color: var(--warm-white);
-    }
-    .btn.primary:hover{box-shadow: 0 18px 45px rgba(44,57,48,.22); transform:translateY(-2px); background: var(--forest)}
-    .btn.soft{
-      background: rgba(162,123,92,.18);
-      border-color: rgba(162,123,92,.18);
-    }
-
-    /* Chips */
-    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
-    .chip{
-      display:inline-flex; align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(17,24,39,.10);
-      background: rgba(255,255,255,.55);
-      font-size:13px;
-      font-weight:700;
-      color: rgba(17,24,39,.78);
-      white-space:nowrap;
-    }
-
-    /* =======================
-       HERO
-    ======================== */
-    .heroFull{
-      position:relative;
-      width:100%;
-      min-height:74vh;
-      display:flex;
-      align-items:stretch;
-      overflow:hidden;
-      border-bottom:1px solid var(--hairline);
-      background: linear-gradient(135deg, #1a2420 0%, #2C3930 100%);
-    }
-    .heroFull::before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        radial-gradient(900px 700px at 22% 30%, rgba(245,242,237,.92), rgba(245,242,237,.70) 40%, rgba(245,242,237,.22) 66%, rgba(245,242,237,0) 78%);
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      transform:scale(1.02);
-    }
-    .heroFull::after{
-      content:"";
-      position:absolute; inset:0;
-      background: radial-gradient(900px 700px at 70% 50%, rgba(44,57,48,.30), transparent 60%);
-      pointer-events:none;
-      mix-blend-mode:multiply;
-      opacity:.55;
-    }
-    .heroInner{
-      position:relative;
-      width:100%;
-      max-width:var(--max);
-      margin:0 auto;
-      padding:56px 24px;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:22px;
-      align-items:center;
-    }
-    @media (max-width: 960px){
-      .heroFull{min-height:auto}
-      .heroInner{grid-template-columns:1fr; padding:40px 24px}
-    }
-
-    .heroCard{
-      background: rgba(255,255,255,.72);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      padding: 30px;
-    }
-
-    .connectCard{
-      background: rgba(255,255,255,.82);
-      border:1px solid rgba(255,255,255,.60);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      padding: 26px;
-    }
-    .connectTitle{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; margin-bottom:10px;
-    }
-    .connectTitle h2{
-      margin:0; font-size:16px; font-weight:900; letter-spacing:-.3px;
-      color: rgba(17,24,39,.90);
-    }
-    .badge{
-      font-size:12px;
-      font-weight:800;
-      color: rgba(17,24,39,.62);
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(17,24,39,.10);
-      background: rgba(17,24,39,.05);
-      white-space:nowrap;
-    }
-    .connectGrid{display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px}
-    .contactLine{margin:0; font-size:14px; color: rgba(17,24,39,.72)}
-    .miniRow{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; flex-wrap:wrap;
-      padding-top:14px;
-      border-top:1px solid rgba(17,24,39,.08);
-      margin-top:16px;
-    }
-
-    /* =======================
-       SECTIONS
-    ======================== */
-    .section{margin-top:72px}
-    .sectionTitle{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:16px; margin:0 0 22px;
-      flex-wrap: wrap;
-    }
-    .sectionTitle h3{
-      margin:0;
-      font-size: clamp(26px, 3vw, 40px);
-      font-weight:900;
-      letter-spacing:-.9px;
-      color: rgba(17,24,39,.92);
-    }
-    .sectionTitle .hint{font-size:13px; color:rgba(17,24,39,.55)}
-
-    .bandSection{
-      padding: 52px 0;
-      background:
-        radial-gradient(900px 520px at 12% 20%, rgba(162,123,92,.10), transparent 58%),
-        radial-gradient(900px 520px at 92% 8%, rgba(63,79,68,.08), transparent 55%),
-        rgba(255,255,255,.35);
-      border-top: 1px solid var(--hairline);
-      border-bottom: 1px solid var(--hairline);
-    }
-
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
-    .col-4{grid-column: span 4}
-    .col-5{grid-column: span 5}
-    .col-6{grid-column: span 6}
-    .col-7{grid-column: span 7}
-    .col-12{grid-column: span 12}
-    @media (max-width:900px){ .col-4,.col-5,.col-6,.col-7{grid-column:span 12} }
-
-    .tile{
-      background: rgba(255,255,255,.86);
-      border: 1px solid rgba(255,255,255,.60);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 26px;
-      transition: transform .2s ease, box-shadow .2s ease;
-      backdrop-filter: blur(12px);
-      position:relative;
-      overflow:hidden;
-    }
-    .tile:hover{transform: translateY(-6px); box-shadow: var(--shadow-hover)}
-    .tile::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 240px at 20% 10%, rgba(162,123,92,.14), transparent 55%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .tile > *{position:relative}
-
-    .eyebrow{
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      font-weight:900;
-      color: rgba(17,24,39,.55);
-      margin:0 0 10px;
-    }
-    .tile h4{
-      margin:0 0 10px;
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:-.3px;
-      color: rgba(17,24,39,.90);
-    }
-    .tile p{
-      margin:0 0 16px;
-      color: rgba(17,24,39,.72);
-      font-size:15px;
-      line-height:1.7;
-      max-width: 64ch;
-    }
-    .bullets{margin:0; padding-left:18px; color:rgba(17,24,39,.68); font-size:14px; line-height:1.7}
-    .bullets li{margin:8px 0}
-
-    /* Testimonial specific */
-    .testimonial-author{
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(17,24,39,.10);
-      font-size: 13px;
-      color: rgba(17,24,39,.65);
-      font-style: italic;
-    }
-
-    /* Stats grid */
-    .stats-grid{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 18px;
-    }
-    @media (max-width: 600px){
-      .stats-grid{grid-template-columns: 1fr;}
-    }
-    .stat-item{
-      text-align: center;
-      padding: 16px;
-      background: rgba(162,123,92,.06);
-      border-radius: 14px;
-      border: 1px solid rgba(162,123,92,.14);
-    }
-    .stat-number{
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--forest);
-      margin: 0 0 4px;
-      letter-spacing: -.5px;
-    }
-    .stat-label{
-      font-size: 12px;
-      color: rgba(17,24,39,.68);
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      font-weight: 700;
-    }
-
-    /* =======================
-   COMMUNITY
-======================== */
-.communityBand{
-  margin-top: 18px;
-  border-radius: 18px;
-  overflow:hidden;
-  position:relative;
-  min-height: 160px;
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(17,24,39,.10);
-  background: linear-gradient(135deg, #1a2420 0%, #2C3930 100%);
-}
-
-.communityBand::before{
-  content:"";
-  position:absolute; inset:0;
-  background:
-    radial-gradient(900px 520px at 20% 40%, rgba(255,255,255,.10), transparent 60%),
-    radial-gradient(900px 520px at 70% 55%, rgba(162,123,92,.16), transparent 62%);
-  pointer-events:none;
-}
-
-.communityBand::after{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(90deg, rgba(12,16,14,.88) 0%, rgba(12,16,14,.60) 55%, rgba(12,16,14,.22) 100%);
-  pointer-events:none;
-}
-
-.communityBandInner{
-  position:relative;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 18px 18px;
-  display:flex;
-  align-items:center;
-  gap: 16px;
-}
-
-@media (max-width: 700px){
-  .communityBand{ min-height: 190px; }
-  .communityBandInner{
+  .hero-left {
+    padding: 12rem 4rem 6rem;
+    display: flex;
     flex-direction: column;
-    align-items:flex-start;
-    gap: 12px;
-    padding: 16px 16px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
   }
-}
 
-.igpLogoBox{
-  width: 78px;
-  height: 78px;
-  border-radius: 18px;
-  background: rgba(245,242,237,.92);
-  border: 1px solid rgba(255,255,255,.24);
-  display:grid;
-  place-items:center;
-  flex: 0 0 auto;
-  box-shadow: 0 14px 34px rgba(0,0,0,.28);
-}
-.igpLogoBox img{
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  display:block;
-}
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-.igpText{
-  display:flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 0;
-}
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
 
-.igpTitleRow{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+  .hero h1 {
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 1.05;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
 
-.igpTitle{
-  margin:0;
-  font-size: 14px;
-  font-weight: 900;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.95);
-}
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
 
-.igpTag{
-  font-size: 11px;
-  font-weight: 800;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.18);
-  color: rgba(255,255,255,.82);
-}
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
 
-.igpReason{
-  margin:0;
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: rgba(255,255,255,.84);
-  max-width: 88ch;
-  text-shadow: 0 2px 14px rgba(0,0,0,.28);
-}
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 
-.igpActions{
-  margin-top: 6px;
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.9rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
 
-.igpLink{
-  font-size: 12px;
-  font-weight: 900;
-  padding: 9px 12px;
-  border-radius: 999px;
-  background: rgba(245,242,237,.14);
-  border: 1px solid rgba(255,255,255,.22);
-  color: rgba(255,255,255,.92);
-}
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
 
-.igpLink:hover{
-  background: rgba(245,242,237,.20);
-  border-color: rgba(255,255,255,.30);
-  transform: translateY(-1px);
-}
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
 
-    /* =======================
-       FOOTER
-    ======================== */
-    .talkBand{
-      margin-top: 84px;
-      background: linear-gradient(135deg, var(--forest), rgba(44,57,48,.92));
-      color: rgba(255,255,255,.92);
-      border-top: 1px solid rgba(255,255,255,.10);
-      position: relative;
-      overflow: hidden;
-    }
-    .talkBand::before{
-      content:"";
-      position:absolute;
-      inset:-200px -120px -240px -120px;
-      background:
-        radial-gradient(700px 380px at 25% 35%, rgba(255,255,255,.10), transparent 60%),
-        radial-gradient(700px 380px at 70% 45%, rgba(162,123,92,.10), transparent 62%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .talkInner{
-      position:relative;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 72px 24px 22px;
-    }
-    .talkGrid{
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 28px;
-      align-items: center;
-    }
-    @media (max-width: 900px){
-      .talkGrid{ grid-template-columns: 1fr; }
-      .talkInner{ padding: 56px 24px 20px; }
-    }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
 
-    .talkPre{
-      margin: 0 0 18px;
-      font-size: 14px;
-      line-height: 1.8;
-      color: rgba(255,255,255,.78);
-      max-width: 64ch;
-    }
-    .talkTitleLink{ display:inline-block; }
-    .talkTitle{
-      margin: 0;
-      font-size: clamp(46px, 6vw, 92px);
-      letter-spacing: -1.6px;
-      line-height: 0.95;
-      font-weight: 900;
-      color: #fff;
-    }
-    .talkArrow{
-      display:inline-block;
-      transform: translateY(-.06em);
-      color: var(--brown);
-    }
-    .talkMotto{
-      margin: 14px 0 0;
-      font-size: 13px;
-      line-height: 1.7;
-      color: rgba(255,255,255,.68);
-      max-width: 72ch;
-    }
+  /* HERO TAGS */
+  .hero-tags {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 
-    .talkQuoteWrap{ margin-top: 10px; max-width: 86ch; }
-    .talkQuote{
-      margin: 0;
-      font-size: 10.5px;
-      line-height: 1.75;
-      color: rgba(255,255,255,.58);
-    }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
 
-    .talkRight{
-      justify-self: end;
-      display:flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    @media (max-width: 900px){
-      .talkRight{ justify-self: start; }
-    }
+  /* HERO RIGHT - PHOTO PANEL */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
 
-    .talkContactItem{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      color: rgba(255,255,255,.80);
-      font-size: 13px;
-    }
-    .talkIcon{
-      width: 34px; height: 34px;
-      border-radius: 999px;
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      font-size: 14px;
-    }
-    .talkLink{
-      color: rgba(255,255,255,.88);
-      text-decoration: underline;
-      text-decoration-color: rgba(255,255,255,.28);
-      text-underline-offset: 3px;
-    }
-    .talkLink:hover{ text-decoration-color: rgba(255,255,255,.70); }
+  /* left-side fade so photo blends into the text */
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 30%),
+                linear-gradient(to top, var(--black) 0%, transparent 35%);
+    z-index: 2;
+  }
 
-    .talkIcons{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .talkIconLink{
-      width: 44px; height: 44px;
-      border-radius: 999px;
-      display:grid; place-items:center;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      color: rgba(255,255,255,.86);
-      font-weight: 900;
-      font-size: 13px;
-      user-select:none;
-    }
-    .talkIconLink:hover{
-      background: rgba(255,255,255,.14);
-      border-color: rgba(255,255,255,.20);
-      transform: translateY(-1px);
-    }
+  /* subtle gold border on right + top */
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    top: 6rem; right: 2rem; bottom: 0;
+    border-top: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+    z-index: 3;
+    pointer-events: none;
+  }
 
-    .talkBottom{
-      margin-top: 34px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      display:flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 12px;
-      color: rgba(255,255,255,.66);
-    }
-  </style>
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%) contrast(1.05);
+    z-index: 1;
+  }
+
+  /* Stats bar floating above the gradient at the bottom */
+  .hero-stats-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-cell {
+    background: rgba(10,10,8,0.85);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .stat-cell:hover { background: rgba(17,17,16,0.95); }
+
+  .stat-cell::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .stat-cell:hover::after { transform: scaleX(1); }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* DIAGONAL DIVIDER */
+  .divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0;
+  }
+
+  /* SECTION LAYOUT */
+  section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-left: 1rem;
+  }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-left .section-header { margin-bottom: 2rem; }
+
+  .about-text {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text strong { color: var(--white); font-weight: 500; }
+
+  .expertise-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .expertise-item {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .expertise-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .expertise-item:hover { background: var(--gold-dim); padding-left: 1rem; margin: 0 -1rem; padding-right: 1rem; }
+
+  .expertise-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .expertise-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .expertise-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* IMPACT */
+  #impact {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 5rem;
+  }
+
+  .impact-stat {
+    background: var(--dark);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .impact-stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.5s;
+  }
+
+  .impact-stat:hover::before { transform: scaleX(1); }
+
+  .impact-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .impact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* EDITORIAL CASE ROWS */
+  .editorial-cases { display: flex; flex-direction: column; }
+
+  .editorial-row {
+    border-top: 1px solid var(--border);
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: 80px 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .editorial-row:last-child { border-bottom: 1px solid var(--border); }
+
+  .editorial-row::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.45s ease;
+  }
+
+  .editorial-row:hover::after { transform: scaleY(1); }
+  .editorial-row:hover { background: rgba(201,168,76,0.03); padding-left: 1.5rem; transition: padding 0.3s, background 0.3s; }
+
+  .editorial-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    padding-top: 0.25rem;
+    transition: color 0.3s;
+  }
+
+  .editorial-row:hover .editorial-num { color: var(--gold); }
+
+  .editorial-left {}
+
+  .editorial-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .editorial-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+
+  .editorial-quote {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .editorial-quote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--border);
+  }
+
+  .editorial-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .editorial-block-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .editorial-block-text {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .editorial-results {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  .editorial-results span {
+    display: block;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .editorial-results span:last-child { border-bottom: none; }
+
+  /* SERVICES */
+  #offerings {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .service-card {
+    background: var(--dark);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover { background: var(--surface); }
+
+  .service-card.featured { grid-column: span 2; }
+
+  .service-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-list li {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .service-list li::before {
+    content: '→';
+    color: var(--gold);
+  }
+
+  .service-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* FAQ */
+  #faq {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 4rem;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+  }
+
+  .faq-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-family: 'DM Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  .faq-answer {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* CONTACT */
+  #contact {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .contact-left h2 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-left h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .contact-left p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-quote {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--muted);
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-link-item {
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    group: true;
+  }
+
+  .contact-link-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .contact-link-item:hover { color: var(--gold); padding-left: 0.5rem; }
+
+  .contact-link-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  .contact-link-handle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+
+  .contact-link-item:hover .contact-link-handle { color: var(--gold); }
+
+  .contact-link-arrow {
+    font-family: 'DM Mono', monospace;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .contact-link-item:hover .contact-link-arrow { opacity: 1; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideRight {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.8s ease forwards; }
+  .hero h1 { animation: fadeUp 0.8s 0.15s ease both; }
+  .hero-desc { animation: fadeUp 0.8s 0.25s ease both; }
+  .hero-ctas { animation: fadeUp 0.8s 0.35s ease both; }
+  .hero-tags { animation: fadeUp 0.8s 0.45s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .hero-right { display: none; }
+    section, #about, #impact, #offerings, #faq, #contact { padding: 5rem 2rem; }
+    .editorial-row { grid-template-columns: 40px 1fr; gap: 1.5rem; }
+    .editorial-right { grid-column: 1 / -1; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+    .case-studies, .services-grid, .faq-grid, .contact-grid, .testimonials-grid, .impact-stats, #about { grid-template-columns: 1fr; }
+    .service-card.featured { grid-column: span 1; }
+    .community-banner { padding: 0 2rem; }
+    .community-inner { flex-direction: column; text-align: center; }
+    .community-link { margin-left: 0; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+
+  /* HORIZONTAL SCROLL STRIP */
+  .scroll-track-wrapper {
+    position: relative;
+    padding: 0 0 3rem 4rem;
+    overflow: hidden;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 1px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+    background: var(--border);
+  }
+
+  .scroll-track::-webkit-scrollbar { display: none; }
+  .scroll-track.grabbing { cursor: grabbing; }
+
+  /* Right fade */
+  .scroll-track-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 180px;
+    height: calc(100% - 3rem);
+    background: linear-gradient(to left, var(--black), transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .scroll-card {
+    flex: 0 0 420px;
+    background: var(--dark);
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    min-height: 520px;
+  }
+
+  .scroll-card:hover { background: var(--surface); }
+
+  .scroll-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .scroll-card:hover::before { transform: scaleX(1); }
+
+  .scroll-card-inner {
+    padding: 3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scroll-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .scroll-index {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+
+  .scroll-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.25rem 0.6rem;
+  }
+
+  .scroll-badge-outline {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .scroll-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+
+  .scroll-card-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .scroll-card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+
+  .scroll-card-list li {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .scroll-card-list li::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .scroll-card-ctas {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  .scroll-end-spacer {
+    flex: 0 0 180px;
+    background: transparent;
+    border: none;
+  }
+
+  /* PROGRESS BAR */
+  .scroll-progress-bar {
+    margin-top: 2rem;
+    height: 1px;
+    background: var(--border);
+    width: calc(100% - 4rem);
+    position: relative;
+  }
+
+  .scroll-progress-fill {
+    height: 100%;
+    background: var(--gold);
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+
+  .gold { color: var(--gold); }
+
+  /* HORIZONTAL RULE DECORATIVE */
+  .hr-gold {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 0;
+  }
+</style>
 </head>
-
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  
-  <header>
-    <div class="nav">
-      <a class="brand" href="#top">
-        <div class="logo-custom" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="48" fill="#F5F2ED" opacity="0.95"/>
-            <path d="M 35 35 Q 30 35 30 40 L 30 60 Q 30 65 35 65 L 50 65 L 50 55 L 40 55 L 40 50 L 55 50 L 55 65 Q 55 70 50 70 L 35 70 Q 25 70 25 60 L 25 40 Q 25 30 35 30 L 50 30 Q 55 30 55 35 L 55 40 L 50 40 L 50 35 Z"
-                  fill="#2C3930" opacity="0.95"/>
-            <path d="M 60 30 L 70 30 Q 80 30 80 40 L 80 60 Q 80 70 70 70 L 60 70 Z M 65 35 L 65 65 L 70 65 Q 75 65 75 60 L 75 40 Q 75 35 70 35 Z"
-                  fill="#2C3930" opacity="0.95"/>
-            <circle cx="50" cy="50" r="3" fill="#A27B5C"/>
-          </svg>
+
+<!-- NAV -->
+<nav>
+  <a href="#top" class="nav-logo">Geethikaa Desam</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#impact">Results</a></li>
+    <li><a href="#offerings">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Manufacturing · Procurement · Finance · AI Execution</div>
+    <h1>Make operations<br/><em>visible.</em><br/>Decisions faster.</h1>
+    <p class="hero-desc">
+      I'm Geethikaa — I help manufacturing teams connect shop-floor reality to clean metrics and practical execution. Structure without slowing the work down.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Schedule Free Consultation →</a>
+      <a href="#impact" class="btn-outline">See Results</a>
+    </div>
+
+  </div>
+  <div class="hero-right">
+    <img
+      class="hero-photo"
+      src="https://raw.githubusercontent.com/GeethikaaDesam/Geethikaadesam.github.io/main/Main%20picture.jpg"
+      alt="Geethikaa Desam"
+    />
+    <div class="hero-stats-bar">
+      <div class="stat-cell">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Implementations</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">$3M+</div>
+        <div class="stat-label">Cost Savings</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">97%</div>
+        <div class="stat-label">Dashboard Adoption</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">40+</div>
+        <div class="stat-label">Professionals Coached</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="about-left">
+    <div class="section-header">
+      <span class="section-number mono">01</span>
+      <h2 class="section-title">About</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="about-text">
+      I work at the intersection of <strong>manufacturing operations</strong>, <strong>procurement</strong>, <strong>cost accounting</strong>, and <strong>AI-enabled delivery</strong>. Over the past several years, I've helped organizations reduce production variance by up to 45%, streamline procurement workflows, implement KPI governance frameworks that drive daily decisions, and build Power BI models processing hundreds of thousands of data points that executives actually trust and use.
+    </p>
+    <p class="about-text">
+      I'm comfortable in the process details <em>and</em> in the decision rooms — translating variance into drivers, turning spend data into strategy, and deploying AI tools that accelerate project execution without adding overhead.
+    </p>
+    <a href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" class="btn-outline" style="display:inline-block;margin-top:1rem;">Free Newsletter →</a>
+  </div>
+  <div class="about-right">
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <div class="expertise-icon">⚙</div>
+        <div>
+          <div class="expertise-name">Manufacturing Operations</div>
+          <div class="expertise-desc">Production planning, downtime analysis, scrap reduction, BOM optimization, capacity modeling</div>
         </div>
-        <span>GEETHIKAA DESAM</span>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◈</div>
+        <div>
+          <div class="expertise-name">Data & Analytics</div>
+          <div class="expertise-desc">Power BI semantic modeling, DAX measures, SQL, KPI design, data governance, exception-first dashboards</div>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◎</div>
+        <div>
+          <div class="expertise-name">Procurement & Supply Chain</div>
+          <div class="expertise-desc">Supplier performance tracking, spend analytics, PO workflows, vendor scorecards, sourcing visibility</div>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">$</div>
+        <div>
+          <div class="expertise-name">Cost Accounting & Finance</div>
+          <div class="expertise-desc">Standard costing, variance analysis, cost-per-unit modeling, budget vs. actuals, margin reporting</div>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">✦</div>
+        <div>
+          <div class="expertise-name">AI-Enabled Project Execution</div>
+          <div class="expertise-desc">Deploying AI tools to accelerate workflows, automate reporting, and reduce time-to-insight across ops and finance teams</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr-gold"></div>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-header">
+    <span class="section-number mono">02</span>
+    <h2 class="section-title">Impact & Results</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="impact-stats">
+    <div class="impact-stat">
+      <div class="impact-number">20+</div>
+      <div class="impact-label">Implementations</div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-number">$3M+</div>
+      <div class="impact-label">Cost Savings Delivered</div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-number">97%</div>
+      <div class="impact-label">Dashboard Adoption Rate</div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-number">40+</div>
+      <div class="impact-label">Professionals Coached</div>
+    </div>
+  </div>
+
+  <div class="editorial-cases">
+
+    <!-- Case 01 -->
+    <div class="editorial-row">
+      <div class="editorial-num">01</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Manufacturing · Automotive</span>
+        <h3 class="editorial-title">Downtime Reduction: 28% → 12% in 6 Months</h3>
+        <blockquote class="editorial-quote">
+          Geethikaa transformed our messy production data into actionable insights. Our team now trusts the numbers and acts faster.
+          <cite>— Operations Director, Fortune 500 Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Inconsistent downtime tracking across 3 production lines with unclear root causes for recurring stoppages.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Exception-first dashboard with real-time alerts, standardized downtime categories, and daily review cadence for 15 operators.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>↓ 16-pt downtime reduction</span>
+            <span>$850K annual savings</span>
+            <span>95% team adoption</span>
+            <span>3× faster decisions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 02 -->
+    <div class="editorial-row">
+      <div class="editorial-num">02</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Analytics · Power BI</span>
+        <h3 class="editorial-title">Power BI Overhaul: 3-Day Reports → Real-Time</h3>
+        <blockquote class="editorial-quote">
+          She doesn't just build dashboards — she builds systems people actually use. Our monthly review time is cut in half.
+          <cite>— Plant Manager, Consumer Goods Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">10+ disconnected Excel files, 2-day manual reconciliation, and 3-day report generation with frequent errors.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Unified Power BI semantic model with automated refresh, 50+ DAX measures, and drill-through capabilities.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>Real-time reporting</span>
+            <span>40 hrs/week saved</span>
+            <span>Executive confidence restored</span>
+            <span>Insights in 48 hrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 03 -->
+    <div class="editorial-row">
+      <div class="editorial-num">03</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Procurement · Spend Analytics</span>
+        <h3 class="editorial-title">Supplier Spend Visibility: From Blind Spots to Scorecards</h3>
+        <blockquote class="editorial-quote">
+          We finally had one source of truth for supplier spend. Procurement decisions that used to take weeks now take hours.
+          <cite>— VP of Procurement, Industrial Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Procurement data scattered across ERP, spreadsheets, and email threads — no unified view of spend or supplier performance.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Built a consolidated spend analytics model with supplier scorecards, PO exception tracking, and category-level drill-throughs.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>↓ 30% maverick spend</span>
+            <span>Single source of truth</span>
+            <span>12 supplier contracts renegotiated</span>
+            <span>$1.2M in identified savings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 04 -->
+    <div class="editorial-row">
+      <div class="editorial-num">04</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Cost Accounting · Finance</span>
+        <h3 class="editorial-title">Standard Costing Redesign: Variance Clarity Across 5 Plants</h3>
+        <blockquote class="editorial-quote">
+          For the first time, our finance and operations teams were speaking the same language. Variance reviews went from debates to decisions.
+          <cite>— Controller, Aerospace Components Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Inconsistent cost definitions across 5 plants made variance analysis meaningless — teams disputed numbers instead of acting on them.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Redesigned standard costing framework with unified definitions, cost-per-unit models, and automated budget vs. actuals reporting.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>5 plants on one cost model</span>
+            <span>↓ 60% variance review time</span>
+            <span>Margin visibility restored</span>
+            <span>Faster month-end close</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 05 -->
+    <div class="editorial-row">
+      <div class="editorial-num">05</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">AI Execution · Workflow Automation</span>
+        <h3 class="editorial-title">AI-Enabled Reporting: 3-Week Cycle → 4-Hour Turnaround</h3>
+        <blockquote class="editorial-quote">
+          I didn't believe AI could work in our ops environment until I saw it. The time savings alone paid for the engagement in the first month.
+          <cite>— Operations Manager, Consumer Goods Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Monthly ops reporting required 3 weeks of manual data gathering, formatting, and stakeholder follow-up — leaving no time for analysis.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Designed an AI-enabled workflow combining automated data pulls, structured prompt templates, and anomaly-flagging to generate report drafts in hours.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>3 weeks → 4 hours</span>
+            <span>↑ Analysis time by 5×</span>
+            <span>Zero manual reconciliation</span>
+            <span>Adopted across 3 departments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="hr-gold"></div>
+
+<!-- SERVICES -->
+<section id="offerings" style="padding-bottom:0;">
+  <div class="section-header">
+    <span class="section-number mono">03</span>
+    <h2 class="section-title">Work With Me</h2>
+    <div class="section-line"></div>
+  </div>
+  <p style="color:var(--muted);font-size:0.8rem;font-family:'DM Mono',monospace;letter-spacing:0.1em;margin-bottom:2rem;">
+    ← scroll to explore →
+  </p>
+</section>
+
+<div class="scroll-track-wrapper">
+  <div class="scroll-track" id="scrollTrack">
+
+    <div class="scroll-card" data-index="01">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">01</span>
+          <span class="scroll-badge">Featured</span>
+        </div>
+        <h3 class="scroll-card-title">Manufacturing Metrics & KPI Design</h3>
+        <p class="scroll-card-desc">Align metrics to shop-floor reality so teams trust the numbers and act faster — without creating reporting overhead.</p>
+        <ul class="scroll-card-list">
+          <li>Metric definitions + governance frameworks</li>
+          <li>Exception-first dashboards (variance, downtime, scrap)</li>
+          <li>Review cadence + ownership model design</li>
+          <li>Stakeholder buy-in & change management</li>
+        </ul>
+        <div class="scroll-card-ctas">
+          <a href="https://topmate.io/geethikaa_desam" target="_blank" class="btn-primary">Book on Topmate →</a>
+          <a href="#contact" class="btn-outline">Ask About a Project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-card" data-index="02">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">02</span>
+          <span class="scroll-badge scroll-badge-outline">Procurement</span>
+        </div>
+        <h3 class="scroll-card-title">Procurement & Cost Analytics</h3>
+        <p class="scroll-card-desc">Bring visibility to spend, supplier performance, and cost drivers — so procurement and finance teams can act on data, not instinct.</p>
+        <ul class="scroll-card-list">
+          <li>Spend analytics & supplier scorecards</li>
+          <li>PO workflow design + exception tracking</li>
+          <li>Cost-per-unit & margin variance models</li>
+          <li>Budget vs. actuals dashboards</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scroll-card" data-index="03">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">03</span>
+          <span class="scroll-badge scroll-badge-outline">AI Execution</span>
+        </div>
+        <h3 class="scroll-card-title">AI-Enabled Project Execution</h3>
+        <p class="scroll-card-desc">Embed AI tools into ops and finance workflows to cut reporting time, surface insights faster, and free up teams for high-value decisions.</p>
+        <ul class="scroll-card-list">
+          <li>AI workflow design for ops & finance teams</li>
+          <li>Automated reporting & anomaly detection</li>
+          <li>Prompt engineering for structured outputs</li>
+          <li>AI tool selection + adoption roadmap</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scroll-card" data-index="04">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">04</span>
+          <span class="scroll-badge scroll-badge-outline">Content</span>
+        </div>
+        <h3 class="scroll-card-title">Newsletter & Thought Leadership</h3>
+        <p class="scroll-card-desc">Short, practical notes on operational clarity, decision cadence, and how to make dashboards drive action. No fluff — just frameworks you can use Monday morning.</p>
+        <ul class="scroll-card-list">
+          <li>2,400+ subscribers</li>
+          <li>5-minute read, every Thursday</li>
+        </ul>
+        <div class="scroll-card-ctas">
+          <a href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" class="btn-primary">Subscribe on LinkedIn →</a>
+          <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="btn-outline">Follow Me</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fade-out end spacer -->
+    <div class="scroll-end-spacer"></div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-fill" id="scrollFill"></div>
+  </div>
+</div>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <h2>Let's build something<br/><em>worth measuring.</em></h2>
+      <p>I'm excited to connect and collaborate on operational clarity, data storytelling, and execution that drives outcomes.</p>
+      <a href="/cdn-cgi/l/email-protection#32555757465a5b595353565741535f72555f535b5e1c515d5f" class="btn-primary">Send an Email →</a>
+      <blockquote class="contact-quote">
+        "Integrity in intention, competence in execution." — My approach to every engagement, every decision, every dashboard.
+      </blockquote>
+    </div>
+    <div class="contact-links">
+      <a href="/cdn-cgi/l/email-protection#c5a2a0a0b1adacaea4a4a1a0b6a4a885a2a8a4aca9eba6aaa8" class="contact-link-item">
+        <span class="contact-link-name">Email</span>
+        <span class="contact-link-handle"><span class="__cf_email__" data-cfemail="f4939191809c9d9f95959091879599b49399959d98da979b99">[email&#160;protected]</span></span>
+        <span class="contact-link-arrow">→</span>
       </a>
-
-      <nav class="navlinks" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#impact">Results</a>
-        <a href="#offerings">Services</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="social" aria-label="Social links">
-        <a class="iconbtn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 23.5h4V7.98h-4V23.5zM8 7.98h3.83v2.12h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.66 4.8 6.12v9.33h-4v-8.27c0-1.97-.04-4.5-2.74-4.5-2.74 0-3.16 2.14-3.16 4.35v8.42H8V7.98z"/>
-          </svg>
-        </a>
-        <a class="iconbtn" href="https://www.instagram.com/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/>
-          </svg>
-        </a>
-        <a class="iconbtn" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"/>
-          </svg>
-        </a>
-        <a class="iconbtn" href="mailto:geethikaadesam@gmail.com" aria-label="Email">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-          </svg>
-        </a>
-      </div>
+      <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">LinkedIn</span>
+        <span class="contact-link-handle">/in/geethikaadesam</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://topmate.io/geethikaa_desam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">Topmate</span>
+        <span class="contact-link-handle">Book a session</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@geethikaadesam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">YouTube</span>
+        <span class="contact-link-handle">@geethikaadesam</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.instagram.com/geethikaadesam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">Instagram</span>
+        <span class="contact-link-handle">@geethikaadesam</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section id="top" class="heroFull" aria-label="Hero">
-    <div class="heroInner">
-      <div class="heroCard">
-        <p class="kicker">Manufacturing Operations • Data • Delivery</p>
-        <h1>Make operations visible. Make decisions faster.</h1>
-        <p class="lead">
-          I'm <strong>Geethikaa</strong> — I help manufacturing teams connect shop-floor reality to clean metrics and practical execution.
-          If you're dealing with variance, messy definitions, or dashboards that don't drive action, I bring structure without slowing the work down.
-        </p>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Geethikaa Desam</div>
+  <div class="footer-copy mono">© 2025 · All Rights Reserved</div>
+</footer>
 
-        <div class="btnrow">
-          <a class="btn primary" href="#contact">Schedule Free Consultation →</a>
-          <a class="btn" href="#impact">See Results →</a>
-          <a class="btn soft" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noopener noreferrer">Free Newsletter</a>
-        </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Drag-to-scroll for services strip
+  const track = document.getElementById('scrollTrack');
+  const fill = document.getElementById('scrollFill');
+  let isDown = false, startX, scrollLeft;
 
-        <div class="chips" aria-label="Highlights">
-          <span class="chip">Production visibility</span>
-          <span class="chip">Downtime & scrap clarity</span>
-          <span class="chip">Inventory + BOM modeling</span>
-          <span class="chip">KPI governance</span>
-          <span class="chip">MBA (Kelley)</span>
-        </div>
-      </div>
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    track.classList.add('grabbing');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  });
+  track.addEventListener('scroll', () => {
+    const max = track.scrollWidth - track.clientWidth;
+    fill.style.width = (track.scrollLeft / max * 100) + '%';
+  });
 
-      <aside class="connectCard" aria-label="Connect with me">
-        <div class="connectTitle">
-          <h2>Connect with me</h2>
-          <span class="badge">Quick links</span>
-        </div>
 
-        <p class="contactLine">
-          Email: <a class="mono" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>
-        </p>
-
-        <div class="connectGrid">
-          <a class="btn primary" href="mailto:geethikaadesam@gmail.com">Send an email</a>
-          <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="btn" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noopener noreferrer">Book on Topmate</a>
-          <a class="btn soft" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <a class="btn" href="https://www.instagram.com/geethikaadesam" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-
-        <div class="miniRow">
-          <span class="muted small">Best for: ops visibility, KPI design, Power BI modeling, coaching</span>
-          <a class="btn" href="#offerings" style="padding:10px 14px;">Services ↓</a>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <main id="main" class="container" role="main">
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="sectionTitle">
-        <h3>About</h3>
-        <span class="hint">Systems thinking + execution discipline</span>
-      </div>
-
-      <div class="tile">
-        <p style="margin-top:0; font-size:16px; line-height:1.8; color:rgba(17,24,39,.78); max-width:75ch;">
-          I work at the intersection of <strong>manufacturing operations</strong>, <strong>data</strong>, and <strong>delivery</strong>.
-          Over the past several years, I've helped organizations reduce production variance by up to 45%, 
-          implement KPI governance frameworks that drive daily decisions, and build Power BI models processing 
-          hundreds of thousands of data points that executives actually trust and use.
-        </p>
-        
-        <div style="margin: 24px 0;">
-          <h4 style="margin: 0 0 14px; font-size: 16px; font-weight: 800;">Core Expertise</h4>
-          <ul class="bullets">
-            <li><strong>Manufacturing Operations:</strong> Production planning, downtime analysis, scrap reduction, BOM optimization, capacity modeling</li>
-            <li><strong>Data & Analytics:</strong> Power BI semantic modeling, DAX measures, SQL, KPI design, data governance, exception-first dashboards</li>
-            <li><strong>Delivery Excellence:</strong> Stakeholder management, change management, training programs, review cadence design</li>
-          </ul>
-        </div>
-        
-        <p class="muted" style="margin:0; font-size:14px;">
-          MBA from Kelley School of Business • I'm comfortable in the process details <em>and</em> in the decision rooms — 
-          translating variance into drivers, turning definitions into governance, and building dashboards people actually use.
-        </p>
-      </div>
-    </section>
-
-    <!-- IMPACT & RESULTS (NEW) -->
-    <section id="impact" class="section bandSection">
-      <div class="container" style="padding:0 24px;">
-        <div class="sectionTitle">
-          <h3>Impact & Results</h3>
-          <span class="hint">Real outcomes from real engagements</span>
-        </div>
-
-        <div class="grid">
-          <div class="tile col-7">
-            <p class="eyebrow">Manufacturing Client</p>
-            <h4>Downtime Reduction: 28% to 12% in 6 Months</h4>
-            <p><strong>Challenge:</strong> A mid-size automotive parts manufacturer struggled with inconsistent 
-            downtime tracking across 3 production lines and unclear root causes for recurring stoppages.</p>
-            <p><strong>Solution:</strong> Designed exception-first dashboard with real-time alerts, standardized 
-            downtime category definitions, implemented daily review cadence with ownership model, and trained 15 operators 
-            on data capture best practices.</p>
-            <p><strong>Results:</strong> 16-point downtime reduction, $850K annual savings, 95% team adoption in first 
-            month, and production managers making decisions 3x faster.</p>
-            <p class="testimonial-author">
-              "Geethikaa transformed our messy production data into actionable insights. Our team now trusts the 
-              numbers and acts faster. Best investment we made this year."<br>
-              — Operations Director, Fortune 500 Manufacturer
-            </p>
-          </div>
-
-          <div class="tile col-5">
-            <p class="eyebrow">Track Record</p>
-            <h4>Proven Results Across Industries</h4>
-            <div class="stats-grid">
-              <div class="stat-item">
-                <p class="stat-number">20+</p>
-                <p class="stat-label">Implementations</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-number">$3M+</p>
-                <p class="stat-label">Cost Savings</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-number">97%</p>
-                <p class="stat-label">Dashboard Adoption</p>
-              </div>
-              <div class="stat-item">
-                <p class="stat-number">40+</p>
-                <p class="stat-label">Professionals Coached</p>
-              </div>
-            </div>
-            <p style="margin-top: 18px; font-size: 14px;">
-              I've worked with automotive, aerospace, consumer goods, and industrial manufacturing clients — 
-              from Fortune 500 companies to agile mid-market manufacturers.
-            </p>
-          </div>
-
-          <div class="tile col-5">
-            <p class="eyebrow">Analytics Transformation</p>
-            <h4>Power BI Model Overhaul</h4>
-            <p><strong>Challenge:</strong> 10+ disconnected Excel files, manual reconciliation taking 2 days, 
-            and 3-day report generation time with frequent errors.</p>
-            <p><strong>Solution:</strong> Built unified Power BI semantic model with automated refresh, 
-            50+ DAX measures, drill-through capabilities, and stakeholder-ready narratives.</p>
-            <p><strong>Results:</strong> Real-time reporting, 40 hours/week saved, executive confidence restored, 
-            and insights driving strategic decisions within 48 hours of implementation.</p>
-          </div>
-
-          <div class="tile col-7">
-            <p class="eyebrow">Client Feedback</p>
-            <h4>What People Say</h4>
-            <p style="font-style: italic; margin-bottom: 12px;">
-              "Working with Geethikaa was a game-changer for our operations team. She doesn't just build 
-              dashboards — she builds systems people actually use. Our variance reporting is now crystal clear, 
-              and we've cut our monthly review time in half."
-            </p>
-            <p class="testimonial-author" style="border: none; padding: 0; margin: 0;">
-              — Plant Manager, Consumer Goods Manufacturer
-            </p>
-            
-            <p style="font-style: italic; margin: 20px 0 12px;">
-              "Geethikaa helped me transition from operations into analytics. Her coaching was practical, 
-              actionable, and focused on outcomes. I landed my dream role in 8 weeks."
-            </p>
-            <p class="testimonial-author" style="border: none; padding: 0; margin: 0;">
-              — Data Analyst (formerly Production Supervisor)
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OFFERINGS -->
-    <section id="offerings" class="section">
-      <div class="sectionTitle">
-        <h3>Work with me</h3>
-        <span class="hint">Advisory + coaching — structured, practical, outcome-driven</span>
-      </div>
-
-      <div class="grid">
-        <div class="tile col-7">
-          <p class="eyebrow">Featured</p>
-          <h4>Manufacturing Metrics & KPI Design</h4>
-          <p>Align metrics to shop-floor reality so teams trust the numbers and act faster—without creating reporting overhead.</p>
-          <ul class="bullets">
-            <li>Metric definitions + governance frameworks</li>
-            <li>Exception-first dashboards (variance, downtime, scrap)</li>
-            <li>Review cadence + ownership model design</li>
-            <li>Stakeholder buy-in & change management</li>
-          </ul>
-
-          <div class="btnrow" style="margin-top:18px;">
-            <a class="btn primary" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noopener noreferrer">Book on Topmate</a>
-            <a class="btn" href="#contact">Ask about a project</a>
-          </div>
-        </div>
-
-        <div class="tile col-5">
-          <p class="eyebrow">Delivery</p>
-          <h4>Analytics Enablement (Power BI + Modeling)</h4>
-          <p>From model health checks to measures and storytelling—built for decision-making, adoption, and reuse.</p>
-          <ul class="bullets">
-            <li>Inventory/BOM + operational data models</li>
-            <li>DAX measures + drill-through paths</li>
-            <li>Stakeholder-ready narratives + training</li>
-            <li>Performance optimization & best practices</li>
-          </ul>
-        </div>
-
-        <div class="tile col-5">
-          <p class="eyebrow">Coaching</p>
-          <h4>Career Coaching (Ops + Analytics + PM)</h4>
-          <p>Impact-first positioning for resume, LinkedIn, interviews—focused on clarity and outcomes.</p>
-          <ul class="bullets">
-            <li>Impact-first resume rewrite</li>
-            <li>Mock interviews + tactical feedback</li>
-            <li>Target-role story building</li>
-            <li>LinkedIn profile optimization</li>
-          </ul>
-        </div>
-
-        <div class="tile col-7">
-          <p class="eyebrow">Content</p>
-          <h4>Newsletter & Thought Leadership</h4>
-          <p>Short, practical notes on operational clarity, decision cadence, and how to make dashboards drive action. 
-          No fluff—just frameworks you can use Monday morning.</p>
-          <div class="chips" style="margin-top: 14px;">
-            <span class="chip">2,400+ subscribers</span>
-            <span class="chip">5-minute read</span>
-            <span class="chip">Every Thursday</span>
-          </div>
-          <div class="btnrow" style="margin-top:18px;">
-            <a class="btn primary" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noopener noreferrer">Subscribe on LinkedIn</a>
-            <a class="btn" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer">Follow me</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ (NEW) -->
-    <section id="faq" class="section bandSection">
-      <div class="container" style="padding:0 24px;">
-        <div class="sectionTitle">
-          <h3>Frequently Asked Questions</h3>
-          <span class="hint">Everything you need to know</span>
-        </div>
-
-        <div class="grid">
-          <div class="tile col-6">
-            <h4>How long is a typical engagement?</h4>
-            <p style="margin: 0;">Advisory projects typically run 4-12 weeks depending on scope and complexity. 
-            Coaching sessions are available as single sessions or monthly packages. I tailor every engagement to 
-            your specific needs, timeline, and budget constraints.</p>
-          </div>
-
-          <div class="tile col-6">
-            <h4>What industries do you work with?</h4>
-            <p style="margin: 0;">Primarily automotive, aerospace, consumer goods, and industrial manufacturing. 
-            My frameworks apply across discrete and process manufacturing environments. I've worked with everything 
-            from 50-person facilities to Fortune 500 operations.</p>
-          </div>
-
-          <div class="tile col-6">
-            <h4>Do you work remotely or on-site?</h4>
-            <p style="margin: 0;">Both! Most advisory work is remote with periodic on-site visits for kickoffs, 
-            training sessions, and key milestones. Coaching is 100% virtual via video call. I'm flexible and can 
-            adapt to what works best for your team.</p>
-          </div>
-
-          <div class="tile col-6">
-            <h4>What's your pricing model?</h4>
-            <p style="margin: 0;">Project-based pricing for advisory work, hourly rates for coaching, and custom 
-            packages for ongoing partnerships. Every engagement starts with a free 15-minute discovery call to 
-            understand your needs and provide a transparent proposal.</p>
-          </div>
-
-          <div class="tile col-6">
-            <h4>What tools and platforms do you use?</h4>
-            <p style="margin: 0;">Primary focus on Power BI for analytics, but I also work with Excel, SQL databases, 
-            ERP systems (SAP, Oracle), MES platforms, and various manufacturing execution systems. I'm tool-agnostic 
-            and focus on what delivers results for your specific environment.</p>
-          </div>
-
-          <div class="tile col-6">
-            <h4>How quickly can we see results?</h4>
-            <p style="margin: 0;">Most clients see measurable improvements within 4-6 weeks. Quick wins (dashboard 
-            prototypes, metric definitions) often happen in weeks 1-2. Sustainable change and full adoption typically 
-            take 8-12 weeks depending on organizational readiness and complexity.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMMUNITY -->
-    <section id="community" class="section">
-      <div class="sectionTitle">
-        <h3>Community</h3>
-        <span class="hint">Organizations I support</span>
-      </div>
-
-      <div class="communityBand" role="region" aria-label="Invisible Girl Project support">
-        <div class="communityBandInner">
-          <div class="igpLogoBox">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-              <circle cx="50" cy="50" r="35" fill="none" stroke="#2C3930" stroke-width="3"/>
-              <path d="M 35 45 Q 35 35 45 35 Q 55 35 55 45" fill="none" stroke="#2C3930" stroke-width="2.5"/>
-              <circle cx="40" cy="48" r="3" fill="#2C3930"/>
-              <circle cx="60" cy="48" r="3" fill="#2C3930"/>
-              <path d="M 40 60 Q 50 65 60 60" fill="none" stroke="#2C3930" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-
-          <div class="igpText">
-            <div class="igpTitleRow">
-              <p class="igpTitle">Invisible Girl Project</p>
-              <span class="igpTag">Community</span>
-            </div>
-
-            <p class="igpReason">
-              I support Invisible Girl Project because protecting girls and expanding access to education and 
-              opportunity creates generational impact. I'm proud to amplify their work—quietly, consistently, 
-              and with intention.
-            </p>
-
-            <div class="igpActions">
-              <a class="igpLink" href="https://invisiblegirlproject.org/" target="_blank" rel="noopener noreferrer">Learn more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER CONTACT -->
-  <section id="contact" class="talkBand" aria-label="Contact footer">
-    <div class="talkInner">
-      <div class="talkGrid">
-        <!-- LEFT -->
-        <div class="talkLeft">
-          <p class="talkPre">
-            I'm excited to connect and collaborate with you on operational clarity,
-            data storytelling, and execution that drives outcomes.
-          </p>
-
-          <a class="talkTitleLink" href="mailto:geethikaadesam@gmail.com" aria-label="Email Geethikaa">
-            <h2 class="talkTitle">Let's Talk <span class="talkArrow">↗</span></h2>
-          </a>
-
-          <div class="talkQuoteWrap" aria-label="Motto quote">
-            <p class="talkQuote">
-              "Integrity in intention, competence in execution." — My approach to every engagement, 
-              every decision, every dashboard. I believe in doing the right work, the right way, 
-              and delivering results you can measure and trust.
-            </p>
-          </div>
-        </div>
-
-        <!-- RIGHT -->
-        <aside class="talkRight">
-          <div class="talkContactItem">
-            <span class="talkIcon" aria-hidden="true">✉</span>
-            <a class="talkLink" href="mailto:geethikaadesam@gmail.com">geethikaadesam@gmail.com</a>
-          </div>
-
-          <div class="talkIcons" aria-label="Social">
-            <a class="talkIconLink" href="https://www.linkedin.com/in/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
-            <a class="talkIconLink" href="https://topmate.io/geethikaa_desam" target="_blank" rel="noopener noreferrer" aria-label="Topmate">tm</a>
-            <a class="talkIconLink" href="https://www.youtube.com/@geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
-            <a class="talkIconLink" href="https://www.instagram.com/geethikaadesam" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
-            <a class="talkIconLink" href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" rel="noopener noreferrer" aria-label="Newsletter">N</a>
-          </div>
-        </aside>
-      </div>
-
-      <div class="talkBottom">
-        <div>© <span id="year"></span> Geethikaa Desam • All Rights Reserved.</div>
-        <div class="mono">Last updated: <span id="updated"></span></div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("updated").textContent =
-      new Date().toLocaleDateString(undefined, {year:"numeric", month:"short", day:"numeric"});
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
-
-  <!-- Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Geethikaa Desam Consulting",
-    "description": "Manufacturing operations and data analytics consulting specializing in KPI design, Power BI modeling, and operational excellence",
-    "url": "https://geethikaadesam.com",
-    "email": "geethikaadesam@gmail.com",
-    "founder": {
-      "@type": "Person",
-      "name": "Geethikaa Desam",
-      "jobTitle": "Manufacturing Operations & Data Analytics Consultant",
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "Kelley School of Business"
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
       }
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/geethikaadesam",
-      "https://www.youtube.com/@geethikaadesam",
-      "https://www.instagram.com/geethikaadesam",
-      "https://topmate.io/geethikaa_desam"
-    ],
-    "areaServed": "Worldwide",
-    "serviceType": [
-      "Manufacturing Operations Consulting",
-      "Data Analytics",
-      "KPI Design",
-      "Power BI Modeling",
-      "Career Coaching"
-    ]
-  }
-  </script>
-</body>
-</html>
+    });
+  }, { threshold: 0.1 });
+
+  document.quer
