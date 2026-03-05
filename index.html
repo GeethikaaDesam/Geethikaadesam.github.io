@@ -1459,15 +1459,15 @@
     <div class="contact-left">
       <h2>Let's build something<br/><em>worth measuring.</em></h2>
       <p>I'm excited to connect and collaborate on operational clarity, data storytelling, and execution that drives outcomes.</p>
-      <a href="/cdn-cgi/l/email-protection#32555757465a5b595353565741535f72555f535b5e1c515d5f" class="btn-primary">Send an Email →</a>
+      <a href="mailto:geethikaadesam@gmail.com" class="btn-primary">Send an Email →</a>
       <blockquote class="contact-quote">
         "Integrity in intention, competence in execution." — My approach to every engagement, every decision, every dashboard.
       </blockquote>
     </div>
     <div class="contact-links">
-      <a href="/cdn-cgi/l/email-protection#c5a2a0a0b1adacaea4a4a1a0b6a4a885a2a8a4aca9eba6aaa8" class="contact-link-item">
+      <a href="mailto:geethikaadesam@gmail.com" class="contact-link-item">
         <span class="contact-link-name">Email</span>
-        <span class="contact-link-handle"><span class="__cf_email__" data-cfemail="f4939191809c9d9f95959091879599b49399959d98da979b99">[email&#160;protected]</span></span>
+        <span class="contact-link-handle">geethikaadesam@gmail.com</span>
         <span class="contact-link-arrow">→</span>
       </a>
       <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="contact-link-item">
@@ -1500,7 +1500,7 @@
   <div class="footer-copy mono">© 2025 · All Rights Reserved</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Drag-to-scroll for services strip
   const track = document.getElementById('scrollTrack');
   const fill = document.getElementById('scrollFill');
@@ -1525,7 +1525,7 @@
     fill.style.width = (track.scrollLeft / max * 100) + '%';
   });
 
-
+  // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1535,4 +1535,12 @@
     });
   }, { threshold: 0.1 });
 
-  document.quer
+  document.querySelectorAll('.editorial-row, .scroll-card, .expertise-item, .impact-stat').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
