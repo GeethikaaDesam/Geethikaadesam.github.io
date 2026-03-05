@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Geethikaa Desam | Manufacturing Operations & Data Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black: #0a0a08;
+    --dark: #111110;
+    --surface: #1a1a17;
+    --border: #2a2a26;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --white: #f0ede4;
+    --muted: #7a7a6e;
+    --text: #ccc9bb;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* TYPOGRAPHY */
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--white); }
+  .mono { font-family: 'DM Mono', monospace; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,8,0.95), transparent);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 12rem 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 1.05;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.9rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* HERO TAGS */
+  .hero-tags {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  /* HERO RIGHT - PHOTO PANEL */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+
+  /* left-side fade so photo blends into the text */
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--black) 0%, transparent 30%),
+                linear-gradient(to top, var(--black) 0%, transparent 35%);
+    z-index: 2;
+  }
+
+  /* subtle gold border on right + top */
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    top: 6rem; right: 2rem; bottom: 0;
+    border-top: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .hero-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%) contrast(1.05);
+    z-index: 1;
+  }
+
+  /* Stats bar floating above the gradient at the bottom */
+  .hero-stats-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-cell {
+    background: rgba(10,10,8,0.85);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .stat-cell:hover { background: rgba(17,17,16,0.95); }
+
+  .stat-cell::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .stat-cell:hover::after { transform: scaleX(1); }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* DIAGONAL DIVIDER */
+  .divider-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0;
+  }
+
+  /* SECTION LAYOUT */
+  section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-left: 1rem;
+  }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .about-left .section-header { margin-bottom: 2rem; }
+
+  .about-text {
+    font-size: 1.05rem;
+    color: var(--text);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text strong { color: var(--white); font-weight: 500; }
+
+  .expertise-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .expertise-item {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .expertise-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .expertise-item:hover { background: var(--gold-dim); padding-left: 1rem; margin: 0 -1rem; padding-right: 1rem; }
+
+  .expertise-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .expertise-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .expertise-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* IMPACT */
+  #impact {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 5rem;
+  }
+
+  .impact-stat {
+    background: var(--dark);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .impact-stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.5s;
+  }
+
+  .impact-stat:hover::before { transform: scaleX(1); }
+
+  .impact-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .impact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* EDITORIAL CASE ROWS */
+  .editorial-cases { display: flex; flex-direction: column; }
+
+  .editorial-row {
+    border-top: 1px solid var(--border);
+    padding: 4rem 0;
+    display: grid;
+    grid-template-columns: 80px 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .editorial-row:last-child { border-bottom: 1px solid var(--border); }
+
+  .editorial-row::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.45s ease;
+  }
+
+  .editorial-row:hover::after { transform: scaleY(1); }
+  .editorial-row:hover { background: rgba(201,168,76,0.03); padding-left: 1.5rem; transition: padding 0.3s, background 0.3s; }
+
+  .editorial-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    padding-top: 0.25rem;
+    transition: color 0.3s;
+  }
+
+  .editorial-row:hover .editorial-num { color: var(--gold); }
+
+  .editorial-left {}
+
+  .editorial-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .editorial-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+
+  .editorial-quote {
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  .editorial-quote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--border);
+  }
+
+  .editorial-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .editorial-block-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .editorial-block-text {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .editorial-results {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  .editorial-results span {
+    display: block;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .editorial-results span:last-child { border-bottom: none; }
+
+  /* SERVICES */
+  #offerings {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .service-card {
+    background: var(--dark);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .service-card:hover { background: var(--surface); }
+
+  .service-card.featured { grid-column: span 2; }
+
+  .service-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-list li {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .service-list li::before {
+    content: '→';
+    color: var(--gold);
+  }
+
+  .service-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* FAQ */
+  #faq {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 4rem;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+  }
+
+  .faq-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-family: 'DM Mono', monospace;
+    font-size: 1.2rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  .faq-answer {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /* CONTACT */
+  #contact {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .contact-left h2 {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-left h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .contact-left p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-quote {
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--muted);
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-link-item {
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+    group: true;
+  }
+
+  .contact-link-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .contact-link-item:hover { color: var(--gold); padding-left: 0.5rem; }
+
+  .contact-link-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: inherit;
+  }
+
+  .contact-link-handle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    transition: color 0.3s;
+  }
+
+  .contact-link-item:hover .contact-link-handle { color: var(--gold); }
+
+  .contact-link-arrow {
+    font-family: 'DM Mono', monospace;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .contact-link-item:hover .contact-link-arrow { opacity: 1; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideRight {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.8s ease forwards; }
+  .hero h1 { animation: fadeUp 0.8s 0.15s ease both; }
+  .hero-desc { animation: fadeUp 0.8s 0.25s ease both; }
+  .hero-ctas { animation: fadeUp 0.8s 0.35s ease both; }
+  .hero-tags { animation: fadeUp 0.8s 0.45s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 8rem 2rem 4rem; }
+    .hero-right { display: none; }
+    section, #about, #impact, #offerings, #faq, #contact { padding: 5rem 2rem; }
+    .editorial-row { grid-template-columns: 40px 1fr; gap: 1.5rem; }
+    .editorial-right { grid-column: 1 / -1; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1rem; }
+    .case-studies, .services-grid, .faq-grid, .contact-grid, .testimonials-grid, .impact-stats, #about { grid-template-columns: 1fr; }
+    .service-card.featured { grid-column: span 1; }
+    .community-banner { padding: 0 2rem; }
+    .community-inner { flex-direction: column; text-align: center; }
+    .community-link { margin-left: 0; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+  }
+
+  /* HORIZONTAL SCROLL STRIP */
+  .scroll-track-wrapper {
+    position: relative;
+    padding: 0 0 3rem 4rem;
+    overflow: hidden;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 1px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    cursor: grab;
+    user-select: none;
+    background: var(--border);
+  }
+
+  .scroll-track::-webkit-scrollbar { display: none; }
+  .scroll-track.grabbing { cursor: grabbing; }
+
+  /* Right fade */
+  .scroll-track-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 180px;
+    height: calc(100% - 3rem);
+    background: linear-gradient(to left, var(--black), transparent);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .scroll-card {
+    flex: 0 0 420px;
+    background: var(--dark);
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    min-height: 520px;
+  }
+
+  .scroll-card:hover { background: var(--surface); }
+
+  .scroll-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .scroll-card:hover::before { transform: scaleX(1); }
+
+  .scroll-card-inner {
+    padding: 3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .scroll-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .scroll-index {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+
+  .scroll-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.25rem 0.6rem;
+  }
+
+  .scroll-badge-outline {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+
+  .scroll-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+
+  .scroll-card-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .scroll-card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+
+  .scroll-card-list li {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .scroll-card-list li::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .scroll-card-ctas {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  .scroll-end-spacer {
+    flex: 0 0 180px;
+    background: transparent;
+    border: none;
+  }
+
+  /* PROGRESS BAR */
+  .scroll-progress-bar {
+    margin-top: 2rem;
+    height: 1px;
+    background: var(--border);
+    width: calc(100% - 4rem);
+    position: relative;
+  }
+
+  .scroll-progress-fill {
+    height: 100%;
+    background: var(--gold);
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+
+  .gold { color: var(--gold); }
+
+  /* HORIZONTAL RULE DECORATIVE */
+  .hr-gold {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#top" class="nav-logo">Geethikaa Desam</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#impact">Results</a></li>
+    <li><a href="#offerings">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Manufacturing · Procurement · Finance · AI Execution</div>
+    <h1>Make operations<br/><em>visible.</em><br/>Decisions faster.</h1>
+    <p class="hero-desc">
+      I'm Geethikaa — I help manufacturing teams connect shop-floor reality to clean metrics and practical execution. Structure without slowing the work down.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Schedule Free Consultation →</a>
+      <a href="#impact" class="btn-outline">See Results</a>
+    </div>
+
+  </div>
+  <div class="hero-right">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.05) 1px,transparent 1px);background-size:60px 60px;"></div>
+    <div class="hero-stats-bar">
+      <div class="stat-cell">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Implementations</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">$3M+</div>
+        <div class="stat-label">Cost Savings</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">97%</div>
+        <div class="stat-label">Dashboard Adoption</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">40+</div>
+        <div class="stat-label">Professionals Coached</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<!-- ABOUT -->
+<div id="about">
+  <div class="about-left">
+    <div class="section-header">
+      <span class="section-number mono">01</span>
+      <h2 class="section-title">About</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="about-text">
+      I work at the intersection of <strong>manufacturing operations</strong>, <strong>procurement</strong>, <strong>cost accounting</strong>, and <strong>AI-enabled delivery</strong>. Over the past several years, I've helped organizations reduce production variance by up to 45%, streamline procurement workflows, implement KPI governance frameworks that drive daily decisions, and build Power BI models processing hundreds of thousands of data points that executives actually trust and use.
+    </p>
+    <p class="about-text">
+      I'm comfortable in the process details <em>and</em> in the decision rooms — translating variance into drivers, turning spend data into strategy, and deploying AI tools that accelerate project execution without adding overhead.
+    </p>
+    <a href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" class="btn-outline" style="display:inline-block;margin-top:1rem;">Free Newsletter →</a>
+  </div>
+  <div class="about-right">
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <div class="expertise-icon">⚙</div>
+        <div>
+          <div class="expertise-name">Manufacturing Operations</div>
+          <div class="expertise-desc">Production planning, downtime analysis, scrap reduction, BOM optimization, capacity modeling</div>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◈</div>
+        <div>
+          <div class="expertise-name">Data & Analytics</div>
+          <div class="expertise-desc">Power BI semantic modeling, DAX measures, SQL, KPI design, data governance, exception-first dashboards</div>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">◎</div>
+        <div>
+          <div class="expertise-name">Procurement & Supply Chain</div>
+          <div class="expertise-desc">Supplier performance tracking, spend analytics, PO workflows, vendor scorecards, sourcing visibility</div>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">$</div>
+        <div>
+          <div class="expertise-name">Cost Accounting & Finance</div>
+          <div class="expertise-desc">Standard costing, variance analysis, cost-per-unit modeling, budget vs. actuals, margin reporting</div>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <div class="expertise-icon">✦</div>
+        <div>
+          <div class="expertise-name">AI-Enabled Project Execution</div>
+          <div class="expertise-desc">Deploying AI tools to accelerate workflows, automate reporting, and reduce time-to-insight across ops and finance teams</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr-gold"></div>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-header">
+    <span class="section-number mono">02</span>
+    <h2 class="section-title">Impact & Results</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="impact-stats">
+    <div class="impact-stat">
+      <div class="impact-number">20+</div>
+      <div class="impact-label">Implementations</div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-number">$3M+</div>
+      <div class="impact-label">Cost Savings Delivered</div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-number">97%</div>
+      <div class="impact-label">Dashboard Adoption Rate</div>
+    </div>
+    <div class="impact-stat">
+      <div class="impact-number">40+</div>
+      <div class="impact-label">Professionals Coached</div>
+    </div>
+  </div>
+
+  <div class="editorial-cases">
+
+    <!-- Case 01 -->
+    <div class="editorial-row">
+      <div class="editorial-num">01</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Manufacturing · Automotive</span>
+        <h3 class="editorial-title">Downtime Reduction: 28% → 12% in 6 Months</h3>
+        <blockquote class="editorial-quote">
+          Geethikaa transformed our messy production data into actionable insights. Our team now trusts the numbers and acts faster.
+          <cite>— Operations Director, Fortune 500 Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Inconsistent downtime tracking across 3 production lines with unclear root causes for recurring stoppages.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Exception-first dashboard with real-time alerts, standardized downtime categories, and daily review cadence for 15 operators.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>↓ 16-pt downtime reduction</span>
+            <span>$850K annual savings</span>
+            <span>95% team adoption</span>
+            <span>3× faster decisions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 02 -->
+    <div class="editorial-row">
+      <div class="editorial-num">02</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Analytics · Power BI</span>
+        <h3 class="editorial-title">Power BI Overhaul: 3-Day Reports → Real-Time</h3>
+        <blockquote class="editorial-quote">
+          She doesn't just build dashboards — she builds systems people actually use. Our monthly review time is cut in half.
+          <cite>— Plant Manager, Consumer Goods Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">10+ disconnected Excel files, 2-day manual reconciliation, and 3-day report generation with frequent errors.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Unified Power BI semantic model with automated refresh, 50+ DAX measures, and drill-through capabilities.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>Real-time reporting</span>
+            <span>40 hrs/week saved</span>
+            <span>Executive confidence restored</span>
+            <span>Insights in 48 hrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 03 -->
+    <div class="editorial-row">
+      <div class="editorial-num">03</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Procurement · Spend Analytics</span>
+        <h3 class="editorial-title">Supplier Spend Visibility: From Blind Spots to Scorecards</h3>
+        <blockquote class="editorial-quote">
+          We finally had one source of truth for supplier spend. Procurement decisions that used to take weeks now take hours.
+          <cite>— VP of Procurement, Industrial Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Procurement data scattered across ERP, spreadsheets, and email threads — no unified view of spend or supplier performance.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Built a consolidated spend analytics model with supplier scorecards, PO exception tracking, and category-level drill-throughs.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>↓ 30% maverick spend</span>
+            <span>Single source of truth</span>
+            <span>12 supplier contracts renegotiated</span>
+            <span>$1.2M in identified savings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 04 -->
+    <div class="editorial-row">
+      <div class="editorial-num">04</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">Cost Accounting · Finance</span>
+        <h3 class="editorial-title">Standard Costing Redesign: Variance Clarity Across 5 Plants</h3>
+        <blockquote class="editorial-quote">
+          For the first time, our finance and operations teams were speaking the same language. Variance reviews went from debates to decisions.
+          <cite>— Controller, Aerospace Components Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Inconsistent cost definitions across 5 plants made variance analysis meaningless — teams disputed numbers instead of acting on them.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Redesigned standard costing framework with unified definitions, cost-per-unit models, and automated budget vs. actuals reporting.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>5 plants on one cost model</span>
+            <span>↓ 60% variance review time</span>
+            <span>Margin visibility restored</span>
+            <span>Faster month-end close</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 05 -->
+    <div class="editorial-row">
+      <div class="editorial-num">05</div>
+      <div class="editorial-left">
+        <span class="editorial-tag">AI Execution · Workflow Automation</span>
+        <h3 class="editorial-title">AI-Enabled Reporting: 3-Week Cycle → 4-Hour Turnaround</h3>
+        <blockquote class="editorial-quote">
+          I didn't believe AI could work in our ops environment until I saw it. The time savings alone paid for the engagement in the first month.
+          <cite>— Operations Manager, Consumer Goods Manufacturer</cite>
+        </blockquote>
+      </div>
+      <div class="editorial-right">
+        <div>
+          <div class="editorial-block-label">Challenge</div>
+          <p class="editorial-block-text">Monthly ops reporting required 3 weeks of manual data gathering, formatting, and stakeholder follow-up — leaving no time for analysis.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Solution</div>
+          <p class="editorial-block-text">Designed an AI-enabled workflow combining automated data pulls, structured prompt templates, and anomaly-flagging to generate report drafts in hours.</p>
+        </div>
+        <div>
+          <div class="editorial-block-label">Results</div>
+          <div class="editorial-results">
+            <span>3 weeks → 4 hours</span>
+            <span>↑ Analysis time by 5×</span>
+            <span>Zero manual reconciliation</span>
+            <span>Adopted across 3 departments</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="hr-gold"></div>
+
+<!-- SERVICES -->
+<section id="offerings" style="padding-bottom:0;">
+  <div class="section-header">
+    <span class="section-number mono">03</span>
+    <h2 class="section-title">Work With Me</h2>
+    <div class="section-line"></div>
+  </div>
+  <p style="color:var(--muted);font-size:0.8rem;font-family:'DM Mono',monospace;letter-spacing:0.1em;margin-bottom:2rem;">
+    ← scroll to explore →
+  </p>
+</section>
+
+<div class="scroll-track-wrapper">
+  <div class="scroll-track" id="scrollTrack">
+
+    <div class="scroll-card" data-index="01">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">01</span>
+          <span class="scroll-badge">Featured</span>
+        </div>
+        <h3 class="scroll-card-title">Manufacturing Metrics & KPI Design</h3>
+        <p class="scroll-card-desc">Align metrics to shop-floor reality so teams trust the numbers and act faster — without creating reporting overhead.</p>
+        <ul class="scroll-card-list">
+          <li>Metric definitions + governance frameworks</li>
+          <li>Exception-first dashboards (variance, downtime, scrap)</li>
+          <li>Review cadence + ownership model design</li>
+          <li>Stakeholder buy-in & change management</li>
+        </ul>
+        <div class="scroll-card-ctas">
+          <a href="https://topmate.io/geethikaa_desam" target="_blank" class="btn-primary">Book on Topmate →</a>
+          <a href="#contact" class="btn-outline">Ask About a Project</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-card" data-index="02">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">02</span>
+          <span class="scroll-badge scroll-badge-outline">Procurement</span>
+        </div>
+        <h3 class="scroll-card-title">Procurement & Cost Analytics</h3>
+        <p class="scroll-card-desc">Bring visibility to spend, supplier performance, and cost drivers — so procurement and finance teams can act on data, not instinct.</p>
+        <ul class="scroll-card-list">
+          <li>Spend analytics & supplier scorecards</li>
+          <li>PO workflow design + exception tracking</li>
+          <li>Cost-per-unit & margin variance models</li>
+          <li>Budget vs. actuals dashboards</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scroll-card" data-index="03">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">03</span>
+          <span class="scroll-badge scroll-badge-outline">AI Execution</span>
+        </div>
+        <h3 class="scroll-card-title">AI-Enabled Project Execution</h3>
+        <p class="scroll-card-desc">Embed AI tools into ops and finance workflows to cut reporting time, surface insights faster, and free up teams for high-value decisions.</p>
+        <ul class="scroll-card-list">
+          <li>AI workflow design for ops & finance teams</li>
+          <li>Automated reporting & anomaly detection</li>
+          <li>Prompt engineering for structured outputs</li>
+          <li>AI tool selection + adoption roadmap</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="scroll-card" data-index="04">
+      <div class="scroll-card-inner">
+        <div class="scroll-card-top">
+          <span class="scroll-index mono">04</span>
+          <span class="scroll-badge scroll-badge-outline">Content</span>
+        </div>
+        <h3 class="scroll-card-title">Newsletter & Thought Leadership</h3>
+        <p class="scroll-card-desc">Short, practical notes on operational clarity, decision cadence, and how to make dashboards drive action. No fluff — just frameworks you can use Monday morning.</p>
+        <ul class="scroll-card-list">
+          <li>2,400+ subscribers</li>
+          <li>5-minute read, every Thursday</li>
+        </ul>
+        <div class="scroll-card-ctas">
+          <a href="https://www.linkedin.com/newsletters/7374881574456258560/" target="_blank" class="btn-primary">Subscribe on LinkedIn →</a>
+          <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="btn-outline">Follow Me</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fade-out end spacer -->
+    <div class="scroll-end-spacer"></div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-fill" id="scrollFill"></div>
+  </div>
+</div>
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <h2>Let's build something<br/><em>worth measuring.</em></h2>
+      <p>I'm excited to connect and collaborate on operational clarity, data storytelling, and execution that drives outcomes.</p>
+      <a href="mailto:geethikaadesam@gmail.com" class="btn-primary">Send an Email →</a>
+      <blockquote class="contact-quote">
+        "Integrity in intention, competence in execution." — My approach to every engagement, every decision, every dashboard.
+      </blockquote>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:geethikaadesam@gmail.com" class="contact-link-item">
+        <span class="contact-link-name">Email</span>
+        <span class="contact-link-handle">geethikaadesam@gmail.com</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.linkedin.com/in/geethikaadesam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">LinkedIn</span>
+        <span class="contact-link-handle">/in/geethikaadesam</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://topmate.io/geethikaa_desam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">Topmate</span>
+        <span class="contact-link-handle">Book a session</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/@geethikaadesam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">YouTube</span>
+        <span class="contact-link-handle">@geethikaadesam</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+      <a href="https://www.instagram.com/geethikaadesam" target="_blank" class="contact-link-item">
+        <span class="contact-link-name">Instagram</span>
+        <span class="contact-link-handle">@geethikaadesam</span>
+        <span class="contact-link-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Geethikaa Desam</div>
+  <div class="footer-copy mono">© 2025 · All Rights Reserved</div>
+</footer>
+
+<script>
+  // Drag-to-scroll for services strip
+  const track = document.getElementById('scrollTrack');
+  const fill = document.getElementById('scrollFill');
+  let isDown = false, startX, scrollLeft;
+
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    track.classList.add('grabbing');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mouseup', () => { isDown = false; track.classList.remove('grabbing'); });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  });
+  track.addEventListener('scroll', () => {
+    const max = track.scrollWidth - track.clientWidth;
+    fill.style.width = (track.scrollLeft / max * 100) + '%';
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.editorial-row, .scroll-card, .expertise-item, .impact-stat').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
